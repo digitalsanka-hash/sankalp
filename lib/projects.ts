@@ -27,9 +27,8 @@ function uid() {
   return "p_" + Math.abs(Date.now() ^ Math.floor(Math.random() * 1e9)).toString(36);
 }
 async function currentUserId(): Promise<string | null> {
-  if (!supabase) return null;
-  const { data } = await supabase.auth.getSession();
-  return data.session?.user?.id ?? null;
+  // Sistem akses berbasis KODE (bukan auth user) -> proyek disimpan lokal.
+  return null;
 }
 /** true bila harus pakai cloud (Supabase aktif + user login). */
 export async function usingCloud(): Promise<boolean> {

@@ -1,69 +1,79 @@
 "use client";
-// app/masuk/page.tsx — login via magic link email (Supabase Auth).
+// app/masuk/page.tsx — AKTIVASI dengan kode akses (gaya FinPlan).
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 
-export default function MasukPage() {
-  const { configured, user, signInWithEmail } = useAuth();
-  const [email, setEmail] = useState("");
-  const [sent, setSent] = useState(false);
+export default function AktivasiPage() {
+  const router = useRouter();
+  const { configured, isActive, isAdmin, code, activate, logout } = useAuth();
+  const [input, setInput] = useState("");
+  const [nama, setNama] = useState("");
   const [err, setErr] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email.trim()) return;
+    if (!input.trim()) return;
     setBusy(true); setErr(null);
-    const { error } = await signInWithEmail(email.trim());
+    const res = await activate(input, nama.trim() || undefined);
     setBusy(false);
-    if (error) setErr(error); else setSent(true);
+    if (!res.ok) { setErr(res.pesan); return; }
+    router.push(isAdminCode(input) ? "/admin" : "/proyek");
   }
+  // heuristik kecil untuk arah setelah aktivasi (role asli tetap dari server)
+  function isAdminCode(c: string) { return c.trim().toUpperCase().includes("ADMIN"); }
 
   return (
-    <div className="mx-auto flex max-w-md flex-col items-center px-4 py-20">
+    <div className="mx-auto flex max-w-md flex-col items-center px-4 py-16">
       <div className="w-full rounded-3xl border border-black/[0.07] bg-white p-7 shadow-soft">
-        <h1 className="font-display text-2xl font-extrabold tracking-tight text-ink">Masuk / Daftar</h1>
+        <h1 className="font-display text-2xl font-extrabold tracking-tight text-ink">Aktivasi Akses</h1>
 
         {!configured ? (
           <p className="mt-3 text-sm text-gray-500">
-            Login belum aktif (Supabase belum dikonfigurasi). Proyek Anda tersimpan di browser ini.
-            <Link href="/proyek" className="ml-1 font-semibold text-brand-600">Ke Proyek Saya →</Link>
+            Sistem kode belum aktif. Aplikasi berjalan mode lokal — semua fitur terbuka.
+            <Link href="/" className="ml-1 font-semibold text-brand-600">Ke Galeri →</Link>
           </p>
-        ) : user ? (
-          <div className="mt-3">
-            <p className="text-sm text-gray-600">Anda sudah masuk sebagai <b>{user.email}</b>.</p>
-            <Link href="/proyek" className="mt-4 inline-block rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white">
-              Ke Proyek Saya →
-            </Link>
-          </div>
-        ) : sent ? (
+        ) : isActive ? (
           <div className="mt-3">
             <div className="rounded-2xl border border-brand-200 bg-brand-50 p-4 text-sm text-brand-800">
-              ✅ Tautan masuk sudah dikirim ke <b>{email}</b>. Buka email Anda &amp; klik tautannya untuk masuk.
+              ✅ Akses <b>aktif</b>{isAdmin && " (Admin)"}.<br />
+              <span className="text-xs opacity-80">Kode: <b className="font-mono">{code}</b></span>
             </div>
-            <p className="mt-3 text-xs text-gray-400">Tidak ada emailnya? Cek folder Spam/Promosi, atau kirim ulang.</p>
-            <button onClick={() => setSent(false)} className="mt-2 text-sm font-semibold text-brand-600">← Ganti email</button>
+            <div className="mt-4 flex flex-wrap gap-2">
+              <Link href="/" className="rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-bold text-white">Mulai Buat LP →</Link>
+              {isAdmin && <Link href="/admin" className="rounded-xl bg-ink px-4 py-2.5 text-sm font-bold text-white">Panel Admin</Link>}
+              <button onClick={logout} className="rounded-xl border border-black/10 px-4 py-2.5 text-sm font-semibold text-gray-500 hover:border-rose-300 hover:text-rose-500">Keluar</button>
+            </div>
           </div>
         ) : (
           <form onSubmit={submit} className="mt-4 space-y-3">
-            <p className="text-sm text-gray-500">Masukkan email — kami kirim tautan masuk (tanpa password). <b className="text-ink">Belum punya akun?</b> Tak masalah, akun otomatis dibuat saat pertama masuk.</p>
+            <p className="text-sm leading-relaxed text-gray-500">
+              Masukkan <b className="text-ink">kode akses</b> yang Anda terima setelah pembelian.
+              Tanpa email, tanpa password.
+            </p>
             <input
-              type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
-              placeholder="email@anda.com"
-              className="w-full rounded-xl border border-black/10 px-4 py-3 text-sm outline-none focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
+              value={input} onChange={(e) => setInput(e.target.value.toUpperCase())}
+              placeholder="SANKA-XXXX-XXXX" autoFocus
+              className="w-full rounded-xl border border-black/10 px-4 py-3 text-center font-mono text-lg font-bold tracking-widest outline-none focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
             />
-            {err && <p className="text-sm text-rose-600">{err}</p>}
-            <button
-              type="submit" disabled={busy}
-              className="w-full rounded-xl bg-brand-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-700 disabled:opacity-60"
-            >
-              {busy ? "Mengirim…" : "Kirim Tautan Masuk"}
+            <input
+              value={nama} onChange={(e) => setNama(e.target.value)}
+              placeholder="Nama / no. WA Anda (opsional)"
+              className="w-full rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
+            />
+            {err && <p className="rounded-xl bg-rose-50 p-3 text-sm text-rose-600">{err}</p>}
+            <button type="submit" disabled={busy}
+              className="w-full rounded-xl bg-brand-600 px-5 py-3 text-sm font-bold text-white transition hover:bg-brand-700 disabled:opacity-60">
+              {busy ? "Memeriksa…" : "Aktifkan Sekarang"}
             </button>
+            <p className="pt-1 text-center text-xs text-gray-400">
+              Belum punya kode? <Link href="/" className="font-semibold text-brand-600">Lihat template dulu</Link> — bebas edit &amp; pratinjau.
+            </p>
           </form>
         )}
       </div>
-      <p className="mt-4 text-xs text-gray-400">Dengan masuk, proyek Anda tersimpan aman di cloud &amp; bisa dibuka lintas perangkat.</p>
     </div>
   );
 }

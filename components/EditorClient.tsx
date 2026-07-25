@@ -20,16 +20,12 @@ interface Props {
 
 export default function EditorClient({ templateId, projectId }: Props) {
   const router = useRouter();
-  const { configured, user, isActive } = useAuth();
+  const { configured, isActive } = useAuth();
 
-  // true jika boleh simpan/unduh. Bila terkunci, arahkan/beri pesan.
+  // true jika boleh simpan/unduh. Bila terkunci, arahkan ke halaman aktivasi.
   function gateAccess(): boolean {
     if (!configured) return true;
-    if (!user) { router.push("/masuk"); return false; }
-    if (!isActive) {
-      alert("Akun Anda belum aktif.\n\nSelesaikan pembayaran, lalu admin akan mengaktifkan akun Anda. Setelah aktif, Anda bisa menyimpan & mengunduh LP.");
-      return false;
-    }
+    if (!isActive) { router.push("/masuk"); return false; }
     return true;
   }
 
@@ -44,7 +40,7 @@ export default function EditorClient({ templateId, projectId }: Props) {
         .catch(() => { if (alive) setProject(null); });
     } else setProject(null);
     return () => { alive = false; };
-  }, [projectId, user]);
+  }, [projectId, isActive]);
 
   const effTemplateId = projectId ? project?.template_id : templateId;
   const template = effTemplateId ? getTemplate(effTemplateId) : undefined;
@@ -160,9 +156,9 @@ export default function EditorClient({ templateId, projectId }: Props) {
         </div>
       </div>
 
-      {configured && user && !isActive && (
+      {configured && !isActive && (
         <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-[12.5px] font-semibold text-amber-800">
-          🔒 Akun belum aktif — bebas edit &amp; pratinjau, tapi <b>Simpan</b> &amp; <b>Download</b> terkunci sampai admin mengaktifkan akun Anda.
+          🔒 Belum aktif — bebas edit &amp; pratinjau. Klik <b>Simpan</b>/<b>Download</b> untuk memasukkan kode akses Anda.
         </div>
       )}
 

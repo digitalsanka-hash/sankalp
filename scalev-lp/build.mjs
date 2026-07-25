@@ -48,7 +48,7 @@ const cards = previewIds
     );
     const sourceAttribute =
       index === 0 ? `src="${src}"` : `data-src="${src}"`;
-    return `<article class="preview-card" data-slide="${index}" aria-label="${name}" aria-hidden="${index === 0 ? "false" : "true"}">
+    return `<article class="preview-card${index === 0 ? " active" : ""}" data-slide="${index}" aria-label="${name}" aria-hidden="${index === 0 ? "false" : "true"}">
       <div class="phone-shell">
         <div class="phone-top"><i></i><span></span><i></i></div>
         <iframe loading="lazy" sandbox="allow-scripts" title="Preview ${name}" ${sourceAttribute}></iframe>

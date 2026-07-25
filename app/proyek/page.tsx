@@ -16,13 +16,13 @@ function fmt(iso: string): string {
 }
 
 export default function ProyekPage() {
-  const { configured, user, loading: authLoading } = useAuth();
+  const { configured, isActive, isAdmin, loading: authLoading } = useAuth();
   const [list, setList] = useState<Project[] | null>(null);
 
   const refresh = useCallback(() => {
     getProjects().then(setList).catch(() => setList([]));
   }, []);
-  useEffect(() => { refresh(); }, [refresh, user]);
+  useEffect(() => { refresh(); }, [refresh, isActive]);
 
   function download(p: Project) {
     const t = getTemplate(p.template_id);
@@ -42,7 +42,7 @@ export default function ProyekPage() {
   }
   async function onDuplicate(p: Project) { await duplicateProject(p.id); refresh(); }
 
-  const cloud = configured && !!user;
+  const cloud = configured && isActive;
 
   return (
     <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10">
@@ -57,16 +57,16 @@ export default function ProyekPage() {
       {/* status penyimpanan */}
       {authLoading ? null : cloud ? (
         <div className="mb-6 rounded-2xl border border-brand-200 bg-brand-50 px-4 py-3 text-[13px] text-brand-800">
-          ☁️ Tersimpan di cloud sebagai <b>{user!.email}</b> — bisa dibuka dari perangkat mana pun.
+          ✅ Akses <b>aktif</b>{isAdmin ? " (Admin)" : ""} — Simpan &amp; Download terbuka penuh.
         </div>
       ) : configured ? (
         <div className="mb-6 flex flex-wrap items-center justify-between gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-800">
-          <span>⚠️ Belum masuk. Proyek di bawah tersimpan di browser ini. <b>Masuk</b> untuk simpan ke cloud &amp; akses lintas perangkat.</span>
-          <Link href="/masuk" className="rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-bold text-white">Masuk</Link>
+          <span>🔒 Akses belum aktif. Anda tetap bisa edit &amp; pratinjau, tapi <b>Simpan</b> &amp; <b>Download</b> terkunci.</span>
+          <Link href="/masuk" className="rounded-lg bg-amber-600 px-3 py-1.5 text-xs font-bold text-white">Masukkan Kode</Link>
         </div>
       ) : (
         <div className="mb-6 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-[13px] text-amber-800">
-          💾 Tersimpan di <b>browser ini</b> (localStorage). Untuk simpan cloud lintas perangkat, aktifkan Supabase (Fase 2).
+          💾 Proyek tersimpan di <b>browser ini</b>. Jangan hapus data browser bila ingin proyek tetap ada.
         </div>
       )}
 

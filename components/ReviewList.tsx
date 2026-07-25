@@ -16,7 +16,7 @@ function formatTanggal(iso: string): string {
 }
 
 export default function ReviewList({ templateId }: { templateId: string }) {
-  const { configured, user } = useAuth();
+  const { configured, isActive } = useAuth();
   const [reviews, setReviews] = useState<Review[]>(
     (seed as Review[]).filter((r) => r.template_id === templateId)
   );
@@ -66,7 +66,7 @@ export default function ReviewList({ templateId }: { templateId: string }) {
     } finally { setBusy(false); }
   }
 
-  const needLogin = configured && !user;
+  const needLogin = configured && !isActive;
 
   return (
     <div>
@@ -85,7 +85,7 @@ export default function ReviewList({ templateId }: { templateId: string }) {
       {open && (
         needLogin ? (
           <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
-            Masuk dulu untuk menulis ulasan. <Link href="/masuk" className="font-bold underline">Masuk →</Link>
+            Aktifkan kode akses untuk menulis ulasan. <Link href="/masuk" className="font-bold underline">Masukkan Kode →</Link>
           </div>
         ) : (
           <form onSubmit={submit} className="mb-4 space-y-2 rounded-xl border border-gray-200 bg-gray-50 p-3">
