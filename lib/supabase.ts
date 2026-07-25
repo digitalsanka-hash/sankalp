@@ -13,8 +13,24 @@
 // ------------------------------------------------------------------
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
-const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
+/**
+ * Bersihkan URL Supabase: buang spasi, path ekstra (mis. /rest/v1), dan
+ * trailing slash. Yang benar hanya origin: https://xxxx.supabase.co
+ * Ini mencegah error "Invalid path specified in request URL" saat user
+ * menempel URL dari halaman Data API.
+ */
+function cleanUrl(raw: string): string {
+  const v = raw.trim();
+  if (!v) return "";
+  try {
+    return new URL(v).origin;
+  } catch {
+    return v.replace(/\/+$/, "");
+  }
+}
+
+const url = cleanUrl(process.env.NEXT_PUBLIC_SUPABASE_URL ?? "");
+const anonKey = (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "").trim();
 
 /** true bila kredensial Supabase sudah diisi di .env.local */
 export function isSupabaseConfigured(): boolean {
