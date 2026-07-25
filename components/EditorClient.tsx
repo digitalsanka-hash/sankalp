@@ -20,7 +20,18 @@ interface Props {
 
 export default function EditorClient({ templateId, projectId }: Props) {
   const router = useRouter();
-  const { configured, user } = useAuth();
+  const { configured, user, isActive } = useAuth();
+
+  // true jika boleh simpan/unduh. Bila terkunci, arahkan/beri pesan.
+  function gateAccess(): boolean {
+    if (!configured) return true;
+    if (!user) { router.push("/masuk"); return false; }
+    if (!isActive) {
+      alert("Akun Anda belum aktif.\n\nSelesaikan pembayaran, lalu admin akan mengaktifkan akun Anda. Setelah aktif, Anda bisa menyimpan & mengunduh LP.");
+      return false;
+    }
+    return true;
+  }
 
   // muat proyek bila projectId (async: cloud atau lokal)
   const [project, setProject] = useState<Project | null | undefined>(undefined);
@@ -86,8 +97,7 @@ export default function EditorClient({ templateId, projectId }: Props) {
 
   async function saveProject() {
     if (!values) return;
-    // Bila Supabase aktif tapi belum login -> arahkan ke halaman masuk.
-    if (configured && !user) { router.push("/masuk"); return; }
+    if (!gateAccess()) return;
     try {
       if (savedId) {
         await updateProject(savedId, { nama, data_json: values });
@@ -105,6 +115,7 @@ export default function EditorClient({ templateId, projectId }: Props) {
   }
 
   function downloadHtml() {
+    if (!gateAccess()) return;
     const brand = String(values?.brandNama ?? nama ?? "landing-page");
     const blob = new Blob([html], { type: "text/html;charset=utf-8" });
     const url = URL.createObjectURL(blob);
@@ -148,6 +159,12 @@ export default function EditorClient({ templateId, projectId }: Props) {
             className="hidden cursor-not-allowed rounded-xl border border-black/10 px-3 py-2 text-sm font-semibold text-gray-300 sm:block">🚀 Publish</button>
         </div>
       </div>
+
+      {configured && user && !isActive && (
+        <div className="border-b border-amber-200 bg-amber-50 px-4 py-2 text-center text-[12.5px] font-semibold text-amber-800">
+          🔒 Akun belum aktif — bebas edit &amp; pratinjau, tapi <b>Simpan</b> &amp; <b>Download</b> terkunci sampai admin mengaktifkan akun Anda.
+        </div>
+      )}
 
       {/* Toggle mobile */}
       <div className="flex border-b border-black/5 bg-white lg:hidden">
