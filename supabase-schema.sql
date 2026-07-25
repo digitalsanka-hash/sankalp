@@ -64,15 +64,23 @@ alter table public.reviews       enable row level security;
 alter table public.projects      enable row level security;
 alter table public.subscriptions enable row level security;
 
+-- Catatan: setiap policy di-DROP dulu supaya file ini AMAN dijalankan berulang
+-- (tanpa error "policy ... already exists").
+
 -- Reviews: siapa saja boleh baca; hanya user login boleh menulis.
-create policy "reviews_read_all"   on public.reviews for select using (true);
+drop policy if exists "reviews_read_all" on public.reviews;
+create policy "reviews_read_all" on public.reviews for select using (true);
+
+drop policy if exists "reviews_insert_auth" on public.reviews;
 create policy "reviews_insert_auth" on public.reviews for insert
   with check (auth.role() = 'authenticated');
 
 -- Projects: user hanya boleh mengakses miliknya sendiri.
+drop policy if exists "projects_owner" on public.projects;
 create policy "projects_owner" on public.projects
   for all using (auth.uid() = user_id) with check (auth.uid() = user_id);
 
 -- Subscriptions: user hanya boleh membaca miliknya sendiri.
+drop policy if exists "subs_owner_read" on public.subscriptions;
 create policy "subs_owner_read" on public.subscriptions
   for select using (auth.uid() = user_id);
