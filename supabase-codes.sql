@@ -146,5 +146,8 @@ insert into public.access_codes (code, role, catatan)
 values ('SANKA-ADMIN-2026', 'admin', 'Kode admin utama')
 on conflict (code) do nothing;
 
+-- Segarkan cache API (WAJIB, agar fungsi langsung dikenali aplikasi).
+notify pgrst, 'reload schema';
+
 -- Lihat hasilnya:
 select code, role, status, catatan from public.access_codes order by created_at desc;
