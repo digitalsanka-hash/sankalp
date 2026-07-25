@@ -61,5 +61,32 @@ export const CUSTOM = `
 </section>
 <!--/IF:customBlocks-->`;
 
+// Transformasi "Bayangkan besok" — future pacing dari -> jadi.
+export const TRANSFORM = `
+<!--IF:transList-->
+<section class="transform-sec">
+  <div class="wrap-sm">
+    <h2 class="reveal">{{transJudul}}</h2>
+    <div class="transform-list">
+      <!--REPEAT:transList--><div class="transform-item reveal"><span class="t-from">{{dari}}</span><span class="t-arrow">→</span><span class="t-to">{{jadi}}</span></div><!--/REPEAT:transList-->
+    </div>
+  </div>
+</section>
+<!--/IF:transList-->`;
+
+// Persimpangan 2 pilihan — closing pendorong keputusan.
+export const CROSSROADS = `
+<!--IF:crossJudul-->
+<section class="cross-sec">
+  <div class="wrap-md">
+    <h2 class="reveal">{{crossJudul}}</h2>
+    <div class="cross-grid">
+      <div class="cross-col a reveal"><h3>{{crossKiriJudul}}</h3><p>{{crossKiriTeks}}</p></div>
+      <div class="cross-col b reveal"><h3>{{crossKananJudul}}</h3><p>{{crossKananTeks}}</p><div class="btn-wrap" style="margin-top:16px"><a class="btn" href="{{linkCheckout}}">{{ctaUtama}}</a></div></div>
+    </div>
+  </div>
+</section>
+<!--/IF:crossJudul-->`;
+
 // Bar sisa stok (scarcity). Taruh di dalam kotak harga.
 export const STOCK = `<!--IF:stokSisa--><div class="stock-wrap"><div class="stock-bar" data-sisa="{{stokSisa}}" data-total="{{stokTotal}}"><div class="fill" style="width:8%"></div></div><div class="stock-txt">🔥 Tinggal {{stokSisa}} stok tersisa — cepat sebelum habis!</div></div><!--/IF:stokSisa-->`;

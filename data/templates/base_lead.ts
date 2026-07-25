@@ -2,10 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, hookSection, trustSection,
-  reasonsSection, creativeSection,
+  reasonsSection, creativeSection, transformSection,
   txt, area, img, toggle, list, sub, AVATAR,
 } from "@/lib/fields";
-import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, REASONS, CUSTOM } from "@/data/templates/blocks";
+import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, REASONS, CUSTOM, TRANSFORM } from "@/data/templates/blocks";
 
 export const baseLead: BaseLayout = {
   extraCss: `
@@ -79,6 +79,11 @@ export const baseLead: BaseLayout = {
     hookSection(),
     trustSection(),
     reasonsSection(),
+    transformSection("Bayangkan Setelah Ikut Sesi Ini…", [
+      { dari: "Bingung info ke sana-sini", jadi: "Paham peta jalannya dari ahlinya langsung" },
+      { dari: "Takut salah langkah", jadi: "Yakin karena sudah tahu caranya" },
+      { dari: "Menunda terus", jadi: "Punya rencana aksi yang jelas" },
+    ]),
     creativeSection(),
     integrasiSection({ ctaDefault: "Daftar Gratis Sekarang", anchor: true }),
   ],
@@ -130,6 +135,7 @@ export const baseLead: BaseLayout = {
   </div>
 </section>` },
     { id: "alasan", label: "Kenapa Harus Beli", html: REASONS },
+    { id: "transformasi", label: "Transformasi (Bayangkan)", html: TRANSFORM },
     { id: "garansi", label: "Garansi", html: GUARANTEE },
     { id: "kreatif", label: "Blok Kreatif", html: CUSTOM },
     { id: "daftar", label: "Form Pendaftaran", html: String.raw`

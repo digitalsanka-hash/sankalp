@@ -2,10 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, urgencySection, hookSection, trustSection,
-  reasonsSection, creativeSection,
+  reasonsSection, creativeSection, crossroadsSection,
   txt, area, img, list, sub, AVATAR, PHOTO,
 } from "@/lib/fields";
-import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, REASONS, CUSTOM } from "@/data/templates/blocks";
+import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, REASONS, CUSTOM, CROSSROADS } from "@/data/templates/blocks";
 
 export const baseProduct: BaseLayout = {
   extraCss: `
@@ -104,6 +104,13 @@ export const baseProduct: BaseLayout = {
     hookSection(),
     trustSection(),
     reasonsSection(),
+    crossroadsSection(
+      "Bertahan dengan yang Lama, atau Upgrade Sekarang?",
+      "Kalau Tetap yang Lama",
+      "Masalah yang sama terulang terus\nKeluar uang berkali-kali untuk kualitas murahan\nTiap hari dongkol sendiri",
+      "Kalau Upgrade Hari Ini",
+      "Masalah selesai sekali beli\nKualitas awet, hemat jangka panjang\nHari-hari jadi lebih mudah"
+    ),
     creativeSection(),
     integrasiSection({ ctaDefault: "Pesan Sekarang - COD" }),
     urgencySection(),
@@ -171,6 +178,7 @@ export const baseProduct: BaseLayout = {
     <div style="margin-top:22px"><!--REPEAT:faqList--><details class="reveal"><summary>{{tanya}}</summary><p>{{jawab}}</p></details><!--/REPEAT:faqList--></div>
   </div>
 </section>` },
+    { id: "pilihan", label: "Dua Pilihan (Closing)", html: CROSSROADS },
     { id: "kreatif", label: "Blok Kreatif", html: CUSTOM },
   ],
 };

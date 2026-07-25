@@ -2,10 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, urgencySection, hookSection, trustSection,
-  reasonsSection, creativeSection,
+  reasonsSection, creativeSection, transformSection, crossroadsSection,
   txt, area, img, list, sub, AVATAR,
 } from "@/lib/fields";
-import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, STOCK, REASONS, CUSTOM } from "@/data/templates/blocks";
+import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, STOCK, REASONS, CUSTOM, TRANSFORM, CROSSROADS } from "@/data/templates/blocks";
 
 export const baseSales: BaseLayout = {
   extraCss: `.hero .num{color:#fff}.hero .stat-row{max-width:440px;margin-left:auto;margin-right:auto}`,
@@ -110,6 +110,18 @@ export const baseSales: BaseLayout = {
     hookSection(),
     trustSection(),
     reasonsSection(),
+    transformSection("Bayangkan 30 Hari dari Sekarang…", [
+      { dari: "Materi numpuk tak tersentuh", jadi: "Belajar rutin karena langkahnya jelas" },
+      { dari: "Bingung harus mulai dari mana", jadi: "Tahu persis apa yang dikerjakan tiap hari" },
+      { dari: "Iri lihat orang lain berhasil", jadi: "Giliran Anda yang ditanya caranya" },
+    ]),
+    crossroadsSection(
+      "Terus Begini, atau Berubah Hari Ini?",
+      "Tanpa Panduan Ini",
+      "Coba-coba sendiri lagi\nBuang waktu & uang di cara yang salah\nSemangat habis sebelum hasil datang",
+      "Dengan Panduan Ini",
+      "Langkah jelas sejak hari pertama\nHemat berbulan-bulan trial-error\nDidampingi sampai bisa"
+    ),
     creativeSection(),
     integrasiSection({ ctaDefault: "Saya Mau Mulai Sekarang" }),
     urgencySection(),
@@ -178,6 +190,7 @@ export const baseSales: BaseLayout = {
   </div>
 </section>` },
     { id: "alasan", label: "Kenapa Harus Beli", html: REASONS },
+    { id: "transformasi", label: "Transformasi (Bayangkan)", html: TRANSFORM },
     { id: "harga", label: "Harga & Penawaran", html: String.raw`
 <section class="price-sec" id="beli">
   <div class="wrap">
@@ -206,6 +219,7 @@ export const baseSales: BaseLayout = {
     </div>
   </div>
 </section>` },
+    { id: "pilihan", label: "Dua Pilihan (Closing)", html: CROSSROADS },
     { id: "kreatif", label: "Blok Kreatif", html: CUSTOM },
   ],
 };

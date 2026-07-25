@@ -103,6 +103,41 @@ export const trustSection = (): Section => ({
   ],
 });
 
+/** Bagian Transformasi "Bayangkan besok" (future pacing: dari -> jadi). */
+export const transformSection = (
+  judul = "Bayangkan Seminggu dari Sekarang…",
+  rows: { dari: string; jadi: string }[] = [
+    { dari: "Bingung mulai dari mana", jadi: "Punya langkah jelas yang tinggal diikuti" },
+    { dari: "Ragu tiap mau mencoba", jadi: "Percaya diri karena hasil mulai terlihat" },
+    { dari: "Jalan sendirian", jadi: "Didampingi sampai benar-benar bisa" },
+  ]
+): Section => ({
+  id: "transformasi", title: "Transformasi (Bayangkan)", icon: "🦋",
+  fields: [
+    txt("transJudul", "Judul Bagian", judul, "Ajak pembaca membayangkan hidup SETELAH membeli."),
+    list("transList", "Daftar Perubahan (dari → jadi)", rows,
+      [sub("dari", "Kondisi Sekarang"), sub("jadi", "Kondisi Setelahnya")], "Tambah perubahan"),
+  ],
+});
+
+/** Bagian Persimpangan (2 pilihan: tetap begini vs berubah). */
+export const crossroadsSection = (
+  judul = "Sekarang Ada Dua Pilihan di Depan Anda",
+  kiriJudul = "Tetap Seperti Sekarang",
+  kiriTeks = "Terus menunda\nHasil jalan di tempat\nMenyesal kenapa tidak mulai dari dulu",
+  kananJudul = "Ambil Langkah Hari Ini",
+  kananTeks = "Mulai dengan panduan jelas\nHasil mulai terasa minggu ini\nSetahun lagi berterima kasih pada diri sendiri"
+): Section => ({
+  id: "pilihan", title: "Dua Pilihan (Closing)", icon: "🔀",
+  fields: [
+    txt("crossJudul", "Judul Bagian", judul, "Bagian penutup yang mendorong keputusan."),
+    txt("crossKiriJudul", "Judul Jalur Kiri (tetap)", kiriJudul),
+    area("crossKiriTeks", "Poin Jalur Kiri (1 baris = 1 poin)", kiriTeks),
+    txt("crossKananJudul", "Judul Jalur Kanan (berubah)", kananJudul),
+    area("crossKananTeks", "Poin Jalur Kanan (1 baris = 1 poin)", kananTeks),
+  ],
+});
+
 /** Bagian Urgency (countdown + scarcity). */
 export const urgencySection = (): Section => ({
   id: "urgency", title: "Urgency (Batas Waktu)", icon: "⏰",

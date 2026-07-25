@@ -105,6 +105,24 @@ h2::after{content:"";display:block;width:44px;height:4px;border-radius:99px;back
 .cb-img{border-radius:var(--radius);max-width:460px;width:100%;margin:18px auto;box-shadow:0 16px 40px rgba(0,0,0,.16)}
 .cb-hr{border:0;height:1px;background:rgba(128,128,128,.22);max-width:220px;margin:30px auto}
 @media(min-width:640px){.hero h1{font-size:46px}.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}.hook p{font-size:26px}}
+/* ---------- Transformasi (Bayangkan besok) ---------- */
+.wrap-md{max-width:720px;margin:0 auto;padding:0 20px}
+.transform-sec{background:var(--surface)}
+.transform-list{display:grid;gap:12px;margin-top:26px}
+.transform-item{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;background:var(--kartu);border:1px solid rgba(128,128,128,.1);border-radius:var(--radius);padding:15px 18px}
+.transform-item .t-from{color:var(--lembut);font-size:14.5px;text-decoration:line-through;text-decoration-color:rgba(239,68,68,.55)}
+.transform-item .t-arrow{color:var(--aksen);font-weight:900;font-size:18px}
+.transform-item .t-to{font-weight:700;font-size:14.5px;color:var(--utama)}
+/* ---------- Persimpangan 2 pilihan ---------- */
+.cross-grid{display:grid;gap:14px;margin-top:28px}
+.cross-col{border-radius:var(--radius);padding:22px}
+.cross-col h3{font-family:var(--fontHead);font-size:18px;margin-bottom:10px}
+.cross-col p{white-space:pre-line;font-size:14.5px;line-height:2}
+.cross-col.a{background:rgba(239,68,68,.07);border:1px dashed rgba(239,68,68,.35)}
+.cross-col.a h3{color:#ef4444}.cross-col.a p{color:var(--lembut)}
+.cross-col.b{background:var(--kartu);border:1px solid var(--utama)}
+.cross-col.b h3{color:var(--utama)}
+@media(min-width:640px){.cross-grid{grid-template-columns:1fr 1fr}}
 /* desktop: testimoni jadi grid rapi (tak ada kartu terpotong); mobile tetap slider geser */
 @media(min-width:700px){.tslider{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;padding-bottom:0}.tslider>*{flex:none;max-width:none}}
 `;

@@ -2,10 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, urgencySection, hookSection, trustSection,
-  reasonsSection, creativeSection,
+  reasonsSection, creativeSection, transformSection,
   txt, area, img, list, sub, AVATAR,
 } from "@/lib/fields";
-import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, STOCK, REASONS, CUSTOM } from "@/data/templates/blocks";
+import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, STOCK, REASONS, CUSTOM, TRANSFORM } from "@/data/templates/blocks";
 
 export const baseSaas: BaseLayout = {
   extraCss: `
@@ -108,6 +108,11 @@ export const baseSaas: BaseLayout = {
     hookSection(),
     trustSection(),
     reasonsSection(),
+    transformSection("Bayangkan Operasional Minggu Depan…", [
+      { dari: "Rekap manual sampai malam", jadi: "Laporan jadi otomatis dalam hitungan detik" },
+      { dari: "Stok sering selisih & hilang", jadi: "Semua tercatat rapi real-time" },
+      { dari: "Keputusan pakai perasaan", jadi: "Keputusan pakai data yang akurat" },
+    ]),
     creativeSection(),
     integrasiSection({ ctaDefault: "Coba Gratis Sekarang" }),
     urgencySection(),
@@ -164,6 +169,7 @@ export const baseSaas: BaseLayout = {
   </div>
 </section>` },
     { id: "alasan", label: "Kenapa Harus Beli", html: REASONS },
+    { id: "transformasi", label: "Transformasi (Bayangkan)", html: TRANSFORM },
     { id: "harga", label: "Harga & Penawaran", html: String.raw`
 <section class="price-sec" id="beli">
   <div class="wrap">

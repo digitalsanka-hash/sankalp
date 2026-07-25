@@ -2,10 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, urgencySection, hookSection, trustSection,
-  reasonsSection, creativeSection,
+  reasonsSection, creativeSection, crossroadsSection,
   txt, area, img, list, sub, AVATAR, PHOTO,
 } from "@/lib/fields";
-import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, REASONS, CUSTOM } from "@/data/templates/blocks";
+import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, REASONS, CUSTOM, CROSSROADS } from "@/data/templates/blocks";
 
 export const baseService: BaseLayout = {
   extraCss: `
@@ -104,6 +104,13 @@ export const baseService: BaseLayout = {
     hookSection(),
     trustSection(),
     reasonsSection(),
+    crossroadsSection(
+      "Urus Sendiri, atau Serahkan pada Ahlinya?",
+      "Kalau Urus Sendiri",
+      "Habis waktu & tenaga\nHasil belum tentu rapi\nSalah langkah malah tambah biaya",
+      "Kalau Serahkan pada Kami",
+      "Beres tanpa Anda pusing\nHasil rapi & bergaransi\nWaktu Anda untuk hal yang lebih penting"
+    ),
     creativeSection(),
     integrasiSection({ ctaDefault: "Konsultasi Gratis Sekarang" }),
     urgencySection(),
@@ -172,6 +179,7 @@ export const baseService: BaseLayout = {
     <div style="margin-top:22px"><!--REPEAT:faqList--><details class="reveal"><summary>{{tanya}}</summary><p>{{jawab}}</p></details><!--/REPEAT:faqList--></div>
   </div>
 </section>` },
+    { id: "pilihan", label: "Dua Pilihan (Closing)", html: CROSSROADS },
     { id: "kreatif", label: "Blok Kreatif", html: CUSTOM },
   ],
 };
