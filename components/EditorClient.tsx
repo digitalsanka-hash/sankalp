@@ -11,6 +11,7 @@ import {
 import type { FieldValue, FormValues } from "@/lib/types";
 import EditorPanel from "@/components/EditorPanel";
 import LivePreview from "@/components/LivePreview";
+import { useAuth } from "@/components/AuthProvider";
 
 interface Props {
   templateId?: string; // mode: mulai baru dari template
@@ -19,13 +20,20 @@ interface Props {
 
 export default function EditorClient({ templateId, projectId }: Props) {
   const router = useRouter();
+  const { configured, user } = useAuth();
 
-  // muat proyek bila projectId (client-only)
+  // muat proyek bila projectId (async: cloud atau lokal)
   const [project, setProject] = useState<Project | null | undefined>(undefined);
   useEffect(() => {
-    if (projectId) setProject(getProject(projectId) ?? null);
-    else setProject(null);
-  }, [projectId]);
+    let alive = true;
+    if (projectId) {
+      setProject(undefined);
+      getProject(projectId)
+        .then((p) => { if (alive) setProject(p ?? null); })
+        .catch(() => { if (alive) setProject(null); });
+    } else setProject(null);
+    return () => { alive = false; };
+  }, [projectId, user]);
 
   const effTemplateId = projectId ? project?.template_id : templateId;
   const template = effTemplateId ? getTemplate(effTemplateId) : undefined;
@@ -76,18 +84,24 @@ export default function EditorClient({ templateId, projectId }: Props) {
     setStatus("dirty");
   }
 
-  function saveProject() {
+  async function saveProject() {
     if (!values) return;
-    if (savedId) {
-      updateProject(savedId, { nama, data_json: values });
-      setStatus("saved");
-    } else {
-      const p = createProject(nama, effTemplateId as string, values);
-      setSavedId(p.id);
-      setStatus("saved");
-      router.replace(`/studio?project=${p.id}`);
+    // Bila Supabase aktif tapi belum login -> arahkan ke halaman masuk.
+    if (configured && !user) { router.push("/masuk"); return; }
+    try {
+      if (savedId) {
+        await updateProject(savedId, { nama, data_json: values });
+        setStatus("saved");
+      } else {
+        const p = await createProject(nama, effTemplateId as string, values);
+        setSavedId(p.id);
+        setStatus("saved");
+        router.replace(`/studio?project=${p.id}`);
+      }
+      setTimeout(() => setStatus((s) => (s === "saved" ? "idle" : s)), 2200);
+    } catch (e) {
+      alert("Gagal menyimpan proyek: " + (e instanceof Error ? e.message : String(e)));
     }
-    setTimeout(() => setStatus((s) => (s === "saved" ? "idle" : s)), 2200);
   }
 
   function downloadHtml() {

@@ -26,7 +26,18 @@
 
 > Kunci **anon public** aman ditaruh di frontend (memang untuk itu). Jangan pakai `service_role`.
 
-### 4. (Opsional) coba lokal
+### 4. Aktifkan Login Email (magic link) — WAJIB untuk simpan cloud
+1. Sidebar: **Authentication** → **Providers** → pastikan **Email** **ON** (default sudah ON).
+   - Boleh matikan "Confirm email" kalau mau link langsung login (opsional).
+2. **Authentication** → **URL Configuration**:
+   - **Site URL**: isi URL Vercel Anda nanti, mis. `https://sankalp-xxxx.vercel.app`
+   - **Redirect URLs** → **Add URL** untuk masing-masing:
+     - `http://localhost:3005/**`
+     - `https://sankalp-xxxx.vercel.app/**`
+   - **Save**.
+   > Tanpa Redirect URL yang benar, tautan magic link tidak bisa balik ke aplikasi.
+
+### 5. (Opsional) coba lokal
 1. Salin `.env.local.example` → ganti nama jadi `.env.local`.
 2. Isi kedua nilai di atas.
 3. `npm run dev` → `lib/supabase.ts` otomatis aktif (`isSupabaseConfigured()` = true).

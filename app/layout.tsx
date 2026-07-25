@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import { AuthProvider } from "@/components/AuthProvider";
+import AuthButton from "@/components/AuthButton";
 
 export const metadata: Metadata = {
   title: "SankaLP — Buat Landing Page Jualan Tanpa Koding",
@@ -24,6 +26,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full font-sans antialiased">
+        <AuthProvider>
         <header className="sticky top-0 z-40 border-b border-black/5 bg-white/70 backdrop-blur-xl">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 h-16">
             <Link href="/" className="group flex items-center gap-2.5">
@@ -61,6 +64,7 @@ export default function RootLayout({
                 Mulai Buat
                 <span aria-hidden>→</span>
               </Link>
+              <AuthButton />
             </nav>
           </div>
         </header>
@@ -76,10 +80,11 @@ export default function RootLayout({
               <span className="font-display font-extrabold text-ink">SankaLP</span>
             </div>
             <p className="text-sm text-gray-400">
-              Landing page high-conversion tanpa koding · Fase 1 (lokal)
+              Landing page high-conversion tanpa koding
             </p>
           </div>
         </footer>
+        </AuthProvider>
       </body>
     </html>
   );
