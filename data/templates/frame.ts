@@ -123,8 +123,6 @@ h2::after{content:"";display:block;width:44px;height:4px;border-radius:99px;back
 .cross-col.b{background:var(--kartu);border:1px solid var(--utama)}
 .cross-col.b h3{color:var(--utama)}
 @media(min-width:640px){.cross-grid{grid-template-columns:1fr 1fr}}
-/* desktop: testimoni jadi grid rapi (tak ada kartu terpotong); mobile tetap slider geser */
-@media(min-width:700px){.tslider{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;padding-bottom:0}.tslider>*{flex:none;max-width:none}}
 `;
 
 const metaPixel = String.raw`<!--IF:metaPixelId-->

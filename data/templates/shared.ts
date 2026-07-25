@@ -65,6 +65,11 @@ export const sharedCss = String.raw`
   scrollbar-width:none}
 .tslider::-webkit-scrollbar{display:none}
 .tslider>*{scroll-snap-align:center;flex:0 0 86%;max-width:340px}
+/* desktop: grid rapi, tak ada kartu terpotong; mobile tetap slider geser */
+@media(min-width:700px){
+.tslider{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;padding-bottom:0}
+.tslider>*{flex:none;max-width:none}
+}
 
 /* ---------- before/after slider ---------- */
 .ba-wrap{position:relative;max-width:460px;margin:0 auto;border-radius:var(--radius);overflow:hidden;
