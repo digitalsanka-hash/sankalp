@@ -129,13 +129,33 @@ function ListField({
     onChange([...value, blank]);
   };
   const removeRow = (i: number) => onChange(value.filter((_, idx) => idx !== i));
+  // pindah posisi baris (↑/↓) — gaya ScaleV
+  const moveRow = (i: number, d: -1 | 1) => {
+    const j = i + d;
+    if (j < 0 || j >= value.length) return;
+    const next = [...value];
+    [next[i], next[j]] = [next[j], next[i]];
+    onChange(next);
+  };
 
   return (
     <div className="space-y-2.5">
       {value.map((row, i) => (
         <div key={i} className="rounded-2xl border border-black/[0.07] bg-gray-50/80 p-3">
           <div className="mb-2 flex items-center justify-between">
-            <span className="flex h-5 min-w-5 items-center justify-center rounded-md bg-brand-100 px-1.5 text-[11px] font-bold text-brand-700">{i + 1}</span>
+            <div className="flex items-center gap-1.5">
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-md bg-brand-100 px-1.5 text-[11px] font-bold text-brand-700">{i + 1}</span>
+              {/* atur posisi (gaya ScaleV) */}
+              <div className="flex overflow-hidden rounded-lg border border-black/10 bg-white">
+                <button type="button" title="Pindah ke atas" aria-label="Pindah ke atas"
+                  disabled={i === 0} onClick={() => moveRow(i, -1)}
+                  className="px-1.5 py-0.5 text-[11px] font-bold text-gray-500 transition hover:bg-brand-50 hover:text-brand-700 disabled:cursor-not-allowed disabled:text-gray-200 disabled:hover:bg-white">↑</button>
+                <span className="w-px bg-black/10" />
+                <button type="button" title="Pindah ke bawah" aria-label="Pindah ke bawah"
+                  disabled={i === value.length - 1} onClick={() => moveRow(i, 1)}
+                  className="px-1.5 py-0.5 text-[11px] font-bold text-gray-500 transition hover:bg-brand-50 hover:text-brand-700 disabled:cursor-not-allowed disabled:text-gray-200 disabled:hover:bg-white">↓</button>
+              </div>
+            </div>
             <button type="button" onClick={() => removeRow(i)}
               className="text-[11px] font-semibold text-gray-400 transition hover:text-rose-500">✕ Hapus</button>
           </div>

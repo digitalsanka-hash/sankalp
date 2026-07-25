@@ -18,9 +18,9 @@ function dataUrl(file, mime) {
 }
 
 const images = {
-  "__IMG_HOOK__": dataUrl(join(root, "assets", "hook-diagnostic.jpg"), "image/jpeg"),
-  "__IMG_VALUE__": dataUrl(join(root, "assets", "produk-layak.jpg"), "image/jpeg"),
-  "__IMG_FUTURE__": dataUrl(join(root, "assets", "besok-tayang.jpg"), "image/jpeg"),
+  "__IMG_HOOK__": dataUrl(join(root, "assets", "hook-diagnostic-lite.jpg"), "image/jpeg"),
+  "__IMG_VALUE__": dataUrl(join(root, "assets", "produk-layak-lite.jpg"), "image/jpeg"),
+  "__IMG_FUTURE__": dataUrl(join(root, "assets", "besok-tayang-lite.jpg"), "image/jpeg"),
 };
 
 const previewIds = [
@@ -32,6 +32,13 @@ const previewIds = [
   "jasa-wo",
 ];
 
+const liteThemes = [
+  ["#073f34", "#8af0c7", "#f2fff9"],
+  ["#891331", "#ffbece", "#fff7f4"],
+  ["#17165a", "#42dced", "#f8fbff"],
+  ["#78102d", "#ffc1cf", "#fff8f4"],
+];
+
 const manifest = JSON.parse(
   readFileSync(join("sales-page", "tpl", "manifest.json"), "utf8")
 );
@@ -39,14 +46,36 @@ const manifest = JSON.parse(
 const cards = previewIds
   .map((id, index) => {
     const item = manifest.find((entry) => entry.id === id);
-    const html = readFileSync(join("sales-page", "tpl", `${id}.html`), "utf8");
-    const src = dataUrl(join("sales-page", "tpl", `${id}.html`), "text/html;charset=utf-8");
+    const name = item?.nama ?? id;
+    const niche = item?.niche ?? "Template";
+
+    if (index >= 2) {
+      const [bg, accent, ink] = liteThemes[index - 2];
+      return `<article class="preview-card" aria-label="${name}">
+      <div class="phone-shell">
+        <div class="phone-top"><i></i><span></span><i></i></div>
+        <div class="lite-screen" style="--lite-bg:${bg};--lite-accent:${accent};--lite-ink:${ink}">
+          <span class="lite-pill">${niche}</span>
+          <strong>${name}</strong>
+          <p>Struktur penawaran siap edit untuk membuat produk lebih mudah dipahami dan dipercaya.</p>
+          <div class="lite-card"><small>Penawaran spesial</small><b>Siap tampil profesional</b><i></i><i></i><i></i></div>
+          <span class="lite-btn">Lihat Penawaran</span>
+        </div>
+      </div>
+      <div class="preview-caption"><span>${niche}</span><b>${name}</b><small>Preview ringan · tersedia di dalam SankaLP</small></div>
+    </article>`;
+    }
+
+    const src = dataUrl(
+      join("sales-page", "tpl", `${id}.html`),
+      "text/html;charset=utf-8"
+    );
     return `<article class="preview-card" aria-label="${item?.nama ?? id}">
       <div class="phone-shell">
         <div class="phone-top"><i></i><span></span><i></i></div>
-        <iframe loading="${index < 2 ? "eager" : "lazy"}" sandbox="allow-scripts" title="Preview ${item?.nama ?? id}" src="${src}"></iframe>
+        <iframe loading="lazy" sandbox="allow-scripts" title="Preview ${name}" src="${src}"></iframe>
       </div>
-      <div class="preview-caption"><span>${item?.niche ?? "Template"}</span><b>${item?.nama ?? id}</b><small>Gulir di dalam layar untuk melihat halaman penuh</small></div>
+      <div class="preview-caption"><span>${niche}</span><b>${name}</b><small>Demo asli · gulir untuk melihat halaman penuh</small></div>
     </article>`;
   })
   .join("\n");
@@ -72,4 +101,4 @@ writeFileSync(outputFile, output, "utf8");
 console.log(`Built ${outputFile}`);
 console.log(`Size ${(Buffer.byteLength(output) / 1024 / 1024).toFixed(2)} MB`);
 console.log(`Checkout: ${CONFIG.CHECKOUT_URL}`);
-console.log(`Previews: ${previewIds.length} template aktual`);
+console.log(`Previews: 2 demo aktual + ${previewIds.length - 2} preview ringan`);

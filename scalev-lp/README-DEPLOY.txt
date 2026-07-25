@@ -15,5 +15,7 @@ SEBELUM DEPLOY:
 
 CATATAN:
 - File final mandiri; gambar dan preview template sudah ditanam.
+- Versi ringan: 2 demo template interaktif + 4 preview visual hemat render.
+- Ukuran file final sekitar 380 KB sebelum kompresi server.
 - Jangan mengedit file FINAL untuk perubahan besar. Edit source lalu build ulang.
 - Jangan menjalankan iklan sebelum link checkout benar.
