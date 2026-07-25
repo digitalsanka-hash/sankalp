@@ -2,9 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, hookSection, trustSection,
+  reasonsSection, creativeSection,
   txt, area, img, toggle, list, sub, AVATAR,
 } from "@/lib/fields";
-import { PROOF_HOOK, GUARANTEE } from "@/data/templates/blocks";
+import { PROOF_HOOK, GUARANTEE, REASONS, CUSTOM } from "@/data/templates/blocks";
 
 export const baseLead: BaseLayout = {
   extraCss: `
@@ -77,6 +78,8 @@ export const baseLead: BaseLayout = {
     },
     hookSection(),
     trustSection(),
+    reasonsSection(),
+    creativeSection(),
     integrasiSection({ ctaDefault: "Daftar Gratis Sekarang", anchor: true }),
   ],
   body: String.raw`
@@ -125,7 +128,9 @@ ${PROOF_HOOK}
   </div>
 </section>
 
+${REASONS}
 ${GUARANTEE}
+${CUSTOM}
 
 <section class="price-sec" id="daftar">
   <div class="wrap">

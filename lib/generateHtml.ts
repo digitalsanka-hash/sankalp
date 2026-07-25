@@ -76,6 +76,32 @@ function processRepeats(html: string, values: FormValues): string {
   });
 }
 
+/**
+ * Proses marker <!--BLOCKS:key--> — "Blok Kreatif" susunan bebas milik user.
+ * Tiap baris list punya `jenis` yang menentukan HTML-nya.
+ */
+const BLOCK_RENDERERS: Record<string, (r: Record<string, string>) => string> = {
+  judul: (r) => `<h2 class="cb-h reveal">${esc(r.teks ?? "")}</h2>`,
+  teks: (r) => `<p class="cb-p reveal">${esc(r.teks ?? "")}</p>`,
+  poin: (r) => `<div class="cb-poin reveal"><span>✓</span><p>${esc(r.teks ?? "")}</p></div>`,
+  kutipan: (r) => `<blockquote class="cb-quote reveal">“${esc(r.teks ?? "")}”</blockquote>`,
+  gambar: (r) => (r.gambar ? `<img class="cb-img reveal" src="${escAttr(r.gambar)}" alt="" />` : ""),
+  tombol: (r) =>
+    `<div class="btn-wrap reveal"><a class="btn" href="${escAttr(r.link ?? "")}">${esc(r.teks || "Klik di Sini")}</a></div>`,
+  pemisah: () => `<hr class="cb-hr" />`,
+};
+
+function processCreativeBlocks(html: string, values: FormValues): string {
+  const re = /<!--BLOCKS:(\w+)-->/g;
+  return html.replace(re, (_m, key: string) => {
+    const list = values[key];
+    if (!Array.isArray(list)) return "";
+    return (list as ListValue)
+      .map((row) => (BLOCK_RENDERERS[row.jenis] ?? BLOCK_RENDERERS.teks)(row))
+      .join("\n");
+  });
+}
+
 /** Proses semua blok IF (nested aman karena non-greedy + nama unik). */
 function processConditionals(html: string, values: FormValues): string {
   const re = /<!--IF:(\w+)-->([\s\S]*?)<!--\/IF:\1-->/g;
@@ -89,6 +115,7 @@ function processConditionals(html: string, values: FormValues): string {
  */
 export function generateHtml(templateHtml: string, values: FormValues): string {
   let out = templateHtml;
+  out = processCreativeBlocks(out, values);
   out = processRepeats(out, values);
   out = processConditionals(out, values);
   out = replaceScalars(out, scalarScope(values));

@@ -147,6 +147,16 @@ function ListField({
               ) : s.type === "textarea" ? (
                 <textarea value={row[s.key] ?? ""} placeholder={s.placeholder} rows={2}
                   onChange={(e) => updateRow(i, s.key, e.target.value)} className={inputCls} />
+              ) : s.type === "select" ? (
+                <select
+                  value={row[s.key] || (s.options?.[0] ?? "")}
+                  onChange={(e) => updateRow(i, s.key, e.target.value)}
+                  className={`${inputCls} cursor-pointer capitalize`}
+                >
+                  {(s.options ?? []).map((o) => (
+                    <option key={o} value={o} className="capitalize">{o}</option>
+                  ))}
+                </select>
               ) : s.key === "ikon" ? (
                 <div className="flex items-center gap-1.5">
                   <input value={row[s.key] ?? ""} placeholder={s.placeholder}
@@ -231,9 +241,10 @@ const GROUPS: { key: string; label: string; num: string; ids: string[] }[] = [
     key: "konten", label: "Isi Halaman", num: "2",
     ids: ["hero", "proof", "pain", "benefit", "unggul", "fitur", "layanan", "langkah", "proses", "isi", "detail", "materi", "ba", "testi", "host", "bonus", "faq"],
   },
-  { key: "market", label: "Hook & Kepercayaan", num: "3", ids: ["hook", "trust"] },
+  { key: "market", label: "Hook & Kepercayaan", num: "3", ids: ["hook", "trust", "alasan"] },
   { key: "tawar", label: "Harga & Urgensi", num: "4", ids: ["harga", "order", "paket", "urgency", "countdown"] },
   { key: "publish", label: "CTA, Form & Integrasi", num: "5", ids: ["integrasi", "form"] },
+  { key: "kreatif", label: "Area Kreatif — Bebas", num: "★", ids: ["kreatif"] },
 ];
 
 function groupOf(id: string): string {
@@ -285,6 +296,11 @@ export default function EditorPanel({ sections, values, onChange }: Props) {
               <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-gray-400">{grp.label}</span>
               <span className="h-px flex-1 bg-black/[0.07]" />
             </div>
+            {grp.key === "kreatif" && (
+              <p className="mb-2 rounded-xl border border-dashed border-brand-300 bg-brand-50/60 px-3 py-2 text-[12px] leading-relaxed text-brand-800">
+                🧩 Di sini Anda <b>bebas berkreasi</b>: tambah judul, teks, poin, kutipan, gambar, tombol, atau garis pemisah — sebanyak apa pun. Urutan tampil mengikuti urutan daftar. Blok ini muncul menjelang akhir halaman.
+              </p>
+            )}
             <div className="space-y-2">
               {secs.map((sec) => (
                 <SectionCard

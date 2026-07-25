@@ -15,8 +15,9 @@ export type FieldType =
 export interface SubField {
   key: string;
   label: string;
-  type: "text" | "textarea" | "image";
+  type: "text" | "textarea" | "image" | "select";
   placeholder?: string;
+  options?: string[]; // untuk type "select"
 }
 
 /** Definisi satu field di panel editor. */

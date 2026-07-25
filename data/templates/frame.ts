@@ -82,6 +82,28 @@ footer{text-align:center;color:var(--lembut);font-size:13px;padding:32px 20px 90
 .stock-bar{height:9px;border-radius:999px;background:rgba(0,0,0,.14);overflow:hidden}
 .stock-bar .fill{height:100%;background:linear-gradient(90deg,var(--aksen),#ef4444);border-radius:999px;transition:width .8s}
 .stock-txt{font-size:12.5px;margin-top:6px;font-weight:700;opacity:.92}
+/* ---------- aksen judul & polish premium ---------- */
+h2::after{content:"";display:block;width:44px;height:4px;border-radius:99px;background:var(--aksen);margin:12px auto 0;opacity:.9}
+.price-box{box-shadow:0 24px 60px -18px rgba(0,0,0,.35)}
+.testi-card{border:1px solid rgba(128,128,128,.1)}
+/* ---------- Kenapa Harus Beli ---------- */
+.reasons{background:var(--surface)}
+.reason-list{display:grid;gap:14px;max-width:640px;margin:28px auto 0}
+.reason{display:flex;gap:14px;align-items:flex-start;background:var(--kartu);border:1px solid rgba(128,128,128,.1);border-radius:var(--radius);padding:18px 20px}
+.reason .rn{font-size:26px;line-height:1.1;flex:none}
+.reason b{font-size:16.5px;font-family:var(--fontHead)}
+.reason p{color:var(--lembut);font-size:14.5px;margin-top:3px}
+/* ---------- Blok Kreatif (elemen bebas user) ---------- */
+.custom-sec{padding:52px 0}
+.cb-h{font-size:26px;font-weight:800;font-family:var(--fontHead);text-align:center;margin:20px 0 4px;letter-spacing:-.3px}
+.cb-h::after{content:"";display:block;width:44px;height:4px;border-radius:99px;background:var(--aksen);margin:12px auto 0;opacity:.9}
+.cb-p{color:var(--lembut);max-width:580px;margin:12px auto;text-align:center;font-size:15.5px}
+.cb-poin{display:flex;gap:12px;align-items:flex-start;max-width:540px;margin:10px auto;background:var(--kartu);border-radius:12px;padding:13px 16px}
+.cb-poin span{color:var(--utama);font-weight:900;flex:none}
+.cb-poin p{font-weight:600;font-size:15px}
+.cb-quote{font-family:var(--fontHead);font-size:21px;font-weight:700;text-align:center;max-width:560px;margin:22px auto;color:var(--utama);line-height:1.5}
+.cb-img{border-radius:var(--radius);max-width:460px;width:100%;margin:18px auto;box-shadow:0 16px 40px rgba(0,0,0,.16)}
+.cb-hr{border:0;height:1px;background:rgba(128,128,128,.22);max-width:220px;margin:30px auto}
 @media(min-width:640px){.hero h1{font-size:46px}.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}.hook p{font-size:26px}}
 `;
 

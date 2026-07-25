@@ -2,9 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, urgencySection, hookSection, trustSection,
+  reasonsSection, creativeSection,
   txt, area, img, list, sub, AVATAR,
 } from "@/lib/fields";
-import { PROOF_HOOK, GUARANTEE, STOCK } from "@/data/templates/blocks";
+import { PROOF_HOOK, GUARANTEE, STOCK, REASONS, CUSTOM } from "@/data/templates/blocks";
 
 export const baseSaas: BaseLayout = {
   extraCss: `
@@ -106,6 +107,8 @@ export const baseSaas: BaseLayout = {
     },
     hookSection(),
     trustSection(),
+    reasonsSection(),
+    creativeSection(),
     integrasiSection({ ctaDefault: "Coba Gratis Sekarang" }),
     urgencySection(),
   ],
@@ -159,6 +162,8 @@ ${PROOF_HOOK}
   </div>
 </section>
 
+${REASONS}
+
 <section class="price-sec" id="beli">
   <div class="wrap">
     <h2 class="reveal" style="color:#fff">{{hargaJudul}}</h2>
@@ -181,5 +186,6 @@ ${GUARANTEE}
     <h2 class="reveal">{{faqJudul}}</h2>
     <div style="margin-top:22px"><!--REPEAT:faqList--><details class="reveal"><summary>{{tanya}}</summary><p>{{jawab}}</p></details><!--/REPEAT:faqList--></div>
   </div>
-</section>`,
+</section>
+${CUSTOM}`,
 };

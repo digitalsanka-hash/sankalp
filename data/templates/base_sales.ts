@@ -2,9 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, urgencySection, hookSection, trustSection,
+  reasonsSection, creativeSection,
   txt, area, img, list, sub, AVATAR,
 } from "@/lib/fields";
-import { PROOF_HOOK, GUARANTEE, STOCK } from "@/data/templates/blocks";
+import { PROOF_HOOK, GUARANTEE, STOCK, REASONS, CUSTOM } from "@/data/templates/blocks";
 
 export const baseSales: BaseLayout = {
   extraCss: `.hero .num{color:#fff}.hero .stat-row{max-width:440px;margin-left:auto;margin-right:auto}`,
@@ -108,6 +109,8 @@ export const baseSales: BaseLayout = {
     },
     hookSection(),
     trustSection(),
+    reasonsSection(),
+    creativeSection(),
     integrasiSection({ ctaDefault: "Saya Mau Mulai Sekarang" }),
     urgencySection(),
   ],
@@ -173,6 +176,8 @@ ${PROOF_HOOK}
   </div>
 </section>
 
+${REASONS}
+
 <section class="price-sec" id="beli">
   <div class="wrap">
     <h2 class="reveal" style="color:#fff">{{hargaJudul}}</h2>
@@ -199,5 +204,6 @@ ${GUARANTEE}
       <!--REPEAT:faqList--><details class="reveal"><summary>{{tanya}}</summary><p>{{jawab}}</p></details><!--/REPEAT:faqList-->
     </div>
   </div>
-</section>`,
+</section>
+${CUSTOM}`,
 };

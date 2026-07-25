@@ -23,5 +23,26 @@ export const GUARANTEE = `
   </div>
 </section>`;
 
+// Bagian "Kenapa Harus Beli" — alasan pendorong keputusan. Taruh sebelum harga.
+export const REASONS = `
+<!--IF:alasanList-->
+<section class="reasons">
+  <div class="wrap">
+    <h2 class="reveal">{{alasanJudul}}</h2>
+    <div class="reason-list">
+      <!--REPEAT:alasanList--><div class="reason reveal"><span class="rn">{{ikon}}</span><div><b>{{judul}}</b><p>{{teks}}</p></div></div><!--/REPEAT:alasanList-->
+    </div>
+  </div>
+</section>
+<!--/IF:alasanList-->`;
+
+// Blok Kreatif — elemen bebas susunan user. Taruh menjelang akhir halaman.
+export const CUSTOM = `
+<!--IF:customBlocks-->
+<section class="custom-sec">
+  <div class="wrap-sm"><!--BLOCKS:customBlocks--></div>
+</section>
+<!--/IF:customBlocks-->`;
+
 // Bar sisa stok (scarcity). Taruh di dalam kotak harga.
 export const STOCK = `<!--IF:stokSisa--><div class="stock-wrap"><div class="stock-bar" data-sisa="{{stokSisa}}" data-total="{{stokTotal}}"><div class="fill" style="width:8%"></div></div><div class="stock-txt">🔥 Tinggal {{stokSisa}} stok tersisa — cepat sebelum habis!</div></div><!--/IF:stokSisa-->`;

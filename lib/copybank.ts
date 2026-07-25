@@ -118,6 +118,21 @@ export const SUGGESTIONS: Record<string, string[]> = {
     "Jangan-jangan Ini yang Anda Rasakan…",
     "Kenapa Usaha Anda Selama Ini Terasa Sia-sia?",
   ],
+  alasanJudul: [
+    "3 Alasan Kenapa Anda Harus Ambil Sekarang",
+    "Kenapa Ribuan Orang Memilih Produk Ini",
+    "Masih Ragu? Ini Faktanya",
+    "Keputusan Kecil Hari Ini, Perubahan Besar Besok",
+  ],
+  testiJudul: [
+    "Kata Mereka yang Sudah Membuktikan",
+    "Jangan Percaya Kami — Percaya Mereka",
+    "Testimoni Asli dari Pembeli",
+  ],
+  faqJudul: [
+    "Pertanyaan yang Sering Ditanya",
+    "Masih Ada yang Mengganjal? Ini Jawabannya",
+  ],
 };
 
 export function suggestionsFor(key: string): string[] | undefined {

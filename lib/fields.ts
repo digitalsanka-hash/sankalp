@@ -47,6 +47,34 @@ export const integrasiSection = (opts: { ctaDefault: string; anchor?: boolean } 
   ],
 });
 
+/** Bagian "Kenapa Harus Beli" — alasan kuat pendorong keputusan. */
+export const reasonsSection = (): Section => ({
+  id: "alasan", title: "Kenapa Harus Beli", icon: "🎯",
+  fields: [
+    txt("alasanJudul", "Judul Bagian", "3 Alasan Kenapa Anda Harus Ambil Sekarang",
+      "Bagian yang meyakinkan pembeli ragu-ragu. Pakai angka + alasan kuat."),
+    list("alasanList", "Daftar Alasan", [
+      { ikon: "⚡", judul: "Hasil Nyata, Bukan Janji", teks: "Sudah dibuktikan ribuan pengguna — Anda tinggal mengikuti langkahnya." },
+      { ikon: "⏰", judul: "Menunda = Rugi", teks: "Harga promo terbatas. Besok bisa jadi sudah kembali normal." },
+      { ikon: "🛡️", judul: "Tanpa Risiko Sama Sekali", teks: "Ada garansi uang kembali. Risiko kami yang tanggung, bukan Anda." },
+    ], [sub("ikon", "Ikon (emoji)", "text", "⚡"), sub("judul", "Judul Alasan"), sub("teks", "Penjelasan", "textarea")], "Tambah alasan"),
+  ],
+});
+
+/** Bagian Blok Kreatif — user menyusun elemen bebas (tak terikat struktur). */
+export const creativeSection = (): Section => ({
+  id: "kreatif", title: "Blok Kreatif (Bebas)", icon: "🧩",
+  fields: [
+    list("customBlocks", "Susun Elemen Sesukamu", [], [
+      { key: "jenis", label: "Jenis Elemen", type: "select",
+        options: ["teks", "judul", "poin", "kutipan", "gambar", "tombol", "pemisah"] },
+      sub("teks", "Isi / Teks", "textarea", "Tulis isinya (untuk gambar/pemisah boleh kosong)"),
+      sub("gambar", "Gambar (khusus jenis 'gambar')", "image"),
+      sub("link", "Link (khusus jenis 'tombol')", "text", "https://... atau kosongkan"),
+    ], "Tambah elemen"),
+  ],
+});
+
 /** Bagian Hook Emosional. */
 export const hookSection = (): Section => ({
   id: "hook", title: "Hook Emosional", icon: "🔥",

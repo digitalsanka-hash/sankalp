@@ -2,9 +2,10 @@
 import type { BaseLayout } from "@/lib/types";
 import {
   brandingSection, integrasiSection, urgencySection, hookSection, trustSection,
+  reasonsSection, creativeSection,
   txt, area, img, list, sub, AVATAR, PHOTO,
 } from "@/lib/fields";
-import { PROOF_HOOK, GUARANTEE } from "@/data/templates/blocks";
+import { PROOF_HOOK, GUARANTEE, REASONS, CUSTOM } from "@/data/templates/blocks";
 
 export const baseProduct: BaseLayout = {
   extraCss: `
@@ -102,6 +103,8 @@ export const baseProduct: BaseLayout = {
     },
     hookSection(),
     trustSection(),
+    reasonsSection(),
+    creativeSection(),
     integrasiSection({ ctaDefault: "Pesan Sekarang - COD" }),
     urgencySection(),
   ],
@@ -147,6 +150,8 @@ ${PROOF_HOOK}
   </div>
 </section>
 
+${REASONS}
+
 <section style="background:var(--surface)" id="beli">
   <div class="wrap">
     <h2 class="reveal">{{paketJudul}}</h2>
@@ -164,5 +169,6 @@ ${GUARANTEE}
     <h2 class="reveal">{{faqJudul}}</h2>
     <div style="margin-top:22px"><!--REPEAT:faqList--><details class="reveal"><summary>{{tanya}}</summary><p>{{jawab}}</p></details><!--/REPEAT:faqList--></div>
   </div>
-</section>`,
+</section>
+${CUSTOM}`,
 };
