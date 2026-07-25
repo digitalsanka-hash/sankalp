@@ -14,6 +14,23 @@ export interface CodeRow {
   dipakai_oleh: string | null;
   redeemed_at: string | null;
   created_at: string;
+  masa_aktif?: string | null;   // 'lifetime' | '1' | '3' | '6' | '12'
+  expires_at?: string | null;
+  email_pembeli?: string | null;
+  dikirim_at?: string | null;
+}
+
+export const MASA_OPSI = [
+  { v: "lifetime", label: "Selamanya" },
+  { v: "1", label: "1 bulan" },
+  { v: "3", label: "3 bulan" },
+  { v: "6", label: "6 bulan" },
+  { v: "12", label: "12 bulan" },
+] as const;
+
+export function labelMasa(m?: string | null): string {
+  if (!m || m === "lifetime") return "Selamanya";
+  return `${m} bulan`;
 }
 
 export function savedCode(): string {
@@ -54,13 +71,35 @@ export async function adminList(adminCode: string): Promise<CodeRow[]> {
   return (data ?? []) as CodeRow[];
 }
 
-export async function adminCreate(adminCode: string, jumlah: number, catatan?: string): Promise<CodeRow[]> {
+export async function adminCreate(
+  adminCode: string, jumlah: number, catatan?: string, masa: string = "lifetime"
+): Promise<CodeRow[]> {
   if (!supabase) return [];
   const { data, error } = await supabase.rpc("admin_create_codes", {
-    p_admin: adminCode, p_jumlah: jumlah, p_catatan: catatan || null,
+    p_admin: adminCode, p_jumlah: jumlah, p_catatan: catatan || null, p_masa: masa,
   });
   if (error) throw error;
   return (data ?? []) as CodeRow[];
+}
+
+/** Kirim kode ke email pembeli (lewat API route + Resend). */
+export async function sendCodeEmail(args: {
+  adminCode: string; nama: string; email: string; kode: string; masa: string;
+}): Promise<{ ok: boolean; pesan?: string }> {
+  const r = await fetch("/api/send-code", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(args),
+  });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok || !d.ok) return { ok: false, pesan: d.pesan || `Gagal (${r.status})` };
+  // catat pengiriman di DB (abaikan bila gagal)
+  try {
+    await supabase?.rpc("admin_mark_sent", {
+      p_admin: args.adminCode, p_code: args.kode, p_email: args.email,
+    });
+  } catch (_) {}
+  return { ok: true };
 }
 
 export async function adminSetStatus(adminCode: string, code: string, status: "active" | "revoked"): Promise<void> {

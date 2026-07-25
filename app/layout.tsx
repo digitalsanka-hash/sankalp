@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 import { AuthProvider } from "@/components/AuthProvider";
@@ -8,6 +9,10 @@ export const metadata: Metadata = {
   title: "SankaLP — Buat Landing Page Jualan Tanpa Koding",
   description:
     "Pilih template landing page high-conversion, edit dengan mudah, unduh HTML siap deploy ke ScaleV. Untuk penjual produk digital & fisik.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
@@ -30,9 +35,14 @@ export default function RootLayout({
         <header className="sticky top-0 z-40 border-b border-black/5 bg-white/70 backdrop-blur-xl">
           <div className="mx-auto flex max-w-6xl items-center justify-between px-4 sm:px-6 h-16">
             <Link href="/" className="group flex items-center gap-2.5">
-              <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 font-display text-lg font-extrabold text-white shadow-glow">
-                S
-              </span>
+              <Image
+                src="/branding/sankalp-logo.png"
+                alt=""
+                width={40}
+                height={40}
+                priority
+                className="h-10 w-10 rounded-[13px] shadow-glow transition duration-300 group-hover:-rotate-3 group-hover:scale-105"
+              />
               <span className="font-display text-xl font-extrabold tracking-tight text-ink">
                 Sanka<span className="text-brand-600">LP</span>
               </span>
@@ -74,9 +84,13 @@ export default function RootLayout({
         <footer className="border-t border-black/5 bg-white">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 sm:px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-2">
-              <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-500 to-brand-700 font-display text-sm font-extrabold text-white">
-                S
-              </span>
+              <Image
+                src="/branding/sankalp-logo.png"
+                alt=""
+                width={28}
+                height={28}
+                className="h-7 w-7 rounded-lg"
+              />
               <span className="font-display font-extrabold text-ink">SankaLP</span>
             </div>
             <p className="text-sm text-gray-400">

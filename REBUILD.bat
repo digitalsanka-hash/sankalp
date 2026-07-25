@@ -5,8 +5,7 @@ echo ============================================
 echo   Membangun ulang versi statis (folder out)
 echo   PASTIKAN 'npm run dev' TIDAK sedang jalan.
 echo ============================================
-set NEXT_EXPORT=1
-call npx next build
+node scripts\build-static.mjs
 echo.
 echo Selesai. Jalankan BUKA-APP.bat untuk membuka aplikasi.
 pause
