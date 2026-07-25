@@ -145,6 +145,7 @@ ${metaPixel}
 ${baseCss}
 {{__sharedCss}}
 ${extraCss}
+{{__themeCss}}
 </style>
 </head>
 <body>

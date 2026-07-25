@@ -6,6 +6,7 @@
 import type { TemplateDef, FormValues, Section } from "./types";
 import { VARIANTS } from "./variants";
 import { getTheme, type Theme } from "./theme";
+import { THEME_ASSIGN } from "./theme-assign";
 import { wrapDoc } from "@/data/templates/frame";
 import { sharedCss, sharedJs } from "@/data/templates/shared";
 import { baseSales } from "@/data/templates/base_sales";
@@ -45,6 +46,7 @@ function injectTheme(html: string, t: Theme): string {
   h = repl(h, "{{__fontBody}}", t.fontBody);
   h = repl(h, "{{__sharedCss}}", sharedCss);
   h = repl(h, "{{__sharedJs}}", sharedJs);
+  h = repl(h, "{{__themeCss}}", t.css ?? "");
   return h;
 }
 
@@ -57,7 +59,8 @@ export function getTemplate(id: string): TemplateDef | undefined {
   if (!variant) return undefined;
   const base = BASES[variant.base];
   if (!base) return undefined;
-  const theme = getTheme(variant.theme);
+  // Tema: peta penugasan (theme-assign) menang atas bawaan varian.
+  const theme = getTheme(THEME_ASSIGN[variant.id] ?? variant.theme);
 
   // 1) clone sections + terapkan default: warna tema + override niche
   const sections: Section[] = JSON.parse(JSON.stringify(base.sections));

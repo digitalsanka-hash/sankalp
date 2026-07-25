@@ -1,0 +1,125 @@
+// lib/theme-assign.ts
+// ------------------------------------------------------------------
+// Penugasan TEMA per template — menyebar 57 tema ke semua template agar
+// galeri tampil beragam (tidak monoton). Menimpa theme bawaan varian.
+// Tak ada di peta -> pakai theme dari variants.ts.
+// ------------------------------------------------------------------
+
+export const THEME_ASSIGN: Record<string, string> = {
+  /* ===== KELAS / DIGITAL ===== */
+  "course-bisnis": "royal",
+  "ebook-masak": "retro70",
+  "kelas-desain": "fantasia",
+  "kelas-bahasa": "denim",
+  "kelas-trading": "navybrass",
+  "template-notion": "slate",
+  "kelas-parenting": "cloud",
+  "kelas-fotografi": "noir",
+  "kelas-quran": "rainforest",
+  "kelas-speaking": "magazine",
+  "kelas-jualan-online": "tangerine",
+  "kelas-coding": "carbon",
+  "kelas-makeup": "obsidianluxe",
+  "kelas-editing-video": "arcade",
+  "kelas-copywriting": "paper",
+  "template-cv": "brutal",
+  "kelas-bisnis-kuliner": "honey",
+  "kelas-investasi-emas": "goldblack",
+  "kelas-menjahit": "blush",
+  "kelas-menyanyi": "vaporwave",
+  "ebook-parenting-islami": "olive",
+  "kelas-crypto-edukasi": "nebula",
+
+  /* ===== APLIKASI / SAAS ===== */
+  "app-kasir": "emerald",
+  "app-absensi": "industrial",
+  "app-undangan": "ivory",
+  "app-toko-online": "citrus",
+  "app-keuangan": "midnight",
+  "app-stok-gudang": "slate",
+  "app-blast-wa": "emeraldnight",
+  "app-lms": "royal",
+  "app-booking": "glacier",
+  "app-invoice": "paper",
+
+  /* ===== SKINCARE / BEAUTY ===== */
+  "skincare-glow": "sakura",
+  "skincare-acne": "mint",
+  "skincare-antiaging": "obsidianluxe",
+  "bodycare": "blush",
+  "haircare": "orchid",
+  "lip-care": "popcandy",
+  "sunscreen": "citrus",
+  "skincare-pria": "carbon",
+  "underarm-cream": "lavender",
+  "masker-wajah": "zen",
+  "eye-serum": "hologram",
+  "toner-eksfoliasi": "glacier",
+  "parfum": "velvet",
+  "moisturizer": "cloud",
+  "facial-wash": "mint",
+  "skincare-remaja": "popcandy",
+  "hair-mask": "cacao",
+
+  /* ===== FASHION / FISIK ===== */
+  "fashion-hijab": "ivory",
+  "fashion-gamis": "rainforest",
+  "sepatu": "brutal",
+  "tas-wanita": "flamingo",
+  "jam-tangan": "goldblack",
+  "tws-earbuds": "neon",
+  "smartwatch": "nebula",
+  "kacamata": "noir",
+  "mukena": "blush",
+  "sajadah": "desert",
+  "sprei-bedcover": "lavender",
+  "sepatu-anak": "memphis",
+  "baju-anak": "cloud",
+  "jaket": "denim",
+  "kaos-distro": "magazine",
+  "powerbank": "industrial",
+  "lampu-dekor": "obsidianluxe",
+  "tumbler": "glacier",
+  "tas-ransel": "slate",
+  "dompet-pria": "cacao",
+
+  /* ===== F&B / KESEHATAN ===== */
+  "kopi-kemasan": "cacao",
+  "madu-herbal": "honey",
+  "herbal-diet": "matcha",
+  "multivitamin": "citrus",
+  "teh-herbal": "matcha",
+  "kurma": "desert",
+  "frozen-food": "tangerine",
+  "cookware-set": "terra",
+  "dekorasi-rumah": "zen",
+  "mainan-edukasi": "memphis",
+  "mainan-bayi": "cloud",
+
+  /* ===== WEBINAR / LEAD ===== */
+  "webinar-bisnis": "royal",
+  "webinar-saham": "navybrass",
+  "ebook-gratis": "paper",
+  "kelas-gratis-dm": "fantasia",
+  "workshop-desain": "hologram",
+  "seminar-parenting": "sakura",
+  "challenge-diet": "mint",
+  "tryout-cpns": "denim",
+  "webinar-parenting": "lavender",
+  "kelas-gratis-ngaji": "rainforest",
+  "ebook-diet-gratis": "matcha",
+  "bootcamp-coding": "arcade",
+
+  /* ===== JASA ===== */
+  "jasa-desain": "vaporwave",
+  "jasa-kontraktor": "industrial",
+  "jasa-wo": "velvet",
+  "jasa-service-ac": "glacier",
+  "jasa-fotografi": "noir",
+  "jasa-cuci-sofa": "cloud",
+  "jasa-catering": "honey",
+  "jasa-les-privat": "memphis",
+
+  /* ===== SALES PAGE ===== */
+  "sales-page-digital": "aurora",
+};
