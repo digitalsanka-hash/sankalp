@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Brand Anda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --utama:#0e9f6e;--aksen:#f59e0b;
+  --bg:#ffffff;--surface:#f6f8f7;--tinta:#0f1b16;--lembut:#5b6b63;--kartu:#eef7f2;
+  --radius:16px;--heroBg:linear-gradient(165deg,#0e9f6e,#063d2c);--fontHead:'Plus Jakarta Sans',sans-serif;--fontBody:'Plus Jakarta Sans',sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--fontBody);color:var(--tinta);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+h1,h2,h3,.head{font-family:var(--fontHead)}
+.wrap{max-width:800px;margin:0 auto;padding:0 20px}
+.wrap-sm{max-width:600px;margin:0 auto;padding:0 20px}
+section{padding:56px 0}
+h2{font-size:28px;font-weight:800;letter-spacing:-.4px;text-align:center;margin-bottom:8px;line-height:1.15}
+.sub-h{text-align:center;color:var(--lembut);max-width:520px;margin:0 auto 30px}
+.btn{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:100%;max-width:460px;
+  text-align:center;background:var(--aksen);color:#fff;font-weight:800;font-size:18px;padding:17px 24px;
+  border-radius:var(--radius);text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.18);cursor:pointer;border:0}
+.btn small{font-weight:600;font-size:13px;opacity:.9;margin-top:2px}
+.btn-wrap{display:flex;justify-content:center}
+.eyebrow{display:inline-block;background:rgba(255,255,255,.16);color:#fff;font-weight:700;font-size:12.5px;
+  letter-spacing:.5px;padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.chip{display:inline-block;background:var(--utama);color:#fff;font-weight:700;font-size:12.5px;padding:6px 14px;border-radius:999px;margin-bottom:14px}
+.grid-2{display:grid;gap:16px}.grid-3{display:grid;gap:16px}
+.card{background:var(--kartu);border-radius:var(--radius);padding:20px}
+.hero{background:var(--heroBg);color:#fff;text-align:center;padding:52px 0 56px;position:relative}
+.hero .logo{height:38px;margin:0 auto 22px;object-fit:contain}
+.hero h1{font-size:36px;font-weight:800;line-height:1.12;letter-spacing:-.6px;max-width:640px;margin:0 auto}
+.hero .lead{font-size:18px;opacity:.94;margin:16px auto 26px;max-width:560px}
+.hero .foto{border-radius:var(--radius);margin:28px auto 0;max-width:440px;box-shadow:0 26px 60px rgba(0,0,0,.34)}
+.pain-list{list-style:none;max-width:580px;margin:0 auto}
+.pain-list li{background:var(--kartu);border-radius:12px;padding:14px 16px 14px 48px;position:relative;margin-bottom:12px;font-weight:600}
+.pain-list li::before{content:"✕";position:absolute;left:16px;top:14px;color:#ef4444;font-weight:900}
+.check-list{list-style:none;max-width:580px;margin:0 auto}
+.check-list li{background:var(--kartu);border-radius:12px;padding:14px 16px 14px 48px;position:relative;margin-bottom:10px;font-weight:600}
+.check-list li::before{content:"✓";position:absolute;left:16px;top:14px;color:var(--utama);font-weight:900}
+.feat h3{font-size:17px;margin-bottom:6px;color:var(--utama)}
+.feat .ic{font-size:28px;line-height:1;margin-bottom:8px}
+.feat p{color:var(--lembut);font-size:15px}
+.testi-card{background:var(--kartu);border-radius:var(--radius);padding:20px;height:100%}
+.testi-card .top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.testi-card img{width:48px;height:48px;border-radius:999px;object-fit:cover}
+.testi-card .nama{font-weight:800}.testi-card .stars{color:var(--aksen);font-size:14px}
+.faq details{background:var(--kartu);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+.faq summary{font-weight:800;cursor:pointer;list-style:none}.faq summary::-webkit-details-marker{display:none}
+.faq p{color:var(--lembut);margin-top:10px}
+.price-sec{background:var(--heroBg);color:#fff}
+.price-box{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);border-radius:calc(var(--radius) + 4px);padding:30px 22px;max-width:470px;margin:0 auto;text-align:center;backdrop-filter:blur(6px)}
+.price-box .coret{opacity:.7;text-decoration:line-through;font-size:20px}
+.price-box .jual{font-size:46px;font-weight:900;margin:2px 0 6px;font-family:var(--fontHead)}
+.price-box .save{display:inline-block;background:var(--aksen);color:#fff;font-weight:800;font-size:13px;padding:5px 12px;border-radius:999px;margin-bottom:14px}
+.bonus-list{list-style:none;text-align:left;max-width:360px;margin:18px auto;padding:0}
+.bonus-list li{padding:9px 0 9px 30px;position:relative;border-bottom:1px dashed rgba(255,255,255,.22)}
+.bonus-list li::before{content:"🎁";position:absolute;left:0}
+.garansi{background:rgba(255,255,255,.12);border-radius:12px;padding:13px;margin-top:18px;font-weight:600;font-size:14px}
+.urg{background:rgba(0,0,0,.22);border-radius:12px;padding:14px;margin-top:16px}
+.urg .count{font-size:28px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:1px}
+.urg p{font-size:13.5px;opacity:.92;margin-top:4px}
+footer{text-align:center;color:var(--lembut);font-size:13px;padding:32px 20px 90px}
+/* ---------- elemen marketing (dipakai semua template) ---------- */
+.proof-strip{padding:22px 0;border-bottom:1px solid rgba(128,128,128,.12);background:var(--bg)}
+.rating-hero{display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;margin-bottom:14px;flex-wrap:wrap}
+.rating-hero .stars{color:var(--aksen);letter-spacing:1px;font-size:17px}
+.rating-hero b{font-size:18px;color:var(--utama)}
+.rating-hero span{color:var(--lembut);font-size:13px}
+.trust-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.trust-badges .tb{display:inline-flex;align-items:center;gap:6px;background:var(--kartu);border:1px solid rgba(128,128,128,.14);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:600;color:var(--tinta)}
+.trust-badges .tb b{color:var(--utama)}
+.hook{background:var(--surface);text-align:center}
+.hook .hook-mark{font-family:var(--fontHead);font-size:56px;line-height:.5;color:var(--utama);opacity:.28;margin-bottom:10px}
+.hook p{font-size:21px;font-weight:700;font-family:var(--fontHead);line-height:1.45;max-width:600px;margin:0 auto;letter-spacing:-.3px}
+.hook .hl{color:var(--utama)}
+.guarantee-sec{background:var(--bg)}
+.guarantee{display:flex;gap:16px;align-items:center;background:var(--kartu);border:1px dashed var(--utama);border-radius:calc(var(--radius) + 2px);padding:20px 22px;max-width:560px;margin:0 auto}
+.guarantee .seal{flex:none;width:54px;height:54px;border-radius:50%;background:var(--utama);color:#fff;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.guarantee h3{font-size:17px;margin-bottom:3px}
+.guarantee p{color:var(--lembut);font-size:14px}
+.stock-wrap{max-width:340px;margin:16px auto 0}
+.stock-bar{height:9px;border-radius:999px;background:rgba(0,0,0,.14);overflow:hidden}
+.stock-bar .fill{height:100%;background:linear-gradient(90deg,var(--aksen),#ef4444);border-radius:999px;transition:width .8s}
+.stock-txt{font-size:12.5px;margin-top:6px;font-weight:700;opacity:.92}
+@media(min-width:640px){.hero h1{font-size:46px}.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}.hook p{font-size:26px}}
+
+
+/* ---------- animasi masuk saat discroll ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}.rd4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- tombol CTA premium (shine + pulse) ---------- */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite;z-index:1}
+.btn>*{position:relative;z-index:2}
+@keyframes shine{0%,60%{left:-120%}100%{left:130%}}
+.pulse{animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 10px 26px rgba(0,0,0,.16),0 0 0 0 var(--aksen)}
+  70%{box-shadow:0 10px 26px rgba(0,0,0,.16),0 0 0 14px transparent}100%{box-shadow:0 10px 26px rgba(0,0,0,.16),0 0 0 0 transparent}}
+
+/* ---------- hover lift kartu ---------- */
+.lift{transition:transform .25s ease,box-shadow .25s ease}
+.lift:hover{transform:translateY(-4px)}
+
+/* ---------- sticky CTA bar (muncul saat scroll) ---------- */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:60;transform:translateY(120%);
+  transition:transform .35s cubic-bezier(.16,1,.3,1);background:rgba(255,255,255,.96);
+  backdrop-filter:blur(10px);border-top:1px solid rgba(0,0,0,.08);
+  padding:10px 14px;display:flex;gap:10px;align-items:center;box-shadow:0 -8px 24px rgba(0,0,0,.1)}
+.sticky-cta.show{transform:translateY(0)}
+.sticky-cta .info{flex:1;min-width:0}
+.sticky-cta .info b{display:block;font-size:14px;color:var(--tinta);line-height:1.2}
+.sticky-cta .info span{font-size:12px;color:var(--lembut)}
+.sticky-cta a{flex:none;background:var(--aksen);color:#fff;font-weight:800;font-size:14px;
+  padding:12px 18px;border-radius:12px;text-decoration:none}
+
+/* ---------- floating WhatsApp ---------- */
+.fab-wa{position:fixed;right:16px;bottom:84px;z-index:55;width:54px;height:54px;border-radius:50%;
+  background:#25d366;display:flex;align-items:center;justify-content:center;font-size:26px;
+  box-shadow:0 8px 22px rgba(37,211,102,.5);text-decoration:none;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* ---------- angka statistik ---------- */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;text-align:center}
+.stat-row .num{font-size:30px;font-weight:900;color:var(--utama);font-variant-numeric:tabular-nums;line-height:1}
+.stat-row .lbl{font-size:12px;color:var(--lembut);margin-top:4px}
+
+/* ---------- logo/trust marquee ---------- */
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee .track{display:flex;gap:34px;width:max-content;animation:scrollx 22s linear infinite}
+.marquee span{font-weight:800;color:var(--lembut);opacity:.7;white-space:nowrap;font-size:15px}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- testimonial slider (scroll-snap) ---------- */
+.tslider{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;
+  scrollbar-width:none}
+.tslider::-webkit-scrollbar{display:none}
+.tslider>*{scroll-snap-align:center;flex:0 0 86%;max-width:340px}
+
+/* ---------- before/after slider ---------- */
+.ba-wrap{position:relative;max-width:460px;margin:0 auto;border-radius:var(--radius);overflow:hidden;
+  user-select:none;touch-action:pan-y;box-shadow:0 16px 40px rgba(0,0,0,.14)}
+.ba-wrap img{display:block;width:100%;pointer-events:none}
+.ba-wrap .after-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;clip-path:inset(0 0 0 50%)}
+.ba-wrap .bar{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%);box-shadow:0 0 0 1px rgba(0,0,0,.1)}
+.ba-wrap .knob{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:40px;
+  border-radius:50%;background:#fff;box-shadow:0 4px 12px rgba(0,0,0,.3);display:flex;align-items:center;justify-content:center;font-size:16px;color:#333}
+.ba-wrap .tagb,.ba-wrap .taga{position:absolute;bottom:12px;font-size:11px;font-weight:800;color:#fff;
+  background:rgba(0,0,0,.55);padding:4px 10px;border-radius:999px}
+.ba-wrap .tagb{left:12px}.ba-wrap .taga{right:12px}
+
+/* ---------- FAQ accordion halus ---------- */
+.faq details{transition:background .2s}
+.faq details[open]{background:var(--kartu)}
+.faq summary{position:relative;padding-right:28px}
+.faq summary::after{content:"+";position:absolute;right:6px;top:-2px;font-size:22px;color:var(--utama);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+
+.hero .num{color:#fff}.hero .stat-row{max-width:440px;margin-left:auto;margin-right:auto}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    
+    <span class="eyebrow">KELAS BISNIS ONLINE</span>
+    <h1 class="reveal">Bangun Bisnis Online yang Menghasilkan, Walau Mulai dari Nol</h1>
+    <p class="lead reveal rd1">Sistem lengkap step-by-step: dari cari produk, jualan, sampai closing. Sudah dipakai 1.200+ alumni.</p>
+    <div class="btn-wrap reveal rd2"><a class="btn pulse" href="">Gabung Kelas Sekarang<small>Akses seumur hidup, langsung setelah bayar</small></a></div>
+    <div class="stat-row" style="margin-top:32px">
+      <div class="reveal"><div class="num" data-to="1200" data-suf="+">0</div><div class="lbl">Alumni</div></div><div class="reveal"><div class="num" data-to="4" data-suf=".9">0</div><div class="lbl">Rating</div></div><div class="reveal"><div class="num" data-to="98" data-suf="%">0</div><div class="lbl">Puas</div></div>
+    </div>
+    
+  </div>
+</header>
+
+<section class="proof-strip">
+  <div class="wrap">
+    <div class="rating-hero reveal"><span class="stars">★★★★★</span><b>4.9</b><span>/5 · 2.000+ ulasan puas</span></div>
+    <div class="trust-badges">
+      <span class="tb"><b>✓</b> 100% Original</span><span class="tb"><b>🚚</b> Gratis Ongkir</span><span class="tb"><b>💰</b> Garansi Uang Kembali</span><span class="tb"><b>🔒</b> Transaksi Aman</span>
+    </div>
+  </div>
+</section>
+
+<section class="hook"><div class="wrap-sm"><div class="hook-mark">“</div><p class="reveal">Berhenti membuang waktu &amp; uang untuk cara yang salah. Ada jalan yang lebih mudah — dan Anda pantas mendapatkannya.</p></div></section>
+
+
+<section style="padding:30px 0">
+  <div class="wrap">
+    <p class="sub-h" style="margin-bottom:16px">Sudah dipercaya ribuan orang di seluruh Indonesia</p>
+    <div class="marquee"><div class="track">
+      <span>★ 1.200+ Alumni</span><span>Dibahas di Komunitas</span><span>Garansi Uang Kembali</span><span>Update Gratis Selamanya</span>
+      <span>★ 1.200+ Alumni</span><span>Dibahas di Komunitas</span><span>Garansi Uang Kembali</span><span>Update Gratis Selamanya</span>
+    </div></div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <h2 class="reveal">Apakah Anda Mengalami Ini?</h2>
+    <ul class="pain-list">
+      <li class="reveal">Sudah coba belajar sendiri tapi malah makin bingung</li><li class="reveal">Buang waktu dan uang untuk cara yang salah</li><li class="reveal">Tidak ada yang membimbing langkah demi langkah</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="reveal">Yang Akan Anda Dapatkan</h2>
+    <div class="grid-2" style="margin-top:24px">
+      <div class="card feat lift reveal"><div class="ic">⏱️</div><h3>Hemat Waktu</h3><p>Materi ringkas &amp; terstruktur, tak perlu cari-cari sendiri.</p></div><div class="card feat lift reveal"><div class="ic">🎯</div><h3>Langsung Praktik</h3><p>Setiap bab ada contoh nyata yang bisa langsung ditiru.</p></div><div class="card feat lift reveal"><div class="ic">🧩</div><h3>Cocok Pemula</h3><p>Bahasa sederhana, tanpa istilah rumit.</p></div><div class="card feat lift reveal"><div class="ic">♾️</div><h3>Akses Selamanya</h3><p>Bisa dibuka kapan saja, seumur hidup.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface)">
+  <div class="wrap">
+    <h2 class="reveal">Apa Saja yang Ada di Dalamnya</h2>
+    <ul class="check-list" style="margin-top:22px">
+      <li class="reveal">Modul 1: Fondasi &amp; persiapan dari nol</li><li class="reveal">Modul 2: Langkah inti step-by-step</li><li class="reveal">Modul 3: Trik mempercepat hasil</li><li class="reveal">Bonus: Template &amp; checklist siap pakai</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 class="reveal">Kata Mereka yang Sudah Coba</h2>
+    <div class="tslider" style="margin-top:22px">
+      <div class="testi-card reveal"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='96'%20height='96'%3E%3Crect%20width='96'%20height='96'%20rx='48'%20fill='%23c9d3cd'/%3E%3Ccircle%20cx='48'%20cy='38'%20r='16'%20fill='%23fff'/%3E%3Crect%20x='20'%20y='58'%20width='56'%20height='30'%20rx='15'%20fill='%23fff'/%3E%3C/svg%3E" alt="Rina, Ibu Rumah Tangga" /><div><div class="nama">Rina, Ibu Rumah Tangga</div><div class="stars">★★★★★</div></div></div><p>"Materinya gampang dipahami. Baru 3 hari sudah kelihatan hasilnya!"</p></div><div class="testi-card reveal"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='96'%20height='96'%3E%3Crect%20width='96'%20height='96'%20rx='48'%20fill='%23c9d3cd'/%3E%3Ccircle%20cx='48'%20cy='38'%20r='16'%20fill='%23fff'/%3E%3Crect%20x='20'%20y='58'%20width='56'%20height='30'%20rx='15'%20fill='%23fff'/%3E%3C/svg%3E" alt="Andi, Karyawan" /><div><div class="nama">Andi, Karyawan</div><div class="stars">★★★★★</div></div></div><p>"Worth it banget. Penjelasannya runut, cocok buat yang sibuk."</p></div><div class="testi-card reveal"><div class="top"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='96'%20height='96'%3E%3Crect%20width='96'%20height='96'%20rx='48'%20fill='%23c9d3cd'/%3E%3Ccircle%20cx='48'%20cy='38'%20r='16'%20fill='%23fff'/%3E%3Crect%20x='20'%20y='58'%20width='56'%20height='30'%20rx='15'%20fill='%23fff'/%3E%3C/svg%3E" alt="Maya, Mahasiswa" /><div><div class="nama">Maya, Mahasiswa</div><div class="stars">★★★★★</div></div></div><p>"Awalnya ragu, ternyata isinya padat &amp; aplikatif. Recommended!"</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="price-sec" id="beli">
+  <div class="wrap">
+    <h2 class="reveal" style="color:#fff">Ambil Sekarang Sebelum Harga Naik</h2>
+    <div class="price-box reveal rd1">
+      <div class="coret">Rp499.000</div>
+      <div class="jual">Rp149.000</div>
+      <span class="save">HEMAT 70%</span>
+      <ul class="bonus-list">
+        <li>Bonus 1: Checklist praktis (PDF)</li><li>Bonus 2: Grup diskusi eksklusif</li><li>Bonus 3: Update materi gratis</li>
+      </ul>
+      <div class="btn-wrap"><a class="btn pulse" href="">Gabung Kelas Sekarang<small>Akses seumur hidup, langsung setelah bayar</small></a></div>
+      <div class="garansi">🛡️ Garansi 7 hari uang kembali</div>
+      <div class="urg"><div class="count" data-menit="120">--:--:--</div><p>Harga promo berakhir saat timer habis!</p></div>
+      <div class="stock-wrap"><div class="stock-bar" data-sisa="8" data-total="50"><div class="fill" style="width:8%"></div></div><div class="stock-txt">🔥 Tinggal 8 stok tersisa — cepat sebelum habis!</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="guarantee-sec">
+  <div class="wrap-sm">
+    <div class="guarantee reveal"><div class="seal">✓</div><div><h3>Garansi 100% Uang Kembali</h3><p>Coba dulu tanpa risiko. Jika dalam masa garansi Anda merasa tidak cocok, uang Anda kembali penuh — tanpa pertanyaan berbelit.</p></div></div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap-sm">
+    <h2 class="reveal">Pertanyaan yang Sering Ditanya</h2>
+    <div style="margin-top:22px">
+      <details class="reveal"><summary>Apakah cocok untuk pemula total?</summary><p>Sangat cocok. Dirancang dari nol, tanpa asumsi Anda sudah tahu apa pun.</p></details><details class="reveal"><summary>Bagaimana cara mengaksesnya?</summary><p>Setelah bayar, link akses dikirim otomatis ke email/WhatsApp Anda.</p></details><details class="reveal"><summary>Apakah ada garansi?</summary><p>Ada. Jika tidak sesuai, uang kembali sesuai ketentuan.</p></details>
+    </div>
+  </div>
+</section>
+<footer>© Brand Anda — Semua hak dilindungi.</footer>
+
+<div class="sticky-cta">
+  <div class="info"><b>Brand Anda</b><span>Promo terbatas hari ini</span></div>
+  <a href="">Gabung Kelas Sekarang</a>
+</div>
+
+<script>
+(function(){
+  // CTA yang BELUM diisi link (kosong / "#") dibuat inert: klik tak melakukan
+  // apa pun (tidak reload, tidak pindah halaman). Aktif otomatis setelah user
+  // mengisi link checkout / WhatsApp / form.
+  document.querySelectorAll('a').forEach(function(a){
+    var h=(a.getAttribute('href')||'').trim();
+    if(h===''||h==='#'){ a.style.cursor='default'; a.addEventListener('click',function(e){e.preventDefault();}); }
+  });
+  document.querySelectorAll('form').forEach(function(f){
+    var ac=(f.getAttribute('action')||'').trim();
+    if(ac===''||ac==='#'){ f.addEventListener('submit',function(e){e.preventDefault();}); }
+  });
+  // bar sisa stok
+  document.querySelectorAll('.stock-bar[data-sisa]').forEach(function(b){
+    var sisa=parseFloat(b.getAttribute('data-sisa'))||0, total=parseFloat(b.getAttribute('data-total'))||100;
+    var pct=Math.max(4,Math.min(100,Math.round((sisa/total)*100)));
+    var f=b.querySelector('.fill'); if(f) setTimeout(function(){f.style.width=pct+'%';},200);
+  });
+  // reveal saat discroll
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // animated counter
+  function animateCount(el){var to=parseFloat(el.getAttribute('data-to'))||0;
+    var suf=el.getAttribute('data-suf')||'';var dur=1200,t0=null;
+    function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur);
+      var v=Math.floor((0.5-Math.cos(Math.PI*p)/2)*to);
+      el.textContent=v.toLocaleString('id-ID')+suf;if(p<1)requestAnimationFrame(step)}
+    requestAnimationFrame(step)}
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){animateCount(e.target);cio.unobserve(e.target)}})},{threshold:.5});
+  document.querySelectorAll('[data-to]').forEach(function(el){cio.observe(el)});
+
+  // sticky CTA bar muncul setelah lewat hero
+  var bar=document.querySelector('.sticky-cta');
+  if(bar){var hero=document.querySelector('header');
+    var sio=new IntersectionObserver(function(es){es.forEach(function(e){
+      bar.classList.toggle('show',!e.isIntersecting)})},{threshold:0});
+    if(hero)sio.observe(hero);}
+
+  // countdown (jam:menit:detik atau box)
+  document.querySelectorAll('[data-menit]').forEach(function(box){
+    var menit=parseInt(box.getAttribute('data-menit'),10)||60;var target=Date.now()+menit*60000;
+    var one=box.matches('.count')?box:null;
+    var H=box.querySelector('[data-h]'),M=box.querySelector('[data-m]'),S=box.querySelector('[data-s]');
+    function tick(){var s=Math.max(0,Math.floor((target-Date.now())/1000));
+      var h=String(Math.floor(s/3600)).padStart(2,'0'),m=String(Math.floor((s%3600)/60)).padStart(2,'0'),d=String(s%60).padStart(2,'0');
+      if(one){one.textContent=h+':'+m+':'+d}else{if(H)H.textContent=h;if(M)M.textContent=m;if(S)S.textContent=d}
+      if(s>0)setTimeout(tick,500)}tick();});
+
+  // before/after slider
+  document.querySelectorAll('.ba-wrap').forEach(function(w){
+    var after=w.querySelector('.after-img'),bar=w.querySelector('.bar'),knob=w.querySelector('.knob');
+    function setp(x){var r=w.getBoundingClientRect();var p=Math.max(0,Math.min(1,(x-r.left)/r.width));
+      var pct=(p*100).toFixed(1);after.style.clipPath='inset(0 0 0 '+pct+'%)';bar.style.left=pct+'%';knob.style.left=pct+'%';}
+    var drag=false;
+    function down(e){drag=true;setp((e.touches?e.touches[0]:e).clientX)}
+    function move(e){if(drag)setp((e.touches?e.touches[0]:e).clientX)}
+    function up(){drag=false}
+    w.addEventListener('mousedown',down);w.addEventListener('touchstart',down,{passive:true});
+    window.addEventListener('mousemove',move);window.addEventListener('touchmove',move,{passive:true});
+    window.addEventListener('mouseup',up);window.addEventListener('touchend',up);});
+})();
+</script>
+</body>
+</html>

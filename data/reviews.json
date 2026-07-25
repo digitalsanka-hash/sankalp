@@ -1,0 +1,42 @@
+[
+  {
+    "id": "rev-001",
+    "template_id": "course-bisnis",
+    "rating": 5,
+    "nama": "Wulan A.",
+    "komentar": "Templatenya premium banget, tinggal ganti teks langsung jadi. Closing rate naik!",
+    "created_at": "2026-07-18T08:15:00.000Z"
+  },
+  {
+    "id": "rev-002",
+    "template_id": "course-bisnis",
+    "rating": 4,
+    "nama": "Hendra",
+    "komentar": "Animasinya bikin keliatan mahal. Semoga nambah pilihan tema lagi.",
+    "created_at": "2026-07-20T10:40:00.000Z"
+  },
+  {
+    "id": "rev-003",
+    "template_id": "skincare-glow",
+    "rating": 5,
+    "nama": "Toko Ayu Skincare",
+    "komentar": "Slider before/after-nya juara buat closing COD. Recommended.",
+    "created_at": "2026-07-21T13:05:00.000Z"
+  },
+  {
+    "id": "rev-004",
+    "template_id": "webinar-bisnis",
+    "rating": 5,
+    "nama": "Coach Rian",
+    "komentar": "Countdown + form-nya bikin pendaftar webinar melonjak. Mantap.",
+    "created_at": "2026-07-22T09:30:00.000Z"
+  },
+  {
+    "id": "rev-005",
+    "template_id": "app-kasir",
+    "rating": 5,
+    "nama": "Devi UMKM",
+    "komentar": "Cocok banget buat jualan aplikasi. Section fitur & harga rapi.",
+    "created_at": "2026-07-23T15:10:00.000Z"
+  }
+]
