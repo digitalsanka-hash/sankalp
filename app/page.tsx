@@ -9,9 +9,9 @@ type Filter = "semua" | Kategori;
 
 const FILTERS: { id: Filter; label: string }[] = [
   { id: "semua", label: "Semua" },
-  { id: "digital", label: "Produk Digital" },
-  { id: "fisik", label: "Produk Fisik" },
-  { id: "lead", label: "Lead / Jasa" },
+  { id: "digital", label: "Digital" },
+  { id: "fisik", label: "Fisik" },
+  { id: "lead", label: "Lead & Jasa" },
 ];
 
 const NICHES = Array.from(new Set(TEMPLATE_META.map((t) => t.niche))).sort();
@@ -38,7 +38,7 @@ export default function GalleryPage() {
         <section className="pt-14 pb-8 text-center sm:pt-20">
           <div className="fade-up mb-5 inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/70 px-3.5 py-1.5 text-xs font-semibold text-brand-700 shadow-soft backdrop-blur">
             <span className="flex h-1.5 w-1.5 rounded-full bg-brand-500" />
-            50+ template siap pakai · terus bertambah
+            100+ template siap pakai · terus bertambah
           </div>
 
           <h1 className="fade-up fade-up-1 font-display text-[2.6rem] font-extrabold leading-[1.02] tracking-[-0.03em] text-ink sm:text-6xl">
@@ -52,34 +52,30 @@ export default function GalleryPage() {
             lead magnet. Edit semudah mengisi formulir, unduh HTML — siap deploy ke ScaleV.
           </p>
 
-          {/* SEARCH */}
-          <div className="fade-up fade-up-3 mx-auto mt-8 max-w-lg">
-            <div className="group relative">
-              <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-lg text-gray-400">
-                🔍
-              </span>
+        </section>
+
+        {/* BAR KONTROL — search + kategori + niche, satu baris ramping */}
+        <div className="sticky top-16 z-30 mb-6 fade-up fade-up-3">
+          <div className="mx-auto flex max-w-4xl flex-wrap items-center gap-2 rounded-2xl border border-black/[0.08] bg-white/95 p-2 shadow-soft backdrop-blur">
+            {/* search */}
+            <div className="relative min-w-[180px] flex-1">
+              <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-sm text-gray-400">🔍</span>
               <input
                 value={q}
                 onChange={(e) => setQ(e.target.value)}
-                placeholder="Cari template… (mis. skincare, kelas, jasa)"
-                className="w-full rounded-2xl border border-black/10 bg-white/90 py-3.5 pl-12 pr-4 text-sm shadow-soft outline-none transition placeholder:text-gray-400 focus:border-brand-400 focus:ring-4 focus:ring-brand-100"
+                placeholder="Cari template…"
+                className="w-full rounded-xl bg-gray-50 py-2.5 pl-9 pr-3 text-sm outline-none transition placeholder:text-gray-400 focus:bg-white focus:ring-2 focus:ring-brand-200"
               />
             </div>
-          </div>
-        </section>
 
-        {/* FILTER kategori — segmented */}
-        <div className="sticky top-16 z-30 -mx-4 mb-4 bg-[color:var(--paper)]/80 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:px-3">
-          <div className="flex flex-col items-center gap-3">
-            <div className="inline-flex flex-wrap justify-center gap-1 rounded-full border border-black/10 bg-white p-1 shadow-soft">
+            {/* kategori segmented */}
+            <div className="flex rounded-xl bg-gray-100 p-0.5">
               {FILTERS.map((f) => (
                 <button
                   key={f.id}
                   onClick={() => setFilter(f.id)}
-                  className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
-                    filter === f.id
-                      ? "bg-ink text-white shadow-soft"
-                      : "text-gray-500 hover:text-ink"
+                  className={`whitespace-nowrap rounded-lg px-3 py-2 text-[13px] font-semibold transition ${
+                    filter === f.id ? "bg-ink text-white shadow" : "text-gray-500 hover:text-ink"
                   }`}
                 >
                   {f.label}
@@ -87,38 +83,26 @@ export default function GalleryPage() {
               ))}
             </div>
 
-            {/* niche chips */}
-            <div className="flex max-w-4xl flex-wrap justify-center gap-1.5">
-              <button
-                onClick={() => setNiche("")}
-                className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-                  niche === ""
-                    ? "bg-brand-600 text-white"
-                    : "border border-black/10 bg-white text-gray-500 hover:border-brand-300 hover:text-ink"
-                }`}
-              >
-                Semua niche
-              </button>
+            {/* niche dropdown */}
+            <select
+              value={niche}
+              onChange={(e) => setNiche(e.target.value)}
+              className={`cursor-pointer rounded-xl border-0 py-2.5 pl-3 pr-8 text-[13px] font-semibold outline-none transition ${
+                niche ? "bg-brand-600 text-white" : "bg-gray-100 text-gray-600 hover:text-ink"
+              }`}
+            >
+              <option value="">Semua niche</option>
               {NICHES.map((n) => (
-                <button
-                  key={n}
-                  onClick={() => setNiche(n === niche ? "" : n)}
-                  className={`rounded-full px-3 py-1 text-xs font-semibold transition ${
-                    niche === n
-                      ? "bg-brand-600 text-white"
-                      : "border border-black/10 bg-white text-gray-500 hover:border-brand-300 hover:text-ink"
-                  }`}
-                >
-                  {n}
-                </button>
+                <option key={n} value={n}>{n}</option>
               ))}
-            </div>
+            </select>
+
+            {/* jumlah */}
+            <span className="hidden whitespace-nowrap pl-1 pr-2 text-xs font-semibold text-gray-400 md:block">
+              {list.length} template
+            </span>
           </div>
         </div>
-
-        <p className="mb-5 text-center text-xs font-medium uppercase tracking-wider text-gray-400">
-          {list.length} template ditemukan
-        </p>
 
         {/* GRID */}
         <div className="grid gap-5 pb-16 sm:grid-cols-2 lg:grid-cols-3">
