@@ -1,7 +1,24 @@
 // data/templates/blocks.ts — potongan HTML marketing yang dipakai ulang di base.
 // Di-interpolasi ke dalam body base (String.raw`... ${PROOF_HOOK} ...`).
 
-// Strip bukti (rating + trust badges) + hook emosional. Taruh tepat setelah </header>.
+// Strip bukti (rating + trust badges) SAJA — bagian terpisah agar bisa diurut.
+export const PROOF_STRIP = `
+<section class="proof-strip">
+  <div class="wrap">
+    <div class="rating-hero reveal"><span class="stars">★★★★★</span><b>{{ratingSkor}}</b><span>/5 · {{ratingJml}} ulasan puas</span></div>
+    <div class="trust-badges">
+      <!--REPEAT:trustBadges--><span class="tb"><b>{{ikon}}</b> {{teks}}</span><!--/REPEAT:trustBadges-->
+    </div>
+  </div>
+</section>`;
+
+// Hook emosional SAJA — bagian terpisah agar bisa diurut.
+export const HOOK_BLOCK = `
+<!--IF:hookAktif-->
+<section class="hook"><div class="wrap-sm"><div class="hook-mark">“</div><p class="reveal">{{hookText}}</p></div></section>
+<!--/IF:hookAktif-->`;
+
+// (lama) Strip bukti + hook jadi satu. Dipertahankan untuk kompatibilitas.
 export const PROOF_HOOK = `
 <section class="proof-strip">
   <div class="wrap">

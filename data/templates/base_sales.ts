@@ -5,7 +5,7 @@ import {
   reasonsSection, creativeSection,
   txt, area, img, list, sub, AVATAR,
 } from "@/lib/fields";
-import { PROOF_HOOK, GUARANTEE, STOCK, REASONS, CUSTOM } from "@/data/templates/blocks";
+import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, STOCK, REASONS, CUSTOM } from "@/data/templates/blocks";
 
 export const baseSales: BaseLayout = {
   extraCss: `.hero .num{color:#fff}.hero .stat-row{max-width:440px;margin-left:auto;margin-right:auto}`,
@@ -114,7 +114,8 @@ export const baseSales: BaseLayout = {
     integrasiSection({ ctaDefault: "Saya Mau Mulai Sekarang" }),
     urgencySection(),
   ],
-  body: String.raw`
+  parts: [
+    { id: "hero", label: "Bagian Atas (Hero)", html: String.raw`
 <header class="hero">
   <div class="wrap">
     <!--IF:logo--><img class="logo" src="{{logo}}" alt="{{brandNama}}" /><!--/IF:logo-->
@@ -127,9 +128,10 @@ export const baseSales: BaseLayout = {
     </div>
     <!--IF:heroGambar--><img class="foto reveal rd2" src="{{heroGambar}}" alt="produk" /><!--/IF:heroGambar-->
   </div>
-</header>
-${PROOF_HOOK}
-
+</header>` },
+    { id: "proof", label: "Bukti & Rating", html: PROOF_STRIP },
+    { id: "hook", label: "Hook Emosional", html: HOOK_BLOCK },
+    { id: "marquee", label: "Social Proof Berjalan", html: String.raw`
 <section style="padding:30px 0">
   <div class="wrap">
     <p class="sub-h" style="margin-bottom:16px">{{proofJudul}}</p>
@@ -138,8 +140,8 @@ ${PROOF_HOOK}
       <!--REPEAT:logoList--><span>{{teks}}</span><!--/REPEAT:logoList-->
     </div></div>
   </div>
-</section>
-
+</section>` },
+    { id: "pain", label: "Masalah Pembaca", html: String.raw`
 <section style="background:var(--surface)">
   <div class="wrap">
     <h2 class="reveal">{{painJudul}}</h2>
@@ -147,8 +149,8 @@ ${PROOF_HOOK}
       <!--REPEAT:painPoin--><li class="reveal">{{item}}</li><!--/REPEAT:painPoin-->
     </ul>
   </div>
-</section>
-
+</section>` },
+    { id: "benefit", label: "Manfaat", html: String.raw`
 <section>
   <div class="wrap">
     <h2 class="reveal">{{benefitJudul}}</h2>
@@ -156,8 +158,8 @@ ${PROOF_HOOK}
       <!--REPEAT:benefitPoin--><div class="card feat lift reveal"><div class="ic">{{ikon}}</div><h3>{{judul}}</h3><p>{{teks}}</p></div><!--/REPEAT:benefitPoin-->
     </div>
   </div>
-</section>
-
+</section>` },
+    { id: "isi", label: "Isi Produk", html: String.raw`
 <section style="background:var(--surface)">
   <div class="wrap">
     <h2 class="reveal">{{isiJudul}}</h2>
@@ -165,8 +167,8 @@ ${PROOF_HOOK}
       <!--REPEAT:isiPoin--><li class="reveal">{{item}}</li><!--/REPEAT:isiPoin-->
     </ul>
   </div>
-</section>
-
+</section>` },
+    { id: "testi", label: "Testimoni", html: String.raw`
 <section>
   <div class="wrap">
     <h2 class="reveal">{{testiJudul}}</h2>
@@ -174,10 +176,9 @@ ${PROOF_HOOK}
       <!--REPEAT:testiList--><div class="testi-card reveal"><div class="top"><img src="{{foto}}" alt="{{nama}}" /><div><div class="nama">{{nama}}</div><div class="stars">★★★★★</div></div></div><p>"{{teks}}"</p></div><!--/REPEAT:testiList-->
     </div>
   </div>
-</section>
-
-${REASONS}
-
+</section>` },
+    { id: "alasan", label: "Kenapa Harus Beli", html: REASONS },
+    { id: "harga", label: "Harga & Penawaran", html: String.raw`
 <section class="price-sec" id="beli">
   <div class="wrap">
     <h2 class="reveal" style="color:#fff">{{hargaJudul}}</h2>
@@ -194,9 +195,9 @@ ${REASONS}
       ${STOCK}
     </div>
   </div>
-</section>
-${GUARANTEE}
-
+</section>` },
+    { id: "garansi", label: "Garansi", html: GUARANTEE },
+    { id: "faq", label: "Tanya Jawab (FAQ)", html: String.raw`
 <section class="faq">
   <div class="wrap-sm">
     <h2 class="reveal">{{faqJudul}}</h2>
@@ -204,6 +205,7 @@ ${GUARANTEE}
       <!--REPEAT:faqList--><details class="reveal"><summary>{{tanya}}</summary><p>{{jawab}}</p></details><!--/REPEAT:faqList-->
     </div>
   </div>
-</section>
-${CUSTOM}`,
+</section>` },
+    { id: "kreatif", label: "Blok Kreatif", html: CUSTOM },
+  ],
 };

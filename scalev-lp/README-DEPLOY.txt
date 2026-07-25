@@ -15,8 +15,9 @@ SEBELUM DEPLOY:
 
 CATATAN:
 - File final mandiri; gambar dan preview template sudah ditanam.
+- Logo SankaLP sudah tertanam di navbar, footer, dan favicon.
 - Galeri fokus: 6 demo template asli, tampil satu per satu dan dapat digulir penuh.
 - Hanya template aktif yang dimuat; lima template lainnya aktif saat digeser.
-- Ukuran file final sekitar 512 KB sebelum kompresi server.
+- Ukuran file final sekitar 0,52 MB sebelum kompresi server.
 - Jangan mengedit file FINAL untuk perubahan besar. Edit source lalu build ulang.
 - Jangan menjalankan iklan sebelum link checkout benar.

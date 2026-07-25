@@ -18,6 +18,7 @@ function dataUrl(file, mime) {
 }
 
 const images = {
+  "__IMG_LOGO__": dataUrl(join(root, "assets", "branding", "sankalp-app-icon-64.png"), "image/png"),
   "__IMG_HOOK__": dataUrl(join(root, "assets", "hook-diagnostic-lite.jpg"), "image/jpeg"),
   "__IMG_VALUE__": dataUrl(join(root, "assets", "produk-layak-lite.jpg"), "image/jpeg"),
   "__IMG_FUTURE__": dataUrl(join(root, "assets", "besok-tayang-lite.jpg"), "image/jpeg"),

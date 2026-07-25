@@ -4,6 +4,7 @@
 // getTemplate(id) menghasilkan TemplateDef siap dipakai editor & preview.
 // ------------------------------------------------------------------
 import type { TemplateDef, FormValues, Section } from "./types";
+import { generateHtml } from "./generateHtml";
 import { VARIANTS } from "./variants";
 import { getTheme, type Theme } from "./theme";
 import { THEME_ASSIGN } from "./theme-assign";
@@ -77,8 +78,9 @@ export function getTemplate(id: string): TemplateDef | undefined {
     }
   }
 
-  // 2) HTML: bungkus body + inject tema
-  const html = injectTheme(wrapDoc(base.body, base.extraCss ?? ""), theme);
+  // 2) HTML shell ber-tema dengan marker — bagian dirakit saat render
+  //    (renderTemplate) mengikuti urutan pilihan user.
+  const html = injectTheme(wrapDoc("<!--__PARTS__-->", base.extraCss ?? ""), theme);
 
   const def: TemplateDef = {
     id: variant.id,
@@ -87,10 +89,36 @@ export function getTemplate(id: string): TemplateDef | undefined {
     ringkas: variant.ringkas,
     thumbnail: variant.icon,
     html,
+    parts: base.parts,
     sections,
   };
   cache.set(id, def);
   return def;
+}
+
+/** Kunci penyimpan urutan bagian di FormValues. */
+export const ORDER_KEY = "_sectionOrder";
+
+/** Urutan bagian efektif: ambil pilihan user, buang id asing, tambah id baru. */
+export function resolveOrder(def: TemplateDef, values: FormValues): string[] {
+  const all = def.parts.map((p) => p.id);
+  const raw = values[ORDER_KEY];
+  if (!Array.isArray(raw) || raw.length === 0 || typeof raw[0] !== "string") return all;
+  const chosen = (raw as string[]).filter((id) => all.includes(id));
+  for (const id of all) if (!chosen.includes(id)) chosen.push(id);
+  return chosen;
+}
+
+/**
+ * Render final: rakit bagian sesuai urutan -> masukkan ke shell -> inject nilai.
+ * SEMUA pratinjau/unduhan harus lewat fungsi ini.
+ */
+export function renderTemplate(def: TemplateDef, values: FormValues): string {
+  const order = resolveOrder(def, values);
+  const byId = new Map(def.parts.map((p) => [p.id, p.html] as const));
+  const bodyHtml = order.map((id) => byId.get(id) ?? "").join("\n");
+  const full = def.html.replace("<!--__PARTS__-->", bodyHtml);
+  return generateHtml(full, values);
 }
 
 /** Metadata ringan untuk galeri (tanpa membangun HTML penuh). */
@@ -115,5 +143,6 @@ export function defaultValues(t: TemplateDef): FormValues {
         : f.default;
     }
   }
+  v[ORDER_KEY] = t.parts.map((p) => p.id);
   return v;
 }

@@ -5,7 +5,7 @@ import {
   reasonsSection, creativeSection,
   txt, area, img, toggle, list, sub, AVATAR,
 } from "@/lib/fields";
-import { PROOF_HOOK, GUARANTEE, REASONS, CUSTOM } from "@/data/templates/blocks";
+import { PROOF_STRIP, HOOK_BLOCK, GUARANTEE, REASONS, CUSTOM } from "@/data/templates/blocks";
 
 export const baseLead: BaseLayout = {
   extraCss: `
@@ -82,7 +82,8 @@ export const baseLead: BaseLayout = {
     creativeSection(),
     integrasiSection({ ctaDefault: "Daftar Gratis Sekarang", anchor: true }),
   ],
-  body: String.raw`
+  parts: [
+    { id: "hero", label: "Bagian Atas (Hero)", html: String.raw`
 <header class="hero">
   <div class="wrap">
     <!--IF:logo--><img class="logo" src="{{logo}}" alt="{{brandNama}}" /><!--/IF:logo-->
@@ -99,9 +100,10 @@ export const baseLead: BaseLayout = {
     <!--/IF:countdownAktif-->
     <div class="btn-wrap reveal rd2"><a class="btn pulse" href="{{linkCheckout}}" style="max-width:360px">{{ctaUtama}}</a></div>
   </div>
-</header>
-${PROOF_HOOK}
-
+</header>` },
+    { id: "proof", label: "Bukti & Rating", html: PROOF_STRIP },
+    { id: "hook", label: "Hook Emosional", html: HOOK_BLOCK },
+    { id: "materi", label: "Poin Materi", html: String.raw`
 <section>
   <div class="wrap">
     <h2 class="reveal">{{materiJudul}}</h2>
@@ -109,15 +111,15 @@ ${PROOF_HOOK}
       <!--REPEAT:materiList--><div class="card materi-card reveal" style="margin-bottom:12px"><span class="num">•</span><b>{{judul}}</b><span style="color:var(--lembut)">{{teks}}</span></div><!--/REPEAT:materiList-->
     </div>
   </div>
-</section>
-
+</section>` },
+    { id: "manfaat", label: "Manfaat Ikut", html: String.raw`
 <section style="background:var(--surface)">
   <div class="wrap-sm">
     <h2 class="reveal">{{manfaatJudul}}</h2>
     <ul class="check-list" style="margin-top:20px"><!--REPEAT:manfaatList--><li class="reveal">{{item}}</li><!--/REPEAT:manfaatList--></ul>
   </div>
-</section>
-
+</section>` },
+    { id: "host", label: "Pembicara", html: String.raw`
 <section>
   <div class="wrap">
     <h2 class="reveal">{{hostJudul}}</h2>
@@ -126,12 +128,11 @@ ${PROOF_HOOK}
       <div><div style="font-weight:900;font-size:18px">{{hostNama}}</div><div style="color:var(--aksen);font-weight:700;font-size:14px">{{hostPeran}}</div><p style="color:var(--lembut);font-size:14px;margin-top:6px">{{hostBio}}</p></div>
     </div>
   </div>
-</section>
-
-${REASONS}
-${GUARANTEE}
-${CUSTOM}
-
+</section>` },
+    { id: "alasan", label: "Kenapa Harus Beli", html: REASONS },
+    { id: "garansi", label: "Garansi", html: GUARANTEE },
+    { id: "kreatif", label: "Blok Kreatif", html: CUSTOM },
+    { id: "daftar", label: "Form Pendaftaran", html: String.raw`
 <section class="price-sec" id="daftar">
   <div class="wrap">
     <div class="form-card card reveal" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)">
@@ -146,5 +147,6 @@ ${CUSTOM}
       <p style="color:rgba(255,255,255,.7);font-size:12px;margin-top:12px">{{formCatatan}}</p>
     </div>
   </div>
-</section>`,
+</section>` },
+  ],
 };

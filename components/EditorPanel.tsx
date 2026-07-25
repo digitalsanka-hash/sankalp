@@ -66,6 +66,7 @@ interface Props {
   sections: Section[];
   values: FormValues;
   onChange: (key: string, value: FieldValue) => void;
+  parts?: { id: string; label: string }[]; // untuk panel Susunan Halaman
 }
 
 function fileToDataUrl(file: File): Promise<string> {
@@ -254,22 +255,74 @@ function Field({
   );
 }
 
-// Pengelompokan section jadi fase yang jelas (biar tak terasa campur).
-const GROUPS: { key: string; label: string; num: string; ids: string[] }[] = [
-  { key: "brand", label: "Tampilan & Brand", num: "1", ids: ["branding"] },
-  {
-    key: "konten", label: "Isi Halaman", num: "2",
-    ids: ["hero", "proof", "pain", "benefit", "unggul", "fitur", "layanan", "langkah", "proses", "isi", "detail", "materi", "ba", "testi", "host", "bonus", "faq"],
-  },
-  { key: "market", label: "Hook & Kepercayaan", num: "3", ids: ["hook", "trust", "alasan"] },
-  { key: "tawar", label: "Harga & Urgensi", num: "4", ids: ["harga", "order", "paket", "urgency", "countdown"] },
-  { key: "publish", label: "CTA, Form & Integrasi", num: "5", ids: ["integrasi", "form"] },
-  { key: "kreatif", label: "Area Kreatif — Bebas", num: "★", ids: ["kreatif"] },
-];
+// ---------- Susunan Halaman (reorder bagian, gaya komponen ScaleV) ----------
+function OrderPanel({
+  parts, order, onOrder,
+}: {
+  parts: { id: string; label: string }[];
+  order: string[];
+  onOrder: (o: string[]) => void;
+}) {
+  const [dragIdx, setDragIdx] = useState<number | null>(null);
+  const [overIdx, setOverIdx] = useState<number | null>(null);
 
-function groupOf(id: string): string {
-  const g = GROUPS.find((gr) => gr.ids.includes(id));
-  return g ? g.key : "konten";
+  const labelOf = (id: string) => parts.find((p) => p.id === id)?.label ?? id;
+
+  function move(i: number, d: -1 | 1) {
+    const j = i + d;
+    if (j < 0 || j >= order.length) return;
+    const next = [...order];
+    [next[i], next[j]] = [next[j], next[i]];
+    onOrder(next);
+  }
+  function dropTo(from: number, to: number) {
+    if (from === to) return;
+    const next = [...order];
+    const [x] = next.splice(from, 1);
+    next.splice(to, 0, x);
+    onOrder(next);
+  }
+
+  return (
+    <div className="mb-3 overflow-hidden rounded-2xl border border-ink/10 bg-white shadow-soft">
+      <div className="flex items-center gap-2.5 border-b border-black/5 bg-gray-50/80 px-3.5 py-3">
+        <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-ink text-base text-white">🧱</span>
+        <div className="min-w-0 flex-1">
+          <span className="block font-display text-[14px] font-extrabold tracking-tight text-ink">Susunan Halaman</span>
+          <span className="block text-[11px] text-gray-400">Tarik ⠿ atau pakai ↑↓ untuk mengatur urutan bagian</span>
+        </div>
+      </div>
+      <div className="p-2">
+        {order.map((id, i) => (
+          <div
+            key={id}
+            draggable
+            onDragStart={() => setDragIdx(i)}
+            onDragEnd={() => { setDragIdx(null); setOverIdx(null); }}
+            onDragOver={(e) => { e.preventDefault(); setOverIdx(i); }}
+            onDrop={(e) => { e.preventDefault(); if (dragIdx !== null) dropTo(dragIdx, i); setDragIdx(null); setOverIdx(null); }}
+            className={`mb-1 flex cursor-grab items-center gap-2 rounded-xl border px-2.5 py-2 transition last:mb-0 active:cursor-grabbing ${
+              overIdx === i && dragIdx !== null && dragIdx !== i
+                ? "border-brand-400 bg-brand-50"
+                : dragIdx === i
+                ? "border-brand-300 bg-brand-50/50 opacity-60"
+                : "border-black/[0.06] bg-white hover:border-brand-200"
+            }`}
+          >
+            <span className="select-none text-gray-300">⠿</span>
+            <span className="min-w-0 flex-1 truncate text-[13px] font-semibold text-ink">{labelOf(id)}</span>
+            <div className="flex overflow-hidden rounded-lg border border-black/10">
+              <button type="button" aria-label="Naik" disabled={i === 0} onClick={() => move(i, -1)}
+                className="px-1.5 py-0.5 text-[11px] font-bold text-gray-500 transition hover:bg-brand-50 hover:text-brand-700 disabled:cursor-not-allowed disabled:text-gray-200">↑</button>
+              <span className="w-px bg-black/10" />
+              <button type="button" aria-label="Turun" disabled={i === order.length - 1} onClick={() => move(i, 1)}
+                className="px-1.5 py-0.5 text-[11px] font-bold text-gray-500 transition hover:bg-brand-50 hover:text-brand-700 disabled:cursor-not-allowed disabled:text-gray-200">↓</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function SectionCard({
@@ -300,39 +353,37 @@ function SectionCard({
   );
 }
 
-export default function EditorPanel({ sections, values, onChange }: Props) {
+export default function EditorPanel({ sections, values, onChange, parts }: Props) {
   const [open, setOpen] = useState<string>(sections[0]?.id ?? "");
+
+  // urutan bagian aktif (fallback: urutan default parts)
+  const rawOrder = values["_sectionOrder"];
+  const order: string[] =
+    Array.isArray(rawOrder) && typeof rawOrder[0] === "string"
+      ? (rawOrder as string[])
+      : (parts ?? []).map((p) => p.id);
 
   return (
     <div className="p-2.5">
-      {GROUPS.map((grp) => {
-        const secs = sections.filter((s) => groupOf(s.id) === grp.key);
-        if (secs.length === 0) return null;
-        return (
-          <div key={grp.key} className="mb-4">
-            {/* header grup */}
-            <div className="mb-2 flex items-center gap-2 px-1">
-              <span className="flex h-5 w-5 items-center justify-center rounded-md bg-ink text-[11px] font-black text-white">{grp.num}</span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-gray-400">{grp.label}</span>
-              <span className="h-px flex-1 bg-black/[0.07]" />
-            </div>
-            {grp.key === "kreatif" && (
+      {parts && parts.length > 0 && (
+        <OrderPanel parts={parts} order={order} onOrder={(o) => onChange("_sectionOrder", o)} />
+      )}
+      <div className="space-y-2">
+        {sections.map((sec) => (
+          <div key={sec.id}>
+            {sec.id === "kreatif" && (
               <p className="mb-2 rounded-xl border border-dashed border-brand-300 bg-brand-50/60 px-3 py-2 text-[12px] leading-relaxed text-brand-800">
-                🧩 Di sini Anda <b>bebas berkreasi</b>: tambah judul, teks, poin, kutipan, gambar, tombol, atau garis pemisah — sebanyak apa pun. Urutan tampil mengikuti urutan daftar. Blok ini muncul menjelang akhir halaman.
+                🧩 Di sini Anda <b>bebas berkreasi</b>: tambah judul, teks, poin, kutipan, gambar, tombol, atau garis pemisah — sebanyak apa pun.
               </p>
             )}
-            <div className="space-y-2">
-              {secs.map((sec) => (
-                <SectionCard
-                  key={sec.id} sec={sec} isOpen={open === sec.id}
-                  onToggle={() => setOpen(open === sec.id ? "" : sec.id)}
-                  values={values} onChange={onChange}
-                />
-              ))}
-            </div>
+            <SectionCard
+              sec={sec} isOpen={open === sec.id}
+              onToggle={() => setOpen(open === sec.id ? "" : sec.id)}
+              values={values} onChange={onChange}
+            />
           </div>
-        );
-      })}
+        ))}
+      </div>
     </div>
   );
 }

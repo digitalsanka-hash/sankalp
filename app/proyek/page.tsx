@@ -5,8 +5,8 @@ import Link from "next/link";
 import {
   getProjects, deleteProject, duplicateProject, type Project,
 } from "@/lib/projects";
-import { getTemplate, defaultValues } from "@/lib/templates";
-import { generateHtml, safeFileName } from "@/lib/generateHtml";
+import { getTemplate, defaultValues, renderTemplate } from "@/lib/templates";
+import { safeFileName } from "@/lib/generateHtml";
 import MiniPreview from "@/components/MiniPreview";
 import { useAuth } from "@/components/AuthProvider";
 
@@ -27,7 +27,7 @@ export default function ProyekPage() {
   function download(p: Project) {
     const t = getTemplate(p.template_id);
     if (!t) return;
-    const html = generateHtml(t.html, { ...defaultValues(t), ...p.data_json });
+    const html = renderTemplate(t, { ...defaultValues(t), ...p.data_json });
     const blob = new Blob([html], { type: "text/html;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");

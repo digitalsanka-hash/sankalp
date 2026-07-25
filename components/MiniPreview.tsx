@@ -3,8 +3,8 @@
 // Thumbnail = pratinjau ASLI template (iframe di-skala kecil). Lazy-mount saat
 // kartu masuk viewport agar galeri tetap ringan walau berisi 50 template.
 import { useEffect, useRef, useState } from "react";
-import { getTemplate, defaultValues } from "@/lib/templates";
-import { generateHtml } from "@/lib/generateHtml";
+import { getTemplate, defaultValues, renderTemplate } from "@/lib/templates";
+
 import type { FormValues } from "@/lib/types";
 
 const IFRAME_W = 420; // lebar virtual (tampilan mobile)
@@ -43,7 +43,7 @@ export default function MiniPreview({
   useEffect(() => {
     if (!visible || html) return;
     const t = getTemplate(templateId);
-    if (t) setHtml(generateHtml(t.html, { ...defaultValues(t), ...(values ?? {}) }));
+    if (t) setHtml(renderTemplate(t, { ...defaultValues(t), ...(values ?? {}) }));
   }, [visible, html, templateId, values]);
 
   return (

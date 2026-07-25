@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { getTemplate, defaultValues } from "@/lib/templates";
-import { generateHtml, safeFileName } from "@/lib/generateHtml";
+import { getTemplate, defaultValues, renderTemplate } from "@/lib/templates";
+import { safeFileName } from "@/lib/generateHtml";
 import {
   getProject, createProject, updateProject, type Project,
 } from "@/lib/projects";
@@ -67,7 +67,7 @@ export default function EditorClient({ templateId, projectId }: Props) {
   }, [template, project, projectId, values]);
 
   const html = useMemo(
-    () => (template && values ? generateHtml(template.html, values) : ""),
+    () => (template && values ? renderTemplate(template, values) : ""),
     [template, values]
   );
 
@@ -176,7 +176,12 @@ export default function EditorClient({ templateId, projectId }: Props) {
             <span className="text-base">💡</span>
             <span>Isi kolom di bawah — pratinjau berubah otomatis. Klik <b>Simpan Proyek</b> untuk menyimpan, atau <b>Download HTML</b> untuk file siap deploy.</span>
           </div>
-          <EditorPanel sections={template.sections} values={values} onChange={setField} />
+          <EditorPanel
+            sections={template.sections}
+            values={values}
+            onChange={setField}
+            parts={template.parts.map((p) => ({ id: p.id, label: p.label }))}
+          />
         </div>
 
         <div className={`min-w-0 flex-1 lg:block ${tab === "preview" ? "block" : "hidden"}`}>

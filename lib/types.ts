@@ -42,8 +42,15 @@ export interface Section {
 }
 
 export type ListValue = Record<string, string>[];
-export type FieldValue = string | boolean | ListValue;
+export type FieldValue = string | boolean | ListValue | string[];
 export type FormValues = Record<string, FieldValue>;
+
+/** Bagian halaman yang bisa diatur urutannya (gaya komponen ScaleV). */
+export interface PagePart {
+  id: string;
+  label: string; // nama ramah awam di panel "Susunan Halaman"
+  html: string;  // potongan HTML (placeholder {{field}}/REPEAT/IF)
+}
 
 /** Registry satu template LP. */
 export interface TemplateDef {
@@ -52,7 +59,8 @@ export interface TemplateDef {
   kategori: Kategori;
   ringkas: string; // deskripsi singkat di kartu galeri
   thumbnail: string; // path gambar/emoji preview
-  html: string; // HTML mentah dengan placeholder {{field}}
+  html: string; // shell dokumen ber-tema dengan marker <!--__PARTS__-->
+  parts: PagePart[]; // bagian halaman (urutan default)
   sections: Section[];
 }
 
@@ -72,10 +80,10 @@ export const KATEGORI_LABEL: Record<Kategori, string> = {
   lead: "Lead Magnet / Webinar",
 };
 
-/** Layout dasar (kerangka HTML + skema field). 50 template = varian dari base. */
+/** Layout dasar (kerangka HTML + skema field). Template = varian dari base. */
 export interface BaseLayout {
   sections: Section[];
-  body: string; // HTML body (dibungkus wrapDoc)
+  parts: PagePart[]; // bagian halaman berurut — bisa diatur ulang user
   extraCss?: string;
 }
 

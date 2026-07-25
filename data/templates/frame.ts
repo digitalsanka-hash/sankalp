@@ -105,6 +105,8 @@ h2::after{content:"";display:block;width:44px;height:4px;border-radius:99px;back
 .cb-img{border-radius:var(--radius);max-width:460px;width:100%;margin:18px auto;box-shadow:0 16px 40px rgba(0,0,0,.16)}
 .cb-hr{border:0;height:1px;background:rgba(128,128,128,.22);max-width:220px;margin:30px auto}
 @media(min-width:640px){.hero h1{font-size:46px}.grid-2{grid-template-columns:1fr 1fr}.grid-3{grid-template-columns:repeat(3,1fr)}.hook p{font-size:26px}}
+/* desktop: testimoni jadi grid rapi (tak ada kartu terpotong); mobile tetap slider geser */
+@media(min-width:700px){.tslider{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;padding-bottom:0}.tslider>*{flex:none;max-width:none}}
 `;
 
 const metaPixel = String.raw`<!--IF:metaPixelId-->
