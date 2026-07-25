@@ -23,7 +23,7 @@ export default function MasukPage() {
   return (
     <div className="mx-auto flex max-w-md flex-col items-center px-4 py-20">
       <div className="w-full rounded-3xl border border-black/[0.07] bg-white p-7 shadow-soft">
-        <h1 className="font-display text-2xl font-extrabold tracking-tight text-ink">Masuk ke SankaLP</h1>
+        <h1 className="font-display text-2xl font-extrabold tracking-tight text-ink">Masuk / Daftar</h1>
 
         {!configured ? (
           <p className="mt-3 text-sm text-gray-500">
@@ -47,7 +47,7 @@ export default function MasukPage() {
           </div>
         ) : (
           <form onSubmit={submit} className="mt-4 space-y-3">
-            <p className="text-sm text-gray-500">Masukkan email — kami kirim tautan masuk (tanpa password).</p>
+            <p className="text-sm text-gray-500">Masukkan email — kami kirim tautan masuk (tanpa password). <b className="text-ink">Belum punya akun?</b> Tak masalah, akun otomatis dibuat saat pertama masuk.</p>
             <input
               type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
               placeholder="email@anda.com"
