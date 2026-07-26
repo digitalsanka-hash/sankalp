@@ -111,7 +111,7 @@ export async function adminCreate(
 /** Kirim kode ke email pembeli (lewat API route + Resend). */
 export async function sendCodeEmail(args: {
   adminCode: string; nama: string; email: string; kode: string; masa: string;
-}): Promise<{ ok: boolean; pesan?: string }> {
+}): Promise<{ ok: boolean; pesan?: string; id?: string; from?: string; catatan?: string }> {
   const r = await fetch("/api/send-code", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -125,7 +125,7 @@ export async function sendCodeEmail(args: {
       p_admin: args.adminCode, p_code: args.kode, p_email: args.email,
     });
   } catch (_) {}
-  return { ok: true };
+  return { ok: true, id: d.id, from: d.from, catatan: d.catatan };
 }
 
 export async function adminSetStatus(adminCode: string, code: string, status: "active" | "revoked"): Promise<void> {

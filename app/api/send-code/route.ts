@@ -112,11 +112,27 @@ Simpan email ini baik-baik.`;
     const data = await r.json().catch(() => ({}));
     if (!r.ok) {
       return NextResponse.json(
-        { ok: false, pesan: (data as { message?: string })?.message || `Gagal kirim (${r.status})` },
+        {
+          ok: false,
+          pesan:
+            ((data as { message?: string })?.message || `Gagal kirim (${r.status})`) +
+            ` — pengirim: ${from}`,
+        },
         { status: 502 }
       );
     }
-    return NextResponse.json({ ok: true, id: (data as { id?: string })?.id ?? null });
+    const id = (data as { id?: string })?.id ?? null;
+    // Peringatkan bila masih memakai pengirim uji Resend (hanya bisa ke email
+    // pemilik akun Resend). Ini penyebab paling umum "terkirim tapi tak sampai".
+    const pakaiSandbox = from.includes("resend.dev");
+    return NextResponse.json({
+      ok: true,
+      id,
+      from,
+      catatan: pakaiSandbox
+        ? "PERINGATAN: MAIL_FROM belum diatur — memakai onboarding@resend.dev, hanya bisa mengirim ke email pemilik akun Resend. Set MAIL_FROM ke noreply@domain-anda lalu Redeploy."
+        : null,
+    });
   } catch (e) {
     return NextResponse.json(
       { ok: false, pesan: e instanceof Error ? e.message : "Gagal menghubungi Resend" },

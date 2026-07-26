@@ -261,7 +261,11 @@ Simpan email ini baik-baik. Selamat berkarya! 🚀`;
     setBusy(true); setMsg(null);
     const res = await sendCodeEmail({ adminCode: code, nama, email: email.trim(), kode, masa: masa ?? "lifetime" });
     setBusy(false);
-    if (res.ok) { setMsg({ ok: true, t: `Email terkirim ke ${email}` }); setEmail(""); setNama(""); reload(); }
+    if (res.ok) {
+      const extra = res.catatan ? ` — ⚠️ ${res.catatan}` : res.from ? ` (dari: ${res.from}${res.id ? `, id: ${res.id.slice(0, 8)}` : ""})` : "";
+      setMsg({ ok: !res.catatan, t: `Email terkirim ke ${email}${extra}` });
+      setEmail(""); setNama(""); reload();
+    }
     else setMsg({ ok: false, t: res.pesan ?? "Gagal mengirim." });
   }
 
