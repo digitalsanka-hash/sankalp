@@ -4,8 +4,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/components/AuthProvider";
 import {
-  adminList, adminCreate, adminSetStatus, sendCodeEmail,
-  MASA_OPSI, labelMasa, type CodeRow,
+  adminList, adminCreate, adminSetStatus, sendCodeEmail, adminListUsers,
+  MASA_OPSI, labelMasa, type CodeRow, type AppUser,
 } from "@/lib/access";
 
 const APP_URL = "https://www.sankapage.com";
@@ -18,7 +18,7 @@ function fmt(iso: string | null | undefined) {
 
 export default function AdminPage() {
   const { configured, loading, isAdmin, code } = useAuth();
-  const [tab, setTab] = useState<"kode" | "email">("kode");
+  const [tab, setTab] = useState<"kode" | "user" | "email">("kode");
   const [rows, setRows] = useState<CodeRow[] | null>(null);
   const [err, setErr] = useState<string | null>(null);
 
@@ -39,7 +39,7 @@ export default function AdminPage() {
 
       {/* Tab */}
       <div className="mt-6 inline-flex rounded-2xl border border-black/10 bg-white p-1 shadow-soft">
-        {([["kode", "🔑 Kode"], ["email", "✉️ Email"]] as const).map(([k, l]) => (
+        {([["kode", "🔑 Kode"], ["user", "👥 User"], ["email", "✉️ Email"]] as const).map(([k, l]) => (
           <button key={k} onClick={() => setTab(k)}
             className={`rounded-xl px-5 py-2.5 text-sm font-bold transition ${tab === k ? "bg-ink text-white shadow-soft" : "text-gray-500 hover:text-ink"}`}>
             {l}
@@ -50,9 +50,13 @@ export default function AdminPage() {
       {err && <p className="mt-4 rounded-xl bg-rose-50 p-3 text-sm text-rose-600">{err}</p>}
 
       <div className="mt-5">
-        {tab === "kode"
-          ? <TabKode code={code} rows={rows} reload={load} setErr={setErr} />
-          : <TabEmail code={code} rows={rows} reload={load} />}
+        {tab === "kode" ? (
+          <TabKode code={code} rows={rows} reload={load} setErr={setErr} />
+        ) : tab === "user" ? (
+          <TabUser code={code} />
+        ) : (
+          <TabEmail code={code} rows={rows} reload={load} />
+        )}
       </div>
     </div>
   );
@@ -311,6 +315,66 @@ Simpan email ini baik-baik. Selamat berkarya! 🚀`;
           </button>
         </div>
         <pre className="overflow-x-auto whitespace-pre-wrap rounded-2xl border border-black/[0.07] bg-white p-5 text-[13.5px] leading-relaxed text-gray-700 shadow-soft">{preview}</pre>
+      </div>
+    </>
+  );
+}
+
+/* ============================ TAB: USER ============================ */
+function TabUser({ code }: { code: string }) {
+  const [rows, setRows] = useState<AppUser[] | null>(null);
+  const [q, setQ] = useState("");
+  const [err, setErr] = useState<string | null>(null);
+
+  const load = useCallback(() => {
+    adminListUsers(code).then(setRows).catch((e) => setErr(e instanceof Error ? e.message : String(e)));
+  }, [code]);
+  useEffect(() => { load(); }, [load]);
+
+  const list = (rows ?? []).filter((u) =>
+    `${u.username} ${u.nama} ${u.kode}`.toLowerCase().includes(q.trim().toLowerCase()));
+
+  return (
+    <>
+      <div className="mb-4 flex items-center gap-3">
+        <div className="rounded-2xl border border-black/[0.07] bg-white px-4 py-3 shadow-soft">
+          <div className="text-[11px] font-bold uppercase tracking-wide text-gray-400">Total pengguna</div>
+          <div className="font-display text-2xl font-extrabold text-ink">{rows?.length ?? 0}</div>
+        </div>
+        <input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cari nama / username / kode…"
+          className="flex-1 rounded-xl border border-black/10 px-4 py-2.5 text-sm outline-none focus:border-brand-400" />
+        <button onClick={load} className="rounded-xl border border-black/10 px-4 py-2.5 text-sm font-semibold text-gray-600 hover:border-brand-300">↻</button>
+      </div>
+
+      {err && <p className="mb-3 rounded-xl bg-rose-50 p-3 text-sm text-rose-600">{err}</p>}
+
+      <div className="overflow-x-auto rounded-2xl border border-black/[0.07] bg-white shadow-soft">
+        <table className="w-full text-sm">
+          <thead className="border-b border-black/5 bg-gray-50 text-left text-xs uppercase tracking-wide text-gray-400">
+            <tr>
+              <th className="px-4 py-3">Username</th><th className="px-4 py-3">Nama</th>
+              <th className="px-4 py-3">Kode</th><th className="px-4 py-3">Daftar</th>
+              <th className="px-4 py-3">Masa</th><th className="px-4 py-3">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {list.map((u) => (
+              <tr key={u.username} className="border-b border-black/[0.04] last:border-0">
+                <td className="whitespace-nowrap px-4 py-3 font-mono font-bold text-ink">@{u.username}</td>
+                <td className="px-4 py-3 text-gray-700">{u.nama}</td>
+                <td className="whitespace-nowrap px-4 py-3 font-mono text-xs text-gray-500">{u.kode}</td>
+                <td className="whitespace-nowrap px-4 py-3 text-gray-500">{fmt(u.created_at)}</td>
+                <td className="whitespace-nowrap px-4 py-3 text-gray-500">{labelMasa(u.masa_aktif)}</td>
+                <td className="px-4 py-3">
+                  <span className={`rounded-full px-2.5 py-1 text-xs font-bold ${u.status === "active" ? "bg-brand-50 text-brand-700" : "bg-gray-100 text-gray-500"}`}>
+                    {u.status === "active" ? "AKTIF" : "NONAKTIF"}
+                  </span>
+                </td>
+              </tr>
+            ))}
+            {list.length === 0 && <tr><td colSpan={6} className="px-4 py-10 text-center text-gray-400">Belum ada pengguna terdaftar.</td></tr>}
+          </tbody>
+        </table>
       </div>
     </>
   );

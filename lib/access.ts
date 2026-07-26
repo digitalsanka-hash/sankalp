@@ -5,6 +5,23 @@
 import { supabase } from "./supabase";
 
 const KEY = "sankalp_access_code";
+const KEY_USER = "sankapage_identitas";
+
+export interface Identitas { nama: string; username: string }
+
+export function savedIdentitas(): Identitas | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(KEY_USER);
+    return raw ? (JSON.parse(raw) as Identitas) : null;
+  } catch { return null; }
+}
+export function saveIdentitas(i: Identitas) {
+  if (typeof window !== "undefined") window.localStorage.setItem(KEY_USER, JSON.stringify(i));
+}
+export function clearIdentitas() {
+  if (typeof window !== "undefined") window.localStorage.removeItem(KEY_USER);
+}
 
 export interface CodeRow {
   code: string;
@@ -44,15 +61,24 @@ export function clearCode() {
   if (typeof window !== "undefined") window.localStorage.removeItem(KEY);
 }
 
-/** Tebus kode (aktivasi pertama). */
-export async function redeem(code: string, label?: string): Promise<{ ok: boolean; role?: "user" | "admin"; pesan: string }> {
+/** Cek ketersediaan username (dipakai saat mengetik di form). */
+export async function cekUsername(username: string): Promise<{ ok: boolean; pesan?: string }> {
+  if (!supabase) return { ok: true };
+  const { data, error } = await supabase.rpc("username_tersedia", { p_username: username });
+  if (error) return { ok: false, pesan: error.message };
+  return data as { ok: boolean; pesan?: string };
+}
+
+/** Tebus kode + daftar identitas. Nama & username WAJIB, username unik. */
+export async function redeem(
+  code: string, nama: string, username: string
+): Promise<{ ok: boolean; role?: "user" | "admin"; username?: string; nama?: string; pesan: string }> {
   if (!supabase) return { ok: false, pesan: "Sistem kode belum aktif (Supabase belum dikonfigurasi)." };
-  const { data, error } = await supabase.rpc("redeem_code", {
-    p_code: code.trim(),
-    p_label: label ?? null,
+  const { data, error } = await supabase.rpc("redeem_code_v2", {
+    p_code: code.trim(), p_nama: nama, p_username: username,
   });
   if (error) return { ok: false, pesan: error.message };
-  return data as { ok: boolean; role?: "user" | "admin"; pesan: string };
+  return data as { ok: boolean; role?: "user" | "admin"; username?: string; nama?: string; pesan: string };
 }
 
 /** Cek ulang kode yang tersimpan (dipanggil saat app dibuka). */
@@ -108,4 +134,18 @@ export async function adminSetStatus(adminCode: string, code: string, status: "a
     p_admin: adminCode, p_code: code, p_status: status,
   });
   if (error) throw error;
+}
+
+export interface AppUser {
+  username: string; nama: string; kode: string;
+  created_at: string; last_seen: string | null;
+  status: string; masa_aktif: string | null; expires_at: string | null;
+}
+
+/** ADMIN: daftar semua pengguna terdaftar. */
+export async function adminListUsers(adminCode: string): Promise<AppUser[]> {
+  if (!supabase) return [];
+  const { data, error } = await supabase.rpc("admin_list_users", { p_admin: adminCode });
+  if (error) throw error;
+  return (data ?? []) as AppUser[];
 }
