@@ -1,5 +1,5 @@
 -- ==================================================================
--- SankaLP — Skema Database (FASE 2)
+-- SankaPage — Skema Database (FASE 2)
 -- ------------------------------------------------------------------
 -- JANGAN dijalankan di Fase 1. Ini disiapkan untuk nanti saat Supabase
 -- + auth diaktifkan. Jalankan di Supabase Dashboard > SQL Editor.

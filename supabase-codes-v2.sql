@@ -1,5 +1,5 @@
 -- ==================================================================
--- SankaLP — TAMBAHAN v2: masa aktif kode + catatan email pembeli
+-- SankaPage — TAMBAHAN v2: masa aktif kode + catatan email pembeli
 -- Jalankan SETELAH supabase-codes.sql. Aman dijalankan berulang.
 -- ==================================================================
 

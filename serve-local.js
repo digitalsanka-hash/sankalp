@@ -1,4 +1,4 @@
-// serve-local.js — server statis kecil untuk membuka SankaLP secara lokal.
+// serve-local.js — server statis kecil untuk membuka SankaPage secara lokal.
 // Menyajikan folder ./out (hasil build). Tanpa internet / tanpa install apa pun
 // (cukup Node.js). Jalankan lewat BUKA-APP.bat.
 const http = require("http");
@@ -61,7 +61,7 @@ http
   })
   .listen(port, () => {
     const url = "http://localhost:" + port;
-    console.log("\n  SankaLP jalan di: " + url);
+    console.log("\n  SankaPage jalan di: " + url);
     console.log("  (Biarkan jendela ini terbuka. Tutup jendela = matikan aplikasi.)\n");
     exec('start "" ' + url); // buka browser otomatis (Windows)
   });

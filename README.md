@@ -1,4 +1,4 @@
-# SankaLP
+# SankaPage
 
 Platform template **Landing Page (LP) high-conversion** yang bisa diedit orang awam (tanpa koding), lalu diunduh sebagai HTML mandiri untuk di-deploy ke **ScaleV**.
 

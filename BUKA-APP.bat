@@ -1,7 +1,7 @@
 @echo off
-title SankaLP - Aplikasi Lokal
+title SankaPage - Aplikasi Lokal
 echo ============================================
-echo   SankaLP - Membuka aplikasi...
+echo   SankaPage - Membuka aplikasi...
 echo   Browser akan terbuka otomatis.
 echo   JANGAN tutup jendela hitam ini selama pakai.
 echo ============================================

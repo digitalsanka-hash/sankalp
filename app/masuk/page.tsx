@@ -35,7 +35,7 @@ export default function AktivasiPage() {
       {/* logo besar */}
       <Image
         src="/branding/sankalp-logo.png"
-        alt="SankaLP"
+        alt="SankaPage"
         width={88}
         height={88}
         priority
@@ -43,7 +43,7 @@ export default function AktivasiPage() {
         style={{ width: 88, height: 88 }}
       />
       <p className="mt-3 font-display text-xl font-extrabold tracking-tight text-ink">
-        Sanka<span className="text-brand-600">LP</span>
+        Sanka<span className="text-brand-600">Page</span>
       </p>
 
       {!configured ? (

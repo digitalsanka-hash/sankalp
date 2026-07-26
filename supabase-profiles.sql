@@ -1,5 +1,5 @@
 -- ==================================================================
--- SankaLP — Profiles + Admin + Kontrol Akses (Fase 2)
+-- SankaPage — Profiles + Admin + Kontrol Akses (Fase 2)
 -- Jalankan SETELAH supabase-schema.sql, di Supabase > SQL Editor.
 -- Aman dijalankan ulang (idempoten).
 -- ==================================================================

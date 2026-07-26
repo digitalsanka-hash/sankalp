@@ -1,4 +1,4 @@
-# Panduan Deploy SankaLP — Supabase + Vercel
+# Panduan Deploy SankaPage — Supabase + Vercel
 
 > Aplikasi **sudah bisa langsung di-deploy ke Vercel apa adanya** (proyek user tersimpan di browser via localStorage).
 > **Supabase belum wajib** untuk online — itu untuk Fase 2 (simpan proyek di cloud + login lintas perangkat). Ikuti Bagian A dulu kalau mau tabelnya siap, atau langsung Bagian B untuk online cepat.
@@ -81,7 +81,7 @@ vercel --prod
    cd "D:/ASDP/02. PROJEK/files/sankalp"
    git init
    git add .
-   git commit -m "SankaLP"
+   git commit -m "SankaPage"
    git branch -M main
    git remote add origin https://github.com/USERNAME/sankalp.git
    git push -u origin main

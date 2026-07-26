@@ -8,7 +8,7 @@ import {
   MASA_OPSI, labelMasa, type CodeRow,
 } from "@/lib/access";
 
-const APP_URL = "https://sankalp-rho-gold.vercel.app";
+const APP_URL = "https://www.sankapage.com";
 
 function fmt(iso: string | null | undefined) {
   if (!iso) return "—";
@@ -75,7 +75,7 @@ function TabKode({ code, rows, reload, setErr }: {
     setCopied(tag); setTimeout(() => setCopied(null), 1600);
   }
   const pesanWA = (kode: string, m?: string | null) =>
-    `Halo! Terima kasih sudah membeli SankaLP 🎉\n\n🔑 KODE AKSES: ${kode}\n⏳ Masa aktif: ${labelMasa(m)}\n\nCara aktifkan (1 menit):\n1. Buka ${APP_URL}/masuk\n2. Tempel kode di atas\n3. Klik "Aktifkan Sekarang"\n\nSelamat berkarya! 🚀`;
+    `Halo! Terima kasih sudah membeli SankaPage 🎉\n\n🔑 KODE AKSES: ${kode}\n⏳ Masa aktif: ${labelMasa(m)}\n\nCara aktifkan (1 menit):\n1. Buka ${APP_URL}/masuk\n2. Tempel kode di atas\n3. Klik "Aktifkan Sekarang"\n\nSelamat berkarya! 🚀`;
 
   async function buat() {
     setBusy(true); setErr(null);
@@ -237,7 +237,7 @@ function TabEmail({ code, rows, reload }: { code: string; rows: CodeRow[] | null
   const dipilih = tersedia.find((r) => r.code === kode) ?? (rows ?? []).find((r) => r.code === kode);
   const masa = dipilih?.masa_aktif ?? "lifetime";
 
-  const preview = `Halo ${nama || "[nama pembeli]"} 👋 Terima kasih sudah membeli SankaLP 🎉
+  const preview = `Halo ${nama || "[nama pembeli]"} 👋 Terima kasih sudah membeli SankaPage 🎉
 
 Ini akses kamu:
 

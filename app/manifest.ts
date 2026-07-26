@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "SankaLP — Landing Page Builder",
-    short_name: "SankaLP",
+    name: "SankaPage — Landing Page Builder",
+    short_name: "SankaPage",
     description:
       "Buat landing page jualan high-conversion tanpa koding.",
     start_url: "/",

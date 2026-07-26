@@ -6,7 +6,7 @@ import { AuthProvider } from "@/components/AuthProvider";
 import AuthButton from "@/components/AuthButton";
 
 export const metadata: Metadata = {
-  title: "SankaLP — Buat Landing Page Jualan Tanpa Koding",
+  title: "SankaPage — Buat Landing Page Jualan Tanpa Koding",
   description:
     "Pilih template landing page high-conversion, edit dengan mudah, unduh HTML siap deploy ke ScaleV. Untuk penjual produk digital & fisik.",
   icons: {
@@ -43,8 +43,8 @@ export default function RootLayout({
                 priority
                 className="h-10 w-10 rounded-[13px] shadow-glow transition duration-300 group-hover:-rotate-3 group-hover:scale-105"
               />
-              <span className="font-display text-xl font-extrabold tracking-tight text-ink">
-                Sanka<span className="text-brand-600">LP</span>
+              <span className="hidden font-display text-xl font-extrabold tracking-tight text-ink sm:inline">
+                Sanka<span className="text-brand-600">Page</span>
               </span>
             </Link>
 
@@ -91,7 +91,7 @@ export default function RootLayout({
                 height={28}
                 className="h-7 w-7 rounded-lg"
               />
-              <span className="font-display font-extrabold text-ink">SankaLP</span>
+              <span className="font-display font-extrabold text-ink">SankaPage</span>
             </div>
             <p className="text-sm text-gray-400">
               Landing page high-conversion tanpa koding

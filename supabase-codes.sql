@@ -1,5 +1,5 @@
 -- ==================================================================
--- SankaLP — SISTEM KODE AKSES (gaya FinPlan)
+-- SankaPage — SISTEM KODE AKSES (gaya FinPlan)
 -- Jalankan di Supabase > SQL Editor. Aman dijalankan berulang.
 --
 -- Konsep:

@@ -1,5 +1,5 @@
 @echo off
-title SankaLP - Build Ulang Versi Statis
+title SankaPage - Build Ulang Versi Statis
 cd /d "%~dp0"
 echo ============================================
 echo   Membangun ulang versi statis (folder out)
