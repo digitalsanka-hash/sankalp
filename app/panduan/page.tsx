@@ -54,6 +54,36 @@ export default function PanduanPage() {
         ))}
       </div>
 
+      {/* 0 — kenapa Landing Page */}
+      <section className="mt-10">
+        <H2>Kenapa Landing Page Itu Kunci Jualan yang Cuan</H2>
+        <p className="text-[15px] leading-relaxed text-gray-600">
+          <b>Landing Page</b> adalah satu halaman yang dibuat khusus untuk menjual <b>satu</b> produk. Beda dengan
+          toko online, link bio, atau feed sosmed — di sana pengunjung punya banyak jalan keluar. Di Landing Page,
+          mereka hanya punya dua pilihan: <b>beli</b>, atau tutup. Fokus itulah yang menaikkan penjualan.
+        </p>
+        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+          {[
+            ["🎯", "Satu halaman, satu tujuan", "Tanpa menu & tautan lain yang menggoda pengunjung pergi. Semua isi halaman mengarah ke satu tombol: pesan sekarang."],
+            ["🧠", "Menjawab sebelum ditanya", "Harga, kualitas, garansi, cara pesan, bukti pembeli lain — dijelaskan sekali, lalu bekerja 24 jam tanpa Anda balas chat satu per satu."],
+            ["💸", "Bikin iklan balik modal", "Trafik makin mahal. Naik dari 1% jadi 3% konversi berarti omzet 3x lipat — dengan budget iklan yang sama."],
+            ["🏷️", "Lepas dari perang harga", "Di marketplace Anda diadu harga dengan penjual sebelah. Di Landing Page sendiri Anda menjual nilai, bonus, dan garansi."],
+            ["📈", "Data untuk iklan ulang", "Meta Pixel merekam tiap pengunjung, jadi yang belum beli bisa dikejar lagi dengan iklan. Link bio & marketplace tidak memberi data itu."],
+            ["🏠", "Aset milik Anda sendiri", "Link dan file halamannya milik Anda. Algoritma sosmed berubah atau akun kena limit, halaman jualan Anda tetap jalan."],
+          ].map(([e, t, d]) => (
+            <div key={t} className="rounded-2xl border border-black/[0.07] bg-white p-4 shadow-soft">
+              <div className="text-2xl">{e}</div>
+              <h3 className="mt-1 font-display font-extrabold tracking-tight text-ink">{t}</h3>
+              <p className="mt-1 text-sm leading-relaxed text-gray-600">{d}</p>
+            </div>
+          ))}
+        </div>
+        <p className="mt-5 rounded-2xl border border-brand-200 bg-brand-50 px-4 py-3 text-[15px] font-semibold text-brand-800">
+          Iklan mencari orang. Konten menarik perhatian. Tapi yang menutup penjualan adalah Landing Page.
+          Tanpa itu, trafik cuma lewat.
+        </p>
+      </section>
+
       {/* 1 */}
       <section className="mt-10">
         <H2>1. Memilih & Mengedit Template</H2>
@@ -80,13 +110,13 @@ export default function PanduanPage() {
           Galeri = template contoh (tetap). <b>Proyek Saya</b> = salinan milik Anda yang bisa disimpan & diedit ulang kapan saja.
         </div>
         <Step n={1} title="Beri Nama Proyek">
-          <p>Di kiri atas Studio ada nama proyek (bisa diklik untuk diubah). Beri nama yang mudah dikenali, misal “LP Serum – Promo Agustus”.</p>
+          <p>Di kiri atas Studio ada nama proyek (bisa diklik untuk diubah). Beri nama yang mudah dikenali, misal “Landing Page Serum – Promo Agustus”.</p>
         </Step>
         <Step n={2} title="Klik 'Simpan Proyek'">
           <p>Proyek tersimpan di browser Anda. Muncul tanda <b>✓ Tersimpan</b>. Anda bisa menutup halaman dan melanjutkannya nanti.</p>
         </Step>
         <Step n={3} title="Buka 'Proyek Saya'">
-          <p>Di menu atas klik <Link href="/proyek" className="font-semibold text-brand-600">Proyek Saya</Link> untuk melihat semua LP tersimpan. Tiap proyek bisa: <b>Lanjut Edit</b>, <b>Download</b> (⬇️), <b>Duplikat</b> (⧉), atau <b>Hapus</b> (🗑️).</p>
+          <p>Di menu atas klik <Link href="/proyek" className="font-semibold text-brand-600">Proyek Saya</Link> untuk melihat semua Landing Page tersimpan. Tiap proyek bisa: <b>Lanjut Edit</b>, <b>Download</b> (⬇️), <b>Duplikat</b> (⧉), atau <b>Hapus</b> (🗑️).</p>
         </Step>
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
           <b>Penting:</b> proyek disimpan di penyimpanan lokal browser. Jika Anda menghapus data/cache browser atau ganti perangkat, proyek bisa hilang. Selalu <b>Download HTML</b> untuk berjaga-jaga.
@@ -150,7 +180,7 @@ export default function PanduanPage() {
           <p>Kembali ke ScaleV, klik di dalam kotak kode, tekan <span className="font-mono">Ctrl+V</span> (tempel). Pastikan seluruh kode masuk — dari <span className="font-mono">&lt;!DOCTYPE html&gt;</span> paling atas sampai <span className="font-mono">&lt;/html&gt;</span> paling bawah.</p>
         </Step>
         <Step n={7} title="Simpan & Publish">
-          <p>Klik <b>Simpan</b> lalu <b>Publish</b>. ScaleV memberi Anda sebuah <b>link (URL)</b> halaman. Itulah landing page Anda yang siap disebar ke iklan / WhatsApp / bio sosmed.</p>
+          <p>Klik <b>Simpan</b> lalu <b>Publish</b>. ScaleV memberi Anda sebuah <b>link (URL)</b> halaman. Itulah Landing Page Anda yang siap disebar ke iklan / WhatsApp / bio sosmed.</p>
         </Step>
 
         <div className="my-5 mb-3 rounded-xl bg-gray-100 px-4 py-2 text-sm font-bold text-ink">Cara B — Hubungkan Tombol ke Produk ScaleV</div>

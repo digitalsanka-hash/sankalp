@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "SankaPage — Landing Page Builder",
     short_name: "SankaPage",
     description:
-      "Buat landing page jualan high-conversion tanpa koding.",
+      "Buat Landing Page jualan high-conversion tanpa koding.",
     start_url: "/",
     display: "standalone",
     background_color: "#f8faf9",

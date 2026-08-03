@@ -1,4 +1,4 @@
-// scripts/gen-previews.ts — generate HTML LP ASLI (dari engine) untuk bukti
+// scripts/gen-previews.ts — generate HTML Landing Page ASLI (dari engine) untuk bukti
 // di sales page. Dibundel esbuild lalu dijalankan node.
 import { getTemplate, defaultValues, renderTemplate } from "@/lib/templates";
 

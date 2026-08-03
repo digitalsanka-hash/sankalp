@@ -1,6 +1,6 @@
 # SankaPage
 
-Platform template **Landing Page (LP) high-conversion** yang bisa diedit orang awam (tanpa koding), lalu diunduh sebagai HTML mandiri untuk di-deploy ke **ScaleV**.
+Platform template **Landing Page (Landing Page) high-conversion** yang bisa diedit orang awam (tanpa koding), lalu diunduh sebagai HTML mandiri untuk di-deploy ke **ScaleV**.
 
 Target pengguna: penjual produk **digital** & **fisik** di Indonesia yang gaptek.
 

@@ -82,7 +82,7 @@ export async function POST(req: Request) {
       Ada kendala? Balas email ini, kami bantu.
     </p>
   </div>
-  <p style="text-align:center;font-size:12px;color:#9aa5a0;margin:16px 0 0">© SankaPage — Landing page high-conversion tanpa koding</p>
+  <p style="text-align:center;font-size:12px;color:#9aa5a0;margin:16px 0 0">© SankaPage — Landing Page high-conversion tanpa koding</p>
 </div></body></html>`;
 
   const text = `Halo ${nama}!

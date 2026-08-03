@@ -1,5 +1,5 @@
 "use client";
-// app/proyek/page.tsx — "Proyek Saya": daftar LP tersimpan (cloud/lokal).
+// app/proyek/page.tsx — "Proyek Saya": daftar Landing Page tersimpan (cloud/lokal).
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import {
@@ -49,7 +49,7 @@ export default function ProyekPage() {
       <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
         <div>
           <h1 className="font-display text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Proyek Saya</h1>
-          <p className="mt-1 text-gray-500">Semua landing page yang Anda simpan. Lanjut edit kapan saja.</p>
+          <p className="mt-1 text-gray-500">Semua Landing Page yang Anda simpan. Lanjut edit kapan saja.</p>
         </div>
         <Link href="/" className="rounded-xl bg-brand-600 px-5 py-2.5 text-sm font-bold text-white shadow-soft transition hover:bg-brand-700">+ Buat dari Galeri</Link>
       </div>

@@ -14,13 +14,13 @@ interface AccessCtx {
   configured: boolean;
   isAdmin: boolean;
   isActive: boolean; // boleh simpan & unduh
-  activate: (code: string, nama: string, username: string) => Promise<{ ok: boolean; pesan: string }>;
+  activate: (code: string, nama: string, username: string) => Promise<{ ok: boolean; pesan: string; role?: "user" | "admin" | null }>;
   logout: () => void;
 }
 
 const Ctx = createContext<AccessCtx>({
   code: "", identitas: null, role: null, loading: true, configured: false,
-  isAdmin: false, isActive: true,
+  isAdmin: false, isActive: false,
   activate: async () => ({ ok: false, pesan: "Belum aktif" }),
   logout: () => {},
 });
@@ -52,14 +52,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       const id: Identitas = { nama: res.nama ?? nama, username: res.username ?? username };
       saveIdentitas(id); setIdentitas(id);
     }
-    return { ok: res.ok, pesan: res.pesan };
+    return { ok: res.ok, pesan: res.pesan, role: res.role ?? null };
   }, []);
 
   const logout = useCallback(() => { clearCode(); clearIdentitas(); setCode(""); setRole(null); setIdentitas(null); }, []);
 
   const isAdmin = role === "admin";
-  // Tanpa Supabase -> terbuka (mode lokal). Dengan Supabase -> butuh kode valid.
-  const isActive = !configured ? true : role !== null;
+  // GAGAL-TERTUTUP: akses hanya aktif kalau Supabase tersambung DAN kode terbukti sah.
+  // Kalau koneksi belum diatur, aplikasi terkunci — bukan terbuka.
+  const isActive = configured && role !== null;
 
   return (
     <Ctx.Provider value={{ code, identitas, role, loading, configured, isAdmin, isActive, activate, logout }}>

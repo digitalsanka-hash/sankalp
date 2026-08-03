@@ -52,6 +52,17 @@ export default function GalleryPage() {
             lead magnet. Edit semudah mengisi formulir, unduh HTML — siap deploy ke ScaleV.
           </p>
 
+          {/* kenapa Landing Page */}
+          <div className="fade-up fade-up-3 mx-auto mt-8 max-w-3xl rounded-2xl border border-black/[0.07] bg-white/80 p-4 shadow-soft backdrop-blur">
+            <p className="text-sm font-semibold text-ink">
+              Kenapa Landing Page? Karena di sanalah penjualan ditutup.
+            </p>
+            <div className="mt-3 grid gap-2 text-left text-[13px] leading-relaxed text-gray-600 sm:grid-cols-3">
+              <p><b className="text-ink">🎯 Satu tujuan.</b> Tanpa menu & tautan lain — pengunjung cuma bisa beli atau tutup.</p>
+              <p><b className="text-ink">🧠 Menjawab keraguan.</b> Harga, bukti, garansi dijelaskan sekali, bekerja 24 jam.</p>
+              <p><b className="text-ink">💸 Iklan balik modal.</b> Konversi 1% → 3% artinya omzet 3x, budget iklan tetap.</p>
+            </div>
+          </div>
         </section>
 
         {/* BAR KONTROL — search + kategori + niche, satu baris ramping */}

@@ -9,61 +9,61 @@ const v = (
 export const VARIANTS: Variant[] = [
   // ============ SALES — DIGITAL (kelas/ebook/template) ============
   v("course-bisnis", "Kelas Bisnis Online", "digital", "Kelas Bisnis", "📈", "sales", "emerald",
-    "LP kelas bisnis online — dari nol sampai cuan pertama.", {
+    "Landing Page kelas bisnis online — dari nol sampai cuan pertama.", {
       heroEyebrow: "KELAS BISNIS ONLINE", heroHeadline: "Bangun Bisnis Online yang Menghasilkan, Walau Mulai dari Nol",
       heroSub: "Sistem lengkap step-by-step: dari cari produk, jualan, sampai closing. Sudah dipakai 1.200+ alumni.",
       ctaUtama: "Gabung Kelas Sekarang", hargaCoret: "Rp499.000", hargaJual: "Rp149.000", hargaSave: "HEMAT 70%",
     }),
   v("ebook-masak", "Ebook Resep Masakan", "digital", "Kuliner", "🍳", "sales", "cream",
-    "LP ebook kumpulan resep praktis rumahan.", {
+    "Landing Page ebook kumpulan resep praktis rumahan.", {
       heroEyebrow: "100+ RESEP PRAKTIS", heroHeadline: "Masak Enak Setiap Hari Tanpa Bingung Menu, Cukup Ikuti Resepnya",
       heroSub: "100+ resep rumahan bergambar, bahan mudah, langkah simpel. Cocok untuk pemula sekalipun.",
       ctaUtama: "Ambil Ebook Sekarang", hargaCoret: "Rp150.000", hargaJual: "Rp47.000", hargaSave: "HEMAT 68%",
     }),
   v("kelas-desain", "Kelas Desain Grafis", "digital", "Desain", "🎨", "sales", "violet",
-    "LP kelas desain grafis untuk pemula & freelancer.", {
+    "Landing Page kelas desain grafis untuk pemula & freelancer.", {
       heroEyebrow: "KELAS DESAIN DARI NOL", heroHeadline: "Jago Desain Grafis dari Nol & Hasilkan Uang dari Skill Baru",
       heroSub: "Belajar Canva sampai profesional, plus cara dapat klien pertama. Tanpa perlu kuliah desain.",
       ctaUtama: "Mulai Belajar Desain", hargaCoret: "Rp399.000", hargaJual: "Rp99.000", hargaSave: "HEMAT 75%",
     }),
   v("kelas-bahasa", "Kelas Bahasa Inggris", "digital", "Bahasa", "🗣️", "sales", "ocean",
-    "LP kelas bahasa Inggris percakapan sehari-hari.", {
+    "Landing Page kelas bahasa Inggris percakapan sehari-hari.", {
       heroEyebrow: "ENGLISH FOR EVERYONE", heroHeadline: "Lancar Ngobrol Bahasa Inggris dalam 30 Hari, Tanpa Grammar Rumit",
       heroSub: "Metode praktis fokus percakapan. Cocok untuk kerja, traveling, dan naik level karier.",
       ctaUtama: "Daftar Kelas Sekarang", hargaCoret: "Rp350.000", hargaJual: "Rp97.000", hargaSave: "HEMAT 72%",
     }),
   v("kelas-trading", "Kelas Trading & Saham", "digital", "Investasi", "📊", "sales", "goldblack",
-    "LP kelas trading/saham untuk pemula, fokus manajemen risiko.", {
+    "Landing Page kelas trading/saham untuk pemula, fokus manajemen risiko.", {
       heroEyebrow: "KELAS INVESTASI PEMULA", heroHeadline: "Pahami Trading & Saham dengan Benar, Bukan Sekadar Ikut-ikutan",
       heroSub: "Belajar analisa, kelola risiko, dan disiplin. Fokus edukasi — bukan janji cepat kaya.",
       ctaUtama: "Ikut Kelas Sekarang", hargaCoret: "Rp799.000", hargaJual: "Rp249.000", hargaSave: "HEMAT 68%",
     }),
   v("template-notion", "Template Produktivitas Notion", "digital", "Template", "🗂️", "sales", "sky",
-    "LP jualan template Notion untuk atur hidup & kerja.", {
+    "Landing Page jualan template Notion untuk atur hidup & kerja.", {
       heroEyebrow: "TEMPLATE SIAP PAKAI", heroHeadline: "Atur Hidup & Kerja Jadi Rapi dengan 1 Dashboard Notion Ini",
       heroSub: "Template all-in-one: to-do, keuangan, jurnal, target. Tinggal duplikat, langsung pakai.",
       ctaUtama: "Beli Template Sekarang", hargaCoret: "Rp199.000", hargaJual: "Rp59.000", hargaSave: "HEMAT 70%",
     }),
   v("kelas-parenting", "Kelas Parenting", "digital", "Parenting", "👨‍👩‍👧", "sales", "coral",
-    "LP kelas parenting anak usia dini.", {
+    "Landing Page kelas parenting anak usia dini.", {
       heroEyebrow: "KELAS UNTUK ORANG TUA", heroHeadline: "Didik Anak dengan Tenang & Percaya Diri, Tanpa Drama Setiap Hari",
       heroSub: "Panduan praktis mengatasi tantrum, membangun disiplin, dan bonding. Dari psikolog anak.",
       ctaUtama: "Gabung Kelas Sekarang", hargaCoret: "Rp299.000", hargaJual: "Rp89.000", hargaSave: "HEMAT 70%",
     }),
   v("kelas-fotografi", "Kelas Fotografi HP", "digital", "Fotografi", "📷", "sales", "midnight",
-    "LP kelas fotografi pakai HP untuk konten & jualan.", {
+    "Landing Page kelas fotografi pakai HP untuk konten & jualan.", {
       heroEyebrow: "FOTO KEREN CUKUP PAKAI HP", heroHeadline: "Hasilkan Foto Produk & Konten Estetik Cukup dengan HP Anda",
       heroSub: "Teknik komposisi, lighting, dan editing yang bikin foto naik kelas. Tanpa kamera mahal.",
       ctaUtama: "Mulai Belajar Foto", hargaCoret: "Rp250.000", hargaJual: "Rp79.000", hargaSave: "HEMAT 68%",
     }),
   v("kelas-quran", "Kelas Tahsin Al-Quran", "digital", "Religi", "🕌", "sales", "forest",
-    "LP kelas tahsin/ngaji online untuk dewasa & pemula.", {
+    "Landing Page kelas tahsin/ngaji online untuk dewasa & pemula.", {
       heroEyebrow: "BELAJAR NGAJI DARI DASAR", heroHeadline: "Perbaiki Bacaan Al-Quran dengan Tartil, Belajar dari Rumah",
       heroSub: "Bimbingan tahsin bertahap dari ustadz bersanad. Fleksibel, cocok untuk yang sibuk.",
       ctaUtama: "Daftar Kelas Tahsin", hargaCoret: "Rp300.000", hargaJual: "Rp99.000", hargaSave: "HEMAT 67%",
     }),
   v("kelas-speaking", "Kelas Public Speaking", "digital", "Skill", "🎤", "sales", "sunset",
-    "LP kelas public speaking & percaya diri bicara.", {
+    "Landing Page kelas public speaking & percaya diri bicara.", {
       heroEyebrow: "BERANI BICARA DI DEPAN UMUM", heroHeadline: "Bicara Percaya Diri di Depan Siapa Pun, Tanpa Grogi Lagi",
       heroSub: "Teknik mengatur nafas, struktur bicara, dan mengelola gugup. Langsung praktik.",
       ctaUtama: "Ikut Kelas Sekarang", hargaCoret: "Rp350.000", hargaJual: "Rp109.000", hargaSave: "HEMAT 68%",
@@ -71,31 +71,31 @@ export const VARIANTS: Variant[] = [
 
   // ============ SAAS — DIGITAL (aplikasi/tool) ============
   v("app-kasir", "Aplikasi Kasir UMKM", "digital", "Aplikasi", "🧾", "saas", "ocean",
-    "LP aplikasi kasir/POS untuk warung & toko.", {
+    "Landing Page aplikasi kasir/POS untuk warung & toko.", {
       heroEyebrow: "APLIKASI KASIR #1 UMKM", heroHeadline: "Kelola Kasir, Stok, & Laporan Toko dari Satu Aplikasi",
       heroSub: "Transaksi cepat, stok otomatis, laporan untung-rugi real-time. Cocok untuk warung sampai toko besar.",
       ctaUtama: "Coba Gratis Sekarang", hargaCoret: "Rp99.000/bln", hargaJual: "Rp39.000/bln",
     }),
   v("app-absensi", "Aplikasi Absensi Karyawan", "digital", "Aplikasi", "🕐", "saas", "sky",
-    "LP aplikasi absensi online karyawan (GPS + selfie).", {
+    "Landing Page aplikasi absensi online karyawan (GPS + selfie).", {
       heroEyebrow: "ABSENSI ONLINE ANTI TITIP", heroHeadline: "Pantau Kehadiran Karyawan Real-Time, Tanpa Mesin Fingerprint Mahal",
       heroSub: "Absen via HP dengan GPS & selfie, rekap otomatis, hitung gaji lebih mudah.",
       ctaUtama: "Coba Gratis 14 Hari", hargaCoret: "Rp150.000/bln", hargaJual: "Rp49.000/bln",
     }),
   v("app-undangan", "Undangan Digital", "digital", "Aplikasi", "💌", "saas", "rose",
-    "LP jasa/aplikasi undangan pernikahan digital.", {
+    "Landing Page jasa/aplikasi undangan pernikahan digital.", {
       heroEyebrow: "UNDANGAN DIGITAL ELEGAN", heroHeadline: "Undangan Pernikahan Digital yang Elegan, Jadi dalam Hitungan Menit",
       heroSub: "Desain mewah, RSVP otomatis, peta lokasi, galeri foto. Hemat biaya cetak & lebih ramah lingkungan.",
       ctaUtama: "Buat Undangan Sekarang", hargaCoret: "Rp250.000", hargaJual: "Rp99.000",
     }),
   v("app-toko-online", "Bikin Toko Online", "digital", "Aplikasi", "🛒", "saas", "emerald",
-    "LP platform bikin toko online sendiri tanpa koding.", {
+    "Landing Page platform bikin toko online sendiri tanpa koding.", {
       heroEyebrow: "TOKO ONLINE TANPA KODING", heroHeadline: "Punya Toko Online Sendiri Hari Ini, Tanpa Perlu Bisa Koding",
       heroSub: "Etalase profesional, checkout otomatis, terhubung WhatsApp & pembayaran. Kelola dari HP.",
       ctaUtama: "Buat Toko Gratis", hargaCoret: "Rp199.000/bln", hargaJual: "Rp69.000/bln",
     }),
   v("app-keuangan", "Aplikasi Catat Keuangan", "digital", "Aplikasi", "💵", "saas", "midnight",
-    "LP aplikasi pencatat keuangan pribadi/usaha.", {
+    "Landing Page aplikasi pencatat keuangan pribadi/usaha.", {
       heroEyebrow: "ATUR KEUANGAN LEBIH MUDAH", heroHeadline: "Tahu ke Mana Uang Anda Pergi, Catat Keuangan Cukup 10 Detik",
       heroSub: "Catat pemasukan & pengeluaran, lihat laporan otomatis, capai target tabungan lebih cepat.",
       ctaUtama: "Mulai Gratis", hargaCoret: "Rp79.000/bln", hargaJual: "Rp29.000/bln",
@@ -103,55 +103,55 @@ export const VARIANTS: Variant[] = [
 
   // ============ BEAUTY — FISIK (skincare/bodycare) ============
   v("skincare-glow", "Serum Pencerah Wajah", "fisik", "Skincare", "✨", "beauty", "rose",
-    "LP serum pencerah/glowing dengan before-after.", {
+    "Landing Page serum pencerah/glowing dengan before-after.", {
       heroBadge: "BEST SELLER GLOW SERUM", heroHeadline: "Wajah Glowing & Merata dalam 14 Hari, Tanpa Perlu ke Klinik Mahal",
       heroSub: "Serum vitamin C + niacinamide yang mencerahkan noda hitam & bekas jerawat. Aman BPOM.",
       ctaUtama: "Pesan Serum - COD", hargaCoret: "Rp199.000", hargaJual: "Rp119.000", hargaSave: "HEMAT 40%",
     }),
   v("skincare-acne", "Rangkaian Anti Jerawat", "fisik", "Skincare", "🧴", "beauty", "ocean",
-    "LP paket anti jerawat (cleanser+serum) before-after.", {
+    "Landing Page paket anti jerawat (cleanser+serum) before-after.", {
       heroBadge: "SOLUSI JERAWAT MEMBANDEL", heroHeadline: "Redakan Jerawat & Kemerahan dari Akarnya, Tanpa Bikin Kulit Kering",
       heroSub: "Rangkaian anti-acne dengan salicylic acid & centella. Lembut, cocok kulit sensitif.",
       ctaUtama: "Pesan Paket - COD", hargaCoret: "Rp259.000", hargaJual: "Rp149.000", hargaSave: "HEMAT 42%",
     }),
   v("skincare-antiaging", "Anti Aging Cream", "fisik", "Skincare", "⏳", "beauty", "goldblack",
-    "LP krim anti-aging premium, kesan mewah.", {
+    "Landing Page krim anti-aging premium, kesan mewah.", {
       heroBadge: "PREMIUM ANTI-AGING", heroHeadline: "Kembalikan Kulit Kencang & Awet Muda, Samarkan Garis Halus",
       heroSub: "Krim retinol + collagen yang mengencangkan dan melembapkan. Rasakan bedanya dalam 4 minggu.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp399.000", hargaJual: "Rp259.000", hargaSave: "HEMAT 35%",
     }),
   v("bodycare", "Body Serum Pemutih", "fisik", "Bodycare", "🫧", "beauty", "coral",
-    "LP body serum/lotion mencerahkan kulit tubuh.", {
+    "Landing Page body serum/lotion mencerahkan kulit tubuh.", {
       heroBadge: "KULIT BADAN LEBIH CERAH", heroHeadline: "Kulit Tubuh Lebih Cerah, Halus, & Wangi Sepanjang Hari",
       heroSub: "Body serum dengan niacinamide & shea butter. Cepat meresap, tidak lengket.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp180.000", hargaJual: "Rp99.000", hargaSave: "HEMAT 45%",
     }),
   v("haircare", "Hair Tonic Anti Rontok", "fisik", "Haircare", "💇", "beauty", "violet",
-    "LP hair tonic/serum penumbuh rambut anti rontok.", {
+    "Landing Page hair tonic/serum penumbuh rambut anti rontok.", {
       heroBadge: "RAMBUT LEBAT & KUAT", heroHeadline: "Kurangi Rontok & Rangsang Pertumbuhan Rambut Baru dalam 30 Hari",
       heroSub: "Hair tonic ginseng & biotin yang menguatkan akar rambut. Cocok pria & wanita.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp160.000", hargaJual: "Rp95.000", hargaSave: "HEMAT 40%",
     }),
   v("lip-care", "Lip Serum Pemerah Bibir", "fisik", "Skincare", "💋", "beauty", "berry",
-    "LP lip serum/balm melembapkan & memerahkan bibir.", {
+    "Landing Page lip serum/balm melembapkan & memerahkan bibir.", {
       heroBadge: "BIBIR SEHAT & MERONA", heroHeadline: "Bibir Lembap, Merona Alami, & Bebas Hitam Tanpa Lipstik",
       heroSub: "Lip serum dengan vitamin E & ekstrak beri. Merawat sekaligus mempercantik.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp120.000", hargaJual: "Rp69.000", hargaSave: "HEMAT 42%",
     }),
   v("sunscreen", "Sunscreen SPF 50", "fisik", "Skincare", "☀️", "beauty", "sunrise",
-    "LP sunscreen ringan anti lengket SPF 50.", {
+    "Landing Page sunscreen ringan anti lengket SPF 50.", {
       heroBadge: "PROTEKSI SPF 50 PA++++", heroHeadline: "Lindungi Kulit dari Sinar UV Tanpa Rasa Lengket & Whitecast",
       heroSub: "Sunscreen ringan yang melembapkan, cocok dipakai harian di bawah makeup.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp150.000", hargaJual: "Rp89.000", hargaSave: "HEMAT 40%",
     }),
   v("skincare-pria", "Skincare Pria", "fisik", "Skincare", "🧔", "beauty", "midnight",
-    "LP paket skincare khusus pria, tampilan maskulin.", {
+    "Landing Page paket skincare khusus pria, tampilan maskulin.", {
       heroBadge: "GROOMING UNTUK PRIA", heroHeadline: "Wajah Pria Lebih Bersih, Segar, & Bebas Minyak dalam 2 Minggu",
       heroSub: "Face wash + moisturizer khusus kulit pria. Simpel, 2 langkah, hasil nyata.",
       ctaUtama: "Pesan Paket - COD", hargaCoret: "Rp199.000", hargaJual: "Rp119.000", hargaSave: "HEMAT 40%",
     }),
   v("underarm-cream", "Deodorant Pencerah Ketiak", "fisik", "Bodycare", "🌸", "beauty", "cream",
-    "LP deodorant/krim pencerah ketiak before-after.", {
+    "Landing Page deodorant/krim pencerah ketiak before-after.", {
       heroBadge: "KETIAK CERAH & BEBAS BAU", heroHeadline: "Ketiak Lebih Cerah, Halus, & Percaya Diri Pakai Baju Tanpa Lengan",
       heroSub: "Deodorant krim dengan alum & niacinamide. Mencerahkan sekaligus menahan bau seharian.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp130.000", hargaJual: "Rp79.000", hargaSave: "HEMAT 40%",
@@ -159,79 +159,79 @@ export const VARIANTS: Variant[] = [
 
   // ============ PRODUCT — FISIK (fashion/gadget/F&B/health) ============
   v("fashion-hijab", "Hijab Premium", "fisik", "Fashion", "🧕", "product", "rose",
-    "LP hijab/kerudung dengan pilihan paket bundling.", {
+    "Landing Page hijab/kerudung dengan pilihan paket bundling.", {
       heroBadge: "HIJAB ADEM & JATUH SEMPURNA", heroHeadline: "Hijab yang Adem, Tidak Menerawang, & Jatuh Cantik Seharian",
       heroSub: "Bahan voal premium yang lembut dan mudah dibentuk. Tersedia puluhan warna pilihan.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("fashion-gamis", "Gamis Syar'i", "fisik", "Fashion", "👗", "product", "forest",
-    "LP gamis/busana muslim, paket bundling hemat.", {
+    "Landing Page gamis/busana muslim, paket bundling hemat.", {
       heroBadge: "GAMIS SYAR'I ELEGAN", heroHeadline: "Tampil Anggun & Syar'i dengan Gamis yang Nyaman Dipakai Seharian",
       heroSub: "Bahan premium tidak panas, jahitan rapi, model kekinian. Cocok untuk harian & acara.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("sepatu", "Sepatu Sneakers", "fisik", "Fashion", "👟", "product", "midnight",
-    "LP sepatu sneakers pria/wanita, paket bundling.", {
+    "Landing Page sepatu sneakers pria/wanita, paket bundling.", {
       heroBadge: "SNEAKERS RINGAN & KEKINIAN", heroHeadline: "Sneakers Ringan, Nyaman, & Gaya untuk Aktivitas Seharian",
       heroSub: "Sol empuk anti pegal, bahan berkualitas, desain modern. Cocok untuk kerja & jalan santai.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("tas-wanita", "Tas Wanita", "fisik", "Fashion", "👜", "product", "cream",
-    "LP tas wanita premium, bundling & warna.", {
+    "Landing Page tas wanita premium, bundling & warna.", {
       heroBadge: "TAS CANTIK & MUAT BANYAK", heroHeadline: "Tas Cantik yang Muat Banyak & Bikin Penampilan Makin Elegan",
       heroSub: "Bahan kulit sintetis premium, ruang luas, banyak sekat. Awet dan tetap stylish.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("jam-tangan", "Jam Tangan", "fisik", "Fashion", "⌚", "product", "goldblack",
-    "LP jam tangan pria/couple mewah, bundling.", {
+    "Landing Page jam tangan pria/couple mewah, bundling.", {
       heroBadge: "JAM TANGAN MEWAH & TAHAN AIR", heroHeadline: "Tampil Berkelas dengan Jam Tangan Elegan yang Tahan Air",
       heroSub: "Desain premium, mesin awet, anti air. Cocok untuk hadiah & pemakaian harian.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("tws-earbuds", "TWS Earbuds", "fisik", "Gadget", "🎧", "product", "neon",
-    "LP earphone TWS bluetooth, bundling.", {
+    "Landing Page earphone TWS bluetooth, bundling.", {
       heroBadge: "SUARA JERNIH, BASS NENDANG", heroHeadline: "Dengar Musik Tanpa Kabel dengan Suara Jernih & Bass Menggelegar",
       heroSub: "Bluetooth stabil, baterai tahan lama, nyaman di telinga. Cocok untuk musik & meeting.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("smartwatch", "Smartwatch", "fisik", "Gadget", "⌚", "product", "sky",
-    "LP smartwatch kesehatan, bundling.", {
+    "Landing Page smartwatch kesehatan, bundling.", {
       heroBadge: "PANTAU KESEHATAN DARI PERGELANGAN", heroHeadline: "Pantau Detak Jantung, Langkah, & Notifikasi dari Pergelangan Tangan",
       heroSub: "Layar jernih, baterai awet, tahan air. Terhubung ke HP untuk hidup lebih sehat & produktif.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("kopi-kemasan", "Kopi Kemasan", "fisik", "F&B", "☕", "product", "cream",
-    "LP kopi bubuk/drip premium, bundling.", {
+    "Landing Page kopi bubuk/drip premium, bundling.", {
       heroBadge: "KOPI NUSANTARA PILIHAN", heroHeadline: "Nikmati Kopi Nusantara Premium yang Harum & Nikmat Setiap Seduhan",
       heroSub: "Biji pilihan, roasting sempurna, dikemas segar. Nikmat untuk pagi & teman kerja.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("madu-herbal", "Madu Herbal Murni", "fisik", "F&B", "🍯", "product", "sunrise",
-    "LP madu murni/herbal, bundling & khasiat.", {
+    "Landing Page madu murni/herbal, bundling & khasiat.", {
       heroBadge: "MADU MURNI 100% ASLI", heroHeadline: "Jaga Daya Tahan & Stamina Keluarga dengan Madu Murni Berkualitas",
       heroSub: "Madu asli tanpa campuran gula, kaya nutrisi. Cocok untuk imunitas seluruh keluarga.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("herbal-diet", "Herbal Pelangsing", "fisik", "Kesehatan", "🌿", "product", "forest",
-    "LP produk herbal diet/pelangsing (klaim aman).", {
+    "Landing Page produk herbal diet/pelangsing (klaim aman).", {
       heroBadge: "TURUN BERAT LEBIH SEHAT", heroHeadline: "Bantu Program Diet Anda Lebih Mudah dengan Herbal Alami",
       heroSub: "Membantu tubuh terasa lebih ringan dan nafsu makan terkontrol. Dari bahan herbal alami.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("kacamata", "Kacamata Anti Radiasi", "fisik", "Fashion", "👓", "product", "ocean",
-    "LP kacamata anti radiasi/fashion, bundling.", {
+    "Landing Page kacamata anti radiasi/fashion, bundling.", {
       heroBadge: "MATA NYAMAN SEHARIAN", heroHeadline: "Lindungi Mata dari Radiasi Layar & Tampil Lebih Stylish",
       heroSub: "Lensa anti radiasi biru, frame ringan & modern. Nyaman untuk kerja depan layar seharian.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("dekorasi-rumah", "Dekorasi Rumah", "fisik", "Home", "🏠", "product", "coral",
-    "LP produk dekorasi/perabot rumah estetik, bundling.", {
+    "Landing Page produk dekorasi/perabot rumah estetik, bundling.", {
       heroBadge: "RUMAH MAKIN ESTETIK", heroHeadline: "Ubah Rumah Jadi Lebih Hangat & Estetik dengan Dekorasi Pilihan",
       heroSub: "Desain minimalis kekinian, kualitas awet. Bikin setiap sudut rumah lebih nyaman dipandang.",
       ctaUtama: "Pesan Sekarang - COD",
     }),
   v("mainan-edukasi", "Mainan Edukasi Anak", "fisik", "Anak", "🧸", "product", "sunset",
-    "LP mainan edukasi anak, aman & bundling.", {
+    "Landing Page mainan edukasi anak, aman & bundling.", {
       heroBadge: "BELAJAR SAMBIL BERMAIN", heroHeadline: "Asah Kecerdasan & Kreativitas Anak Lewat Mainan Edukatif yang Aman",
       heroSub: "Bahan aman SNI, melatih motorik & logika. Bikin anak belajar tanpa terasa dipaksa.",
       ctaUtama: "Pesan Sekarang - COD",
@@ -239,49 +239,49 @@ export const VARIANTS: Variant[] = [
 
   // ============ LEAD — webinar / optin ============
   v("webinar-bisnis", "Webinar Bisnis", "lead", "Webinar", "💼", "lead", "midnight",
-    "LP pendaftaran webinar bisnis gratis + countdown.", {
+    "Landing Page pendaftaran webinar bisnis gratis + countdown.", {
       heroBadge: "WEBINAR BISNIS GRATIS", heroHeadline: "Rahasia Bangun Bisnis yang Tetap Cuan Walau Tanpa Modal Besar",
       heroJanji: "Dalam 90 menit, Anda tahu cara memulai & menaikkan omzet bisnis — walau baru mulai dari nol.",
       ctaUtama: "Daftar Gratis Sekarang",
     }),
   v("webinar-saham", "Webinar Investasi", "lead", "Webinar", "📈", "lead", "goldblack",
-    "LP webinar investasi/saham gratis + countdown.", {
+    "Landing Page webinar investasi/saham gratis + countdown.", {
       heroBadge: "KELAS INVESTASI GRATIS", heroHeadline: "Mulai Investasi dengan Benar & Hindari Kesalahan Pemula yang Mahal",
       heroJanji: "Pelajari dasar investasi yang aman, cara kelola risiko, dan langkah pertama memulai.",
       ctaUtama: "Amankan Kursi Gratis",
     }),
   v("ebook-gratis", "Ebook Gratis (Opt-in)", "lead", "Lead Magnet", "📗", "lead", "ocean",
-    "LP unduh ebook gratis untuk kumpulkan email/WA.", {
+    "Landing Page unduh ebook gratis untuk kumpulkan email/WA.", {
       heroBadge: "EBOOK GRATIS", heroHeadline: "Unduh Panduan Gratis: 7 Langkah Praktis Memulai dari Nol",
       heroJanji: "Masukkan email Anda dan dapatkan ebook langsung di inbox. 100% gratis, tanpa spam.",
       ctaUtama: "Kirim Ebook ke Saya",
     }),
   v("kelas-gratis-dm", "Kelas Gratis Digital Marketing", "lead", "Webinar", "📱", "lead", "violet",
-    "LP kelas gratis digital marketing + countdown.", {
+    "Landing Page kelas gratis digital marketing + countdown.", {
       heroBadge: "KELAS ONLINE GRATIS", heroHeadline: "Cara Mendatangkan Pembeli Lewat Sosial Media, Tanpa Iklan Mahal",
       heroJanji: "Strategi konten & closing yang bisa langsung Anda praktikkan hari ini juga.",
       ctaUtama: "Daftar Kelas Gratis",
     }),
   v("workshop-desain", "Workshop Desain", "lead", "Workshop", "🎨", "lead", "sky",
-    "LP workshop desain gratis/berbayar + countdown.", {
+    "Landing Page workshop desain gratis/berbayar + countdown.", {
       heroBadge: "WORKSHOP ONLINE", heroHeadline: "Bikin Desain Konten yang Scroll-Stopping Cukup dengan Canva",
       heroJanji: "Praktik langsung membuat feed & poster estetik yang menjual, dari nol.",
       ctaUtama: "Ikut Workshop Sekarang",
     }),
   v("seminar-parenting", "Seminar Parenting", "lead", "Seminar", "👶", "lead", "coral",
-    "LP seminar parenting online + countdown.", {
+    "Landing Page seminar parenting online + countdown.", {
       heroBadge: "SEMINAR PARENTING", heroHeadline: "Mengasuh Anak Tanpa Marah-Marah, dengan Cara yang Terbukti",
       heroJanji: "Temukan cara membangun komunikasi yang membuat anak mau mendengarkan.",
       ctaUtama: "Daftar Seminar Gratis",
     }),
   v("challenge-diet", "Challenge Diet 7 Hari", "lead", "Challenge", "🥗", "lead", "sunrise",
-    "LP pendaftaran challenge diet/health + countdown.", {
+    "Landing Page pendaftaran challenge diet/health + countdown.", {
       heroBadge: "CHALLENGE 7 HARI GRATIS", heroHeadline: "Mulai Hidup Lebih Sehat & Turun Berat Badan dalam Challenge 7 Hari",
       heroJanji: "Panduan harian, menu, dan grup pendukung supaya Anda konsisten sampai garis finish.",
       ctaUtama: "Ikut Challenge Gratis",
     }),
   v("tryout-cpns", "Tryout Gratis CPNS", "lead", "Edukasi", "📝", "lead", "emerald",
-    "LP pendaftaran tryout CPNS gratis + countdown.", {
+    "Landing Page pendaftaran tryout CPNS gratis + countdown.", {
       heroBadge: "TRYOUT CPNS GRATIS", heroHeadline: "Uji Kesiapanmu Hadapi Seleksi CPNS dengan Tryout Gratis Sistem CAT",
       heroJanji: "Soal terbaru, pembahasan lengkap, dan ranking nasional untuk ukur peluang lulusmu.",
       ctaUtama: "Daftar Tryout Gratis",
@@ -289,31 +289,31 @@ export const VARIANTS: Variant[] = [
 
   // ============ SERVICE — jasa (kategori lead) ============
   v("jasa-desain", "Jasa Desain Logo", "lead", "Jasa", "🎨", "service", "violet",
-    "LP jasa desain logo/branding, paket harga.", {
+    "Landing Page jasa desain logo/branding, paket harga.", {
       heroBadge: "JASA DESAIN LOGO PROFESIONAL", heroHeadline: "Logo Profesional yang Bikin Brand Anda Terlihat Mahal & Dipercaya",
       heroSub: "Desain custom sesuai karakter usaha Anda. Revisi sampai puas, file lengkap siap pakai.",
       ctaUtama: "Konsultasi Gratis",
     }),
   v("jasa-kontraktor", "Jasa Bangun Rumah", "lead", "Jasa", "🏗️", "service", "cream",
-    "LP jasa kontraktor/renovasi rumah, paket harga.", {
+    "Landing Page jasa kontraktor/renovasi rumah, paket harga.", {
       heroBadge: "KONTRAKTOR TERPERCAYA", heroHeadline: "Bangun & Renovasi Rumah Impian Anda, Rapi, Tepat Waktu, & Anti Ribet",
       heroSub: "Tim berpengalaman, RAB transparan, progres terpantau. Hasil kokoh sesuai anggaran.",
       ctaUtama: "Konsultasi Gratis",
     }),
   v("jasa-wo", "Wedding Organizer", "lead", "Jasa", "💍", "service", "rose",
-    "LP jasa wedding organizer, paket harga.", {
+    "Landing Page jasa wedding organizer, paket harga.", {
       heroBadge: "WEDDING ORGANIZER", heroHeadline: "Wujudkan Pernikahan Impian Tanpa Repot, Semua Kami yang Urus",
       heroSub: "Dari konsep sampai hari-H berjalan lancar. Anda tinggal menikmati momen bahagia.",
       ctaUtama: "Konsultasi Gratis",
     }),
   v("jasa-service-ac", "Jasa Service AC", "lead", "Jasa", "❄️", "service", "ocean",
-    "LP jasa service/cuci AC, paket harga.", {
+    "Landing Page jasa service/cuci AC, paket harga.", {
       heroBadge: "SERVICE AC PANGGILAN", heroHeadline: "AC Kembali Dingin & Awet, Teknisi Datang ke Rumah Hari Ini Juga",
       heroSub: "Cuci, isi freon, perbaikan. Teknisi berpengalaman, harga jelas di awal, garansi pengerjaan.",
       ctaUtama: "Pesan Teknisi Sekarang",
     }),
   v("jasa-fotografi", "Jasa Foto & Video Wedding", "lead", "Jasa", "📸", "service", "goldblack",
-    "LP jasa dokumentasi foto/video wedding, paket harga.", {
+    "Landing Page jasa dokumentasi foto/video wedding, paket harga.", {
       heroBadge: "DOKUMENTASI WEDDING", heroHeadline: "Abadikan Momen Berharga Anda dengan Foto & Video Sinematik yang Memukau",
       heroSub: "Tim profesional, hasil estetik, pengerjaan tepat waktu. Kenangan yang tak ternilai.",
       ctaUtama: "Cek Paket & Booking",
@@ -323,84 +323,84 @@ export const VARIANTS: Variant[] = [
   // ============ BATCH 2 — 50 TEMPLATE TAMBAHAN ============
   // --- SALES (digital) ---
   v("kelas-jualan-online", "Kelas Jualan Online", "digital", "Kelas Bisnis", "🛒", "sales", "sunset",
-    "LP kelas jualan di marketplace & sosmed.", {
+    "Landing Page kelas jualan di marketplace & sosmed.", {
       heroEyebrow: "KELAS JUALAN ONLINE", heroHeadline: "Banjir Orderan dari Marketplace & Sosmed, Walau Tanpa Toko Fisik",
       heroSub: "Strategi optimasi toko, foto produk, sampai iklan hemat. Dari nol sampai orderan mengalir.",
       ctaUtama: "Gabung Kelas Sekarang", hargaCoret: "Rp449.000", hargaJual: "Rp129.000", hargaSave: "HEMAT 71%",
       hookText: "Capek toko sepi sementara kompetitor kebanjiran order? Bedanya bukan keberuntungan — tapi strategi yang belum Anda punya.",
     }),
   v("kelas-coding", "Kelas Coding Pemula", "digital", "Skill", "💻", "sales", "midnight",
-    "LP kelas pemrograman web dari nol.", {
+    "Landing Page kelas pemrograman web dari nol.", {
       heroEyebrow: "BELAJAR CODING DARI NOL", heroHeadline: "Jadi Programmer & Raih Gaji Digital, Walau Bukan Anak IT",
       heroSub: "Belajar bikin website nyata langkah demi langkah. Portofolio siap, karier baru terbuka.",
       ctaUtama: "Mulai Belajar Coding", hargaCoret: "Rp1.200.000", hargaJual: "Rp349.000", hargaSave: "HEMAT 70%",
       hookText: "Dunia sudah digital. Yang menguasai kode, menguasai peluang. Pertanyaannya: Anda mau jadi penonton atau pemain?",
     }),
   v("kelas-makeup", "Kelas Makeup / MUA", "digital", "Kecantikan", "💄", "sales", "rose",
-    "LP kelas makeup untuk pemula & calon MUA.", {
+    "Landing Page kelas makeup untuk pemula & calon MUA.", {
       heroEyebrow: "KELAS MAKEUP PEMULA", heroHeadline: "Mahir Makeup Diri Sendiri & Orang Lain, Bahkan Bisa Jadi Sumber Cuan",
       heroSub: "Teknik dasar sampai flawless, plus cara buka jasa MUA. Cukup dari rumah.",
       ctaUtama: "Ikut Kelas Makeup", hargaCoret: "Rp399.000", hargaJual: "Rp119.000", hargaSave: "HEMAT 70%",
       hookText: "Setiap wajah punya pesona. Anda hanya butuh tahu cara memunculkannya — dan itu bisa dipelajari.",
     }),
   v("kelas-editing-video", "Kelas Editing Video", "digital", "Skill", "🎬", "sales", "violet",
-    "LP kelas editing video untuk konten & cuan.", {
+    "Landing Page kelas editing video untuk konten & cuan.", {
       heroEyebrow: "KELAS EDITING VIDEO", heroHeadline: "Edit Video Pro untuk Konten Viral & Orderan Editing yang Mengalir",
       heroSub: "Dari cutting, transisi, sampai color grading. Pakai HP atau laptop, hasil bak sinematik.",
       ctaUtama: "Mulai Belajar Edit", hargaCoret: "Rp350.000", hargaJual: "Rp99.000", hargaSave: "HEMAT 71%",
       hookText: "Konten bagus kalah sama konten yang di-edit dengan rapi. Jangan biarkan idemu tenggelam gara-gara editing seadanya.",
     }),
   v("kelas-copywriting", "Kelas Copywriting", "digital", "Marketing", "✍️", "sales", "ocean",
-    "LP kelas copywriting jualan.", {
+    "Landing Page kelas copywriting jualan.", {
       heroEyebrow: "KELAS COPYWRITING JUALAN", heroHeadline: "Rangkai Kata yang Membuat Orang Langsung Mau Beli",
       heroSub: "Formula headline, storytelling, sampai closing. Cocok untuk penjual & content creator.",
       ctaUtama: "Kuasai Copywriting", hargaCoret: "Rp300.000", hargaJual: "Rp97.000", hargaSave: "HEMAT 67%",
       hookText: "Produk sebagus apa pun akan diam di gudang jika kata-katanya tak menggerakkan hati. Kata yang tepat = uang.",
     }),
   v("template-cv", "Template CV Lamaran Kerja", "digital", "Template", "📄", "sales", "sky",
-    "LP jualan template CV ATS-friendly.", {
+    "Landing Page jualan template CV ATS-friendly.", {
       heroEyebrow: "TEMPLATE CV PROFESIONAL", heroHeadline: "CV yang Bikin HRD Melirik & Memanggil Anda ke Interview",
       heroSub: "Desain modern, ATS-friendly, tinggal isi. Termasuk contoh & panduan menulis.",
       ctaUtama: "Ambil Template CV", hargaCoret: "Rp99.000", hargaJual: "Rp39.000", hargaSave: "HEMAT 60%",
       hookText: "Ratusan pelamar, satu kursi. CV biasa langsung masuk tong sampah. Saatnya CV Anda yang menonjol.",
     }),
   v("kelas-bisnis-kuliner", "Kelas Bisnis Kuliner", "digital", "Kuliner", "🍜", "sales", "sunrise",
-    "LP kelas memulai bisnis makanan.", {
+    "Landing Page kelas memulai bisnis makanan.", {
       heroEyebrow: "KELAS BISNIS KULINER", heroHeadline: "Bangun Bisnis Kuliner Laris dari Dapur Rumah Sendiri",
       heroSub: "Hitung modal, resep anti gagal, kemasan, sampai jualan online. Praktis untuk pemula.",
       ctaUtama: "Mulai Bisnis Kuliner", hargaCoret: "Rp350.000", hargaJual: "Rp99.000", hargaSave: "HEMAT 71%",
       hookText: "Masakan Anda selalu dipuji keluarga? Itu modal berharga yang sayang jika hanya berhenti di meja makan.",
     }),
   v("kelas-investasi-emas", "Kelas Investasi Emas", "digital", "Investasi", "🥇", "sales", "goldblack",
-    "LP kelas investasi emas untuk pemula.", {
+    "Landing Page kelas investasi emas untuk pemula.", {
       heroEyebrow: "KELAS INVESTASI EMAS", heroHeadline: "Amankan Masa Depan Keuangan Anda dengan Investasi Emas yang Tepat",
       heroSub: "Kapan beli, di mana simpan, cara jual untung. Edukasi aman, tanpa iming-iming cepat kaya.",
       ctaUtama: "Ikut Kelas Sekarang", hargaCoret: "Rp299.000", hargaJual: "Rp89.000", hargaSave: "HEMAT 70%",
       hookText: "Inflasi diam-diam menggerogoti tabungan Anda tiap tahun. Emas adalah cara sederhana melawannya.",
     }),
   v("kelas-menjahit", "Kelas Menjahit", "digital", "Skill", "🧵", "sales", "cream",
-    "LP kelas menjahit dari nol.", {
+    "Landing Page kelas menjahit dari nol.", {
       heroEyebrow: "KELAS MENJAHIT PEMULA", heroHeadline: "Jahit Baju Sendiri & Buka Peluang Cuan dari Mesin Jahit Anda",
       heroSub: "Dari pola dasar sampai jadi pakaian. Video pelan, mudah diikuti pemula total.",
       ctaUtama: "Mulai Belajar Menjahit", hargaCoret: "Rp250.000", hargaJual: "Rp79.000", hargaSave: "HEMAT 68%",
       hookText: "Bakat itu ada di tangan Anda. Yang kurang cuma bimbingan yang sabar, langkah demi langkah.",
     }),
   v("kelas-menyanyi", "Kelas Vokal", "digital", "Skill", "🎤", "sales", "berry",
-    "LP kelas vokal/menyanyi online.", {
+    "Landing Page kelas vokal/menyanyi online.", {
       heroEyebrow: "KELAS VOKAL ONLINE", heroHeadline: "Suara Lebih Merdu & Percaya Diri Bernyanyi, Belajar dari Rumah",
       heroSub: "Teknik pernapasan, nada, dan cengkok. Cocok untuk hobi maupun karier.",
       ctaUtama: "Ikut Kelas Vokal", hargaCoret: "Rp280.000", hargaJual: "Rp89.000", hargaSave: "HEMAT 68%",
       hookText: "Semua orang bisa bernyanyi lebih baik. Suara indah bukan cuma bakat — 80% adalah teknik yang bisa dilatih.",
     }),
   v("ebook-parenting-islami", "Ebook Parenting Islami", "digital", "Religi", "🌙", "sales", "forest",
-    "LP ebook mendidik anak cara islami.", {
+    "Landing Page ebook mendidik anak cara islami.", {
       heroEyebrow: "PANDUAN PARENTING ISLAMI", heroHeadline: "Mendidik Anak Sholeh & Cerdas dengan Tuntunan yang Menenangkan Hati",
       heroSub: "Panduan praktis berbasis nilai islami untuk usia emas anak. Lembut, aplikatif, penuh hikmah.",
       ctaUtama: "Ambil Ebook Sekarang", hargaCoret: "Rp120.000", hargaJual: "Rp49.000", hargaSave: "HEMAT 59%",
       hookText: "Anak adalah titipan sekaligus investasi akhirat. Bekali diri sebelum masa emasnya berlalu dan tak kembali.",
     }),
   v("kelas-crypto-edukasi", "Kelas Crypto (Edukasi)", "digital", "Investasi", "🪙", "sales", "neon",
-    "LP kelas dasar crypto & blockchain (edukasi).", {
+    "Landing Page kelas dasar crypto & blockchain (edukasi).", {
       heroEyebrow: "KELAS CRYPTO PEMULA", heroHeadline: "Pahami Dunia Crypto dengan Kepala Dingin, Bukan Ikut-ikutan FOMO",
       heroSub: "Dasar blockchain, cara aman, dan manajemen risiko. Fokus literasi — bukan sinyal cepat kaya.",
       ctaUtama: "Ikut Kelas Sekarang", hargaCoret: "Rp499.000", hargaJual: "Rp149.000", hargaSave: "HEMAT 70%",
@@ -409,35 +409,35 @@ export const VARIANTS: Variant[] = [
 
   // --- SAAS (digital) ---
   v("app-stok-gudang", "Aplikasi Stok Gudang", "digital", "Aplikasi", "📦", "saas", "ocean",
-    "LP aplikasi manajemen stok & gudang.", {
+    "Landing Page aplikasi manajemen stok & gudang.", {
       heroEyebrow: "KELOLA STOK ANTI RUGI", heroHeadline: "Stok Selalu Terpantau, Tak Ada Lagi Barang Hilang atau Kadaluarsa",
       heroSub: "Pantau keluar-masuk barang, stok minimum, dan nilai persediaan — real-time dari HP.",
       ctaUtama: "Coba Gratis Sekarang", hargaCoret: "Rp120.000/bln", hargaJual: "Rp45.000/bln",
       hookText: "Barang hilang, stok mati, dan selisih catatan diam-diam memakan untung Anda setiap bulan.",
     }),
   v("app-blast-wa", "Aplikasi Blast WhatsApp", "digital", "Aplikasi", "📢", "saas", "emerald",
-    "LP aplikasi broadcast WhatsApp bisnis.", {
+    "Landing Page aplikasi broadcast WhatsApp bisnis.", {
       heroEyebrow: "BLAST WA TANPA DIBLOKIR", heroHeadline: "Jangkau Ribuan Pelanggan Sekali Klik, Orderan Datang Berulang",
       heroSub: "Kirim promo, follow-up, dan reminder otomatis ke banyak kontak. Aman & terjadwal.",
       ctaUtama: "Coba Gratis Sekarang", hargaCoret: "Rp199.000/bln", hargaJual: "Rp79.000/bln",
       hookText: "Pelanggan lama Anda adalah tambang emas yang terlupakan. Satu pesan tepat bisa menghidupkan mereka lagi.",
     }),
   v("app-lms", "Platform Kelas Online", "digital", "Aplikasi", "🎓", "saas", "violet",
-    "LP platform bikin kelas online (LMS).", {
+    "Landing Page platform bikin kelas online (LMS).", {
       heroEyebrow: "JUAL KELAS ONLINE SENDIRI", heroHeadline: "Punya Platform Kelas Online Sendiri, Jual Ilmu Anda Tanpa Batas",
       heroSub: "Upload materi, atur akses, terima pembayaran otomatis. Fokus mengajar, sisanya kami urus.",
       ctaUtama: "Buat Kelas Gratis", hargaCoret: "Rp299.000/bln", hargaJual: "Rp99.000/bln",
       hookText: "Ilmu Anda berharga. Kenapa dibagi gratis di sosmed kalau bisa jadi penghasilan yang mengalir?",
     }),
   v("app-booking", "Aplikasi Booking", "digital", "Aplikasi", "📅", "saas", "sky",
-    "LP aplikasi reservasi/booking jadwal.", {
+    "Landing Page aplikasi reservasi/booking jadwal.", {
       heroEyebrow: "BOOKING OTOMATIS 24 JAM", heroHeadline: "Terima Reservasi Kapan Saja, Tanpa Repot Balas Chat Satu-satu",
       heroSub: "Jadwal online, konfirmasi otomatis, reminder ke pelanggan. Cocok klinik, salon, jasa.",
       ctaUtama: "Coba Gratis Sekarang", hargaCoret: "Rp150.000/bln", hargaJual: "Rp59.000/bln",
       hookText: "Setiap chat 'masih ada slot kak?' yang telat dibalas adalah pelanggan yang lari ke tempat lain.",
     }),
   v("app-invoice", "Aplikasi Faktur & Invoice", "digital", "Aplikasi", "🧾", "saas", "midnight",
-    "LP aplikasi bikin invoice/faktur profesional.", {
+    "Landing Page aplikasi bikin invoice/faktur profesional.", {
       heroEyebrow: "INVOICE PRO DALAM 1 MENIT", heroHeadline: "Buat Invoice Profesional & Percepat Pembayaran dari Klien",
       heroSub: "Template rapi, kirim via link, pantau status lunas. Tampil kredibel di mata klien.",
       ctaUtama: "Coba Gratis Sekarang", hargaCoret: "Rp99.000/bln", hargaJual: "Rp39.000/bln",
@@ -446,56 +446,56 @@ export const VARIANTS: Variant[] = [
 
   // --- BEAUTY (fisik) ---
   v("masker-wajah", "Masker Wajah", "fisik", "Skincare", "🧖", "beauty", "coral",
-    "LP masker wajah perawatan mingguan.", {
+    "Landing Page masker wajah perawatan mingguan.", {
       heroBadge: "GLOWING INSTAN", heroHeadline: "Wajah Segar & Bercahaya Instan Setelah 15 Menit Pakai Masker Ini",
       heroSub: "Formula clay & vitamin yang mengangkat kotoran, mengecilkan pori, dan melembapkan.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp150.000", hargaJual: "Rp89.000", hargaSave: "HEMAT 40%",
       hookText: "Kulit kusam bikin makeup susah nempel dan foto kurang pede. Padahal solusinya cuma 15 menit seminggu.",
     }),
   v("eye-serum", "Eye Serum", "fisik", "Skincare", "👁️", "beauty", "rose",
-    "LP serum mata anti kantung & mata panda.", {
+    "Landing Page serum mata anti kantung & mata panda.", {
       heroBadge: "USIR MATA PANDA", heroHeadline: "Samarkan Kantung Mata & Lingkaran Hitam, Tampak Lebih Segar Setiap Hari",
       heroSub: "Eye serum kafein & peptida yang mengurangi bengkak dan menghaluskan area mata.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp180.000", hargaJual: "Rp109.000", hargaSave: "HEMAT 39%",
       hookText: "Mata lelah bikin Anda terlihat 5 tahun lebih tua, walau sudah cukup tidur. Saatnya tampil segar lagi.",
     }),
   v("toner-eksfoliasi", "Toner Eksfoliasi", "fisik", "Skincare", "💧", "beauty", "ocean",
-    "LP toner eksfoliasi tekstur kulit.", {
+    "Landing Page toner eksfoliasi tekstur kulit.", {
       heroBadge: "KULIT MULUS BEBAS KUSAM", heroHeadline: "Angkat Sel Kulit Mati & Ratakan Warna Kulit, Halus Bak Kaca",
       heroSub: "Toner AHA/BHA lembut yang membersihkan pori dan menghaluskan tekstur tanpa iritasi.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp160.000", hargaJual: "Rp99.000", hargaSave: "HEMAT 38%",
       hookText: "Skincare mahal Anda percuma jika sel kulit mati menumpuk. Ini langkah yang paling sering dilewatkan.",
     }),
   v("parfum", "Parfum / Body Mist", "fisik", "Parfum", "🌸", "beauty", "berry",
-    "LP parfum tahan lama.", {
+    "Landing Page parfum tahan lama.", {
       heroBadge: "WANGI TAHAN 12 JAM", heroHeadline: "Wangi Memikat yang Bertahan Seharian & Bikin Orang Menoleh",
       heroSub: "Aroma mewah, tahan lama, tidak menyengat. Tinggalkan kesan di setiap langkah.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp200.000", hargaJual: "Rp119.000", hargaSave: "HEMAT 40%",
       hookText: "Orang lupa wajah, tapi ingat wangi. Aroma yang tepat adalah tanda pengenal tak terlihat Anda.",
     }),
   v("moisturizer", "Pelembab Wajah", "fisik", "Skincare", "🫧", "beauty", "sky",
-    "LP moisturizer melembapkan kulit.", {
+    "Landing Page moisturizer melembapkan kulit.", {
       heroBadge: "LEMBAP SEHARIAN", heroHeadline: "Kulit Kenyal, Lembap, & Sehat dari Pagi Sampai Malam",
       heroSub: "Pelembab ringan cepat meresap dengan hyaluronic acid. Cocok kulit kering & berminyak.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp150.000", hargaJual: "Rp95.000", hargaSave: "HEMAT 37%",
       hookText: "Kulit kering menua lebih cepat dan mudah iritasi. Kelembapan adalah rahasia kulit awet muda.",
     }),
   v("facial-wash", "Facial Wash", "fisik", "Skincare", "🧴", "beauty", "emerald",
-    "LP sabun cuci muka.", {
+    "Landing Page sabun cuci muka.", {
       heroBadge: "BERSIH TANPA KETARIK", heroHeadline: "Wajah Bersih Maksimal Tanpa Rasa Ketarik atau Kering",
       heroSub: "Facial wash lembut yang mengangkat minyak & kotoran, menjaga kelembapan alami kulit.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp120.000", hargaJual: "Rp75.000", hargaSave: "HEMAT 38%",
       hookText: "Langkah pertama skincare adalah yang paling menentukan. Salah pilih pembersih, sia-sia semua rangkaian.",
     }),
   v("skincare-remaja", "Skincare Remaja", "fisik", "Skincare", "🧒", "beauty", "coral",
-    "LP paket skincare remaja anti jerawat.", {
+    "Landing Page paket skincare remaja anti jerawat.", {
       heroBadge: "AMAN UNTUK REMAJA", heroHeadline: "Solusi Jerawat Remaja yang Aman, Simpel, & Bikin Kembali Pede",
       heroSub: "Rangkaian ringan tanpa bahan keras. Cocok kulit remaja yang mulai berjerawat.",
       ctaUtama: "Pesan Paket - COD", hargaCoret: "Rp180.000", hargaJual: "Rp109.000", hargaSave: "HEMAT 39%",
       hookText: "Jerawat di masa remaja bisa merenggut rasa percaya diri. Anak Anda pantas tampil ceria tanpa minder.",
     }),
   v("hair-mask", "Hair Mask", "fisik", "Haircare", "💆", "beauty", "cream",
-    "LP masker rambut perawatan intensif.", {
+    "Landing Page masker rambut perawatan intensif.", {
       heroBadge: "RAMBUT HALUS TERURAI", heroHeadline: "Ubah Rambut Kering & Bercabang Jadi Lembut, Berkilau, Mudah Diatur",
       heroSub: "Hair mask keratin & argan oil yang menutrisi dari akar sampai ujung.",
       ctaUtama: "Pesan Sekarang - COD", hargaCoret: "Rp150.000", hargaJual: "Rp89.000", hargaSave: "HEMAT 40%",
@@ -504,126 +504,126 @@ export const VARIANTS: Variant[] = [
 
   // --- PRODUCT (fisik) ---
   v("mukena", "Mukena Premium", "fisik", "Fashion", "🕌", "product", "forest",
-    "LP mukena adem & mewah, paket bundling.", {
+    "Landing Page mukena adem & mewah, paket bundling.", {
       heroBadge: "MUKENA ADEM & MEWAH", heroHeadline: "Sholat Lebih Khusyuk dengan Mukena yang Adem, Lembut, & Anggun",
       heroSub: "Bahan premium tidak menerawang, ringan dibawa, jahitan rapi. Cantik untuk diri & hadiah.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Kenyamanan saat menghadap-Nya tak ternilai. Mukena yang tepat membuat setiap sujud terasa lebih tenang.",
     }),
   v("sajadah", "Sajadah Premium", "fisik", "Home", "🧎", "product", "cream",
-    "LP sajadah tebal empuk, bundling.", {
+    "Landing Page sajadah tebal empuk, bundling.", {
       heroBadge: "SAJADAH TEBAL EMPUK", heroHeadline: "Lutut & Dahi Nyaman dengan Sajadah Tebal yang Empuk & Elegan",
       heroSub: "Busa tebal, anti selip, motif mewah. Cocok dipakai harian & jadi hadiah bermakna.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Lutut sakit di sajadah tipis mengganggu kekhusyukan. Ibadah yang nyaman dimulai dari alas yang tepat.",
     }),
   v("sprei-bedcover", "Sprei & Bed Cover", "fisik", "Home", "🛏️", "product", "sky",
-    "LP sprei/bed cover premium, bundling.", {
+    "Landing Page sprei/bed cover premium, bundling.", {
       heroBadge: "TIDUR LEBIH NYENYAK", heroHeadline: "Kamar Terasa Seperti Hotel Berbintang dengan Sprei Halus Ini",
       heroSub: "Bahan lembut adem, warna elegan, jahitan kuat. Bikin betah rebahan seharian.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Sepertiga hidup Anda dihabiskan di kasur. Kualitas tidur menentukan kualitas hari Anda.",
     }),
   v("sepatu-anak", "Sepatu Anak", "fisik", "Anak", "👟", "product", "sunset",
-    "LP sepatu anak nyaman & lucu, bundling.", {
+    "Landing Page sepatu anak nyaman & lucu, bundling.", {
       heroBadge: "NYAMAN UNTUK SI KECIL", heroHeadline: "Kaki Mungil Si Kecil Nyaman Bergerak Seharian, Tanpa Lecet",
       heroSub: "Ringan, empuk, anti selip, desain gemas. Mendukung tumbuh kembang langkah anak.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Kaki anak tumbuh cepat dan rentan. Sepatu yang salah bisa mengganggu caranya melangkah kelak.",
     }),
   v("baju-anak", "Baju Anak", "fisik", "Anak", "👕", "product", "berry",
-    "LP baju anak adem & lucu, bundling.", {
+    "Landing Page baju anak adem & lucu, bundling.", {
       heroBadge: "ADEM & MENGGEMASKAN", heroHeadline: "Si Kecil Makin Gemas & Nyaman dengan Baju Adem Anti Gerah",
       heroSub: "Katun lembut menyerap keringat, warna cerah tahan lama, jahitan aman untuk kulit anak.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Anak rewel sering karena gerah, bukan manja. Bahan yang adem bikin si kecil ceria seharian.",
     }),
   v("jaket", "Jaket / Outerwear", "fisik", "Fashion", "🧥", "product", "midnight",
-    "LP jaket pria/wanita, bundling.", {
+    "Landing Page jaket pria/wanita, bundling.", {
       heroBadge: "HANGAT & STYLISH", heroHeadline: "Tampil Keren & Tetap Hangat dengan Jaket yang Nyaman Dipakai Harian",
       heroSub: "Bahan berkualitas anti angin, jahitan rapi, model timeless. Cocok segala cuaca.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Satu jaket yang tepat menyelamatkan penampilan di hari yang sibuk. Investasi gaya yang dipakai bertahun.",
     }),
   v("kaos-distro", "Kaos Distro", "fisik", "Fashion", "👚", "product", "neon",
-    "LP kaos distro cotton combed, bundling.", {
+    "Landing Page kaos distro cotton combed, bundling.", {
       heroBadge: "COTTON COMBED 30S", heroHeadline: "Kaos Adem, Tebal, & Anti Melar yang Bikin Nyaman Sepanjang Hari",
       heroSub: "Bahan cotton combed premium, sablon awet tak retak, potongan pas di badan.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Kaos murahan cepat melar dan tipis setelah 2x cuci. Yang berkualitas menemani Anda bertahun-tahun.",
     }),
   v("powerbank", "Powerbank", "fisik", "Gadget", "🔋", "product", "sky",
-    "LP powerbank fast charging, bundling.", {
+    "Landing Page powerbank fast charging, bundling.", {
       heroBadge: "ANTI LOWBAT DI JALAN", heroHeadline: "HP Tak Pernah Mati di Saat Genting dengan Powerbank Fast Charging",
       heroSub: "Kapasitas besar, isi cepat, ringkas dibawa. Aman dengan proteksi ganda.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Momen penting hilang gara-gara HP mati: chat bos, ojek online, foto keluarga. Jangan biarkan terulang.",
     }),
   v("lampu-dekor", "Lampu Tidur Dekoratif", "fisik", "Home", "💡", "product", "violet",
-    "LP lampu tidur/dekorasi estetik, bundling.", {
+    "Landing Page lampu tidur/dekorasi estetik, bundling.", {
       heroBadge: "KAMAR MAKIN AESTHETIC", heroHeadline: "Sulap Kamar Jadi Cozy & Instagramable dengan Lampu Dekor Ini",
       heroSub: "Cahaya hangat menenangkan, hemat listrik, desain estetik. Bikin suasana rebahan makin nyaman.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Suasana kamar memengaruhi mood dan kualitas istirahat. Pencahayaan yang tepat mengubah segalanya.",
     }),
   v("tumbler", "Tumbler / Botol Minum", "fisik", "Home", "🥤", "product", "ocean",
-    "LP tumbler tahan panas-dingin, bundling.", {
+    "Landing Page tumbler tahan panas-dingin, bundling.", {
       heroBadge: "PANAS & DINGIN TAHAN LAMA", heroHeadline: "Minuman Tetap Dingin 24 Jam atau Panas 12 Jam, ke Mana Pun Anda Pergi",
       heroSub: "Stainless anti bocor, tahan lama, desain elegan. Sehat, hemat, dan ramah lingkungan.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Beli minuman kemasan tiap hari diam-diam menguras dompet & menumpuk sampah plastik. Ada cara lebih baik.",
     }),
   v("tas-ransel", "Tas Ransel Laptop", "fisik", "Fashion", "🎒", "product", "midnight",
-    "LP tas ransel anti air, bundling.", {
+    "Landing Page tas ransel anti air, bundling.", {
       heroBadge: "ANTI AIR & MUAT LAPTOP", heroHeadline: "Bawa Semua Kebutuhan dengan Aman & Rapi dalam Satu Ransel Tangguh",
       heroSub: "Bahan anti air, banyak sekat, slot laptop empuk, port USB. Cocok kerja, kuliah, traveling.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Laptop dan dokumen penting Anda pantas dilindungi. Tas murahan bisa jadi bencana saat hujan tiba.",
     }),
   v("dompet-pria", "Dompet Kulit Pria", "fisik", "Fashion", "👛", "product", "goldblack",
-    "LP dompet kulit pria premium, bundling.", {
+    "Landing Page dompet kulit pria premium, bundling.", {
       heroBadge: "KULIT ASLI ELEGAN", heroHeadline: "Tampil Berkelas dengan Dompet Kulit Asli yang Awet Bertahun-tahun",
       heroSub: "Kulit premium, jahitan rapi, banyak slot kartu. Simpel, elegan, cocok jadi hadiah.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Detail kecil mencerminkan pribadi. Dompet lusuh diam-diam menurunkan kesan pertama Anda.",
     }),
   v("multivitamin", "Multivitamin & Suplemen", "fisik", "Kesehatan", "💊", "product", "emerald",
-    "LP multivitamin daya tahan tubuh, bundling.", {
+    "Landing Page multivitamin daya tahan tubuh, bundling.", {
       heroBadge: "JAGA IMUN & STAMINA", heroHeadline: "Tetap Fit & Bertenaga Menjalani Hari Padat, Tanpa Gampang Tumbang",
       heroSub: "Formula vitamin lengkap untuk daya tahan & energi. Terdaftar BPOM, aman dikonsumsi harian.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Sakit sehari berarti kehilangan produktivitas & pemasukan. Menjaga imun jauh lebih murah daripada berobat.",
     }),
   v("teh-herbal", "Teh Herbal Langsing", "fisik", "Kesehatan", "🍵", "product", "forest",
-    "LP teh herbal detox/langsing, bundling.", {
+    "Landing Page teh herbal detox/langsing, bundling.", {
       heroBadge: "DETOX ALAMI", heroHeadline: "Bantu Tubuh Terasa Ringan & Perut Lebih Rata dengan Teh Herbal Alami",
       heroSub: "Racikan herbal yang membantu melancarkan pencernaan. Nikmat diseduh hangat setiap hari.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Perut begah dan badan lemas bikin hari terasa berat. Kadang tubuh cuma butuh dibantu 'bersih-bersih'.",
     }),
   v("kurma", "Kurma Premium", "fisik", "F&B", "🌴", "product", "cream",
-    "LP kurma premium, bundling & hampers.", {
+    "Landing Page kurma premium, bundling & hampers.", {
       heroBadge: "MANIS ALAMI & PREMIUM", heroHeadline: "Kurma Lembut, Manis Alami, & Bernutrisi untuk Keluarga Tercinta",
       heroSub: "Pilihan kualitas terbaik, dikemas higienis. Nikmat untuk buka puasa, camilan sehat, & hampers.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Ganti camilan manis penuh gula dengan energi alami yang berkah. Tubuh & keluarga Anda pantas yang terbaik.",
     }),
   v("frozen-food", "Frozen Food & Abon", "fisik", "F&B", "🍤", "product", "sunrise",
-    "LP frozen food/abon praktis, bundling.", {
+    "Landing Page frozen food/abon praktis, bundling.", {
       heroBadge: "STOK LAUK ANTI RIBET", heroHeadline: "Lauk Enak Selalu Siap Saji, Praktis untuk Hari Sibuk Anda",
       heroSub: "Bahan pilihan, tanpa pengawet berbahaya, tinggal goreng/hangatkan. Anak-anak pasti suka.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Pulang lelah, masih harus mikir masak? Punya stok lauk praktis menyelamatkan banyak hari sibuk Anda.",
     }),
   v("cookware-set", "Set Alat Masak", "fisik", "Home", "🍳", "product", "coral",
-    "LP panci/wajan anti lengket set, bundling.", {
+    "Landing Page panci/wajan anti lengket set, bundling.", {
       heroBadge: "ANTI LENGKET & AWET", heroHeadline: "Masak Lebih Mudah & Sehat dengan Set Alat Masak Anti Lengket Premium",
       heroSub: "Panas merata, mudah dibersihkan, hemat minyak. Lengkap untuk dapur idaman Anda.",
       ctaUtama: "Pesan Sekarang - COD",
       hookText: "Masakan gosong dan nempel bukan salah Anda — tapi alatnya. Dapur yang tepat bikin masak jadi menyenangkan.",
     }),
   v("mainan-bayi", "Mainan Bayi Edukatif", "fisik", "Anak", "🧸", "product", "sky",
-    "LP mainan bayi aman & edukatif, bundling.", {
+    "Landing Page mainan bayi aman & edukatif, bundling.", {
       heroBadge: "AMAN & MERANGSANG OTAK", heroHeadline: "Rangsang Tumbuh Kembang Bayi Sejak Dini lewat Mainan yang Aman",
       heroSub: "Bahan food grade, warna kontras, tekstur beragam. Melatih sensorik & motorik si kecil.",
       ctaUtama: "Pesan Sekarang - COD",
@@ -632,28 +632,28 @@ export const VARIANTS: Variant[] = [
 
   // --- LEAD (webinar/optin) ---
   v("webinar-parenting", "Webinar Parenting", "lead", "Webinar", "👨‍👧", "lead", "coral",
-    "LP webinar parenting gratis + countdown.", {
+    "Landing Page webinar parenting gratis + countdown.", {
       heroBadge: "WEBINAR PARENTING GRATIS", heroHeadline: "Cara Menghadapi Anak Susah Diatur Tanpa Emosi & Rasa Bersalah",
       heroJanji: "Dalam 90 menit, Anda dapat cara komunikasi yang membuat anak mau mendengar dengan senang hati.",
       ctaUtama: "Daftar Gratis Sekarang",
       hookText: "Setiap habis membentak, ada rasa bersalah yang menyesakkan. Anda bukan orang tua yang buruk — Anda hanya butuh cara baru.",
     }),
   v("kelas-gratis-ngaji", "Kelas Gratis Ngaji", "lead", "Religi", "📿", "lead", "forest",
-    "LP kelas gratis tahsin/ngaji + countdown.", {
+    "Landing Page kelas gratis tahsin/ngaji + countdown.", {
       heroBadge: "KELAS NGAJI GRATIS", heroHeadline: "Perbaiki Bacaan Al-Quran Anda dari Dasar, Ikuti Kelas Perdana Gratis",
       heroJanji: "Belajar makhraj & tajwid dasar dengan cara yang mudah, sabar, dan menyenangkan.",
       ctaUtama: "Daftar Kelas Gratis",
       hookText: "Malu karena bacaan belum lancar di usia dewasa? Tak pernah ada kata terlambat untuk memperbaiki bacaan kitab-Nya.",
     }),
   v("ebook-diet-gratis", "Ebook Diet Gratis", "lead", "Lead Magnet", "🥗", "lead", "sunrise",
-    "LP optin ebook diet gratis.", {
+    "Landing Page optin ebook diet gratis.", {
       heroBadge: "EBOOK DIET GRATIS", heroHeadline: "Unduh Panduan Turun Berat Badan Sehat Tanpa Menyiksa Diri",
       heroJanji: "Masukkan email Anda, dapatkan ebook + menu 7 hari langsung di inbox. Gratis, tanpa spam.",
       ctaUtama: "Kirim Ebook ke Saya",
       hookText: "Sudah coba banyak diet tapi selalu gagal dan berat naik lagi? Masalahnya bukan Anda — tapi caranya yang keliru.",
     }),
   v("bootcamp-coding", "Info Session Bootcamp Coding", "lead", "Webinar", "🧑‍💻", "lead", "midnight",
-    "LP pendaftaran info session bootcamp + countdown.", {
+    "Landing Page pendaftaran info session bootcamp + countdown.", {
       heroBadge: "INFO SESSION GRATIS", heroHeadline: "Alih Profesi Jadi Programmer dalam Hitungan Bulan, Cari Tahu Caranya Gratis",
       heroJanji: "Kenali roadmap belajar, peluang karier, dan cara masuk industri tech — walau dari nol.",
       ctaUtama: "Amankan Kursi Gratis",
@@ -662,21 +662,21 @@ export const VARIANTS: Variant[] = [
 
   // --- SERVICE (jasa) ---
   v("jasa-cuci-sofa", "Jasa Cuci Sofa & Springbed", "lead", "Jasa", "🛋️", "service", "ocean",
-    "LP jasa cuci sofa/springbed panggilan.", {
+    "Landing Page jasa cuci sofa/springbed panggilan.", {
       heroBadge: "CUCI SOFA PANGGILAN", heroHeadline: "Sofa & Kasur Kembali Bersih, Wangi, & Bebas Tungau Tanpa Repot",
       heroSub: "Teknisi datang ke rumah, mesin profesional, kering lebih cepat. Sehat untuk keluarga.",
       ctaUtama: "Booking Sekarang",
       hookText: "Tungau & debu bersembunyi di sofa tempat anak bermain tiap hari. Yang tak terlihat bukan berarti tak berbahaya.",
     }),
   v("jasa-catering", "Jasa Catering", "lead", "Jasa", "🍱", "service", "sunrise",
-    "LP jasa catering harian/acara, paket harga.", {
+    "Landing Page jasa catering harian/acara, paket harga.", {
       heroBadge: "CATERING ENAK & HIGIENIS", heroHeadline: "Sajikan Hidangan Lezat & Higienis untuk Acara Anda, Tanpa Ribet",
       heroSub: "Menu variatif, porsi pas, tepat waktu. Cocok untuk kantor, arisan, hajatan, & harian.",
       ctaUtama: "Konsultasi Menu Gratis",
       hookText: "Acara berkesan sering diingat dari makanannya. Jangan biarkan hidangan yang mengecewakan merusak momen Anda.",
     }),
   v("jasa-les-privat", "Jasa Les Privat", "lead", "Jasa", "📚", "service", "sky",
-    "LP jasa les privat datang ke rumah, paket harga.", {
+    "Landing Page jasa les privat datang ke rumah, paket harga.", {
       heroBadge: "GURU PRIVAT KE RUMAH", heroHeadline: "Nilai Anak Meningkat & Makin Percaya Diri dengan Bimbingan Privat",
       heroSub: "Guru berpengalaman, materi sesuai kebutuhan anak, jadwal fleksibel. Datang ke rumah Anda.",
       ctaUtama: "Konsultasi Gratis",
@@ -685,7 +685,7 @@ export const VARIANTS: Variant[] = [
 
   // ============ SALES PAGE (editable, gaya promo produk digital) ============
   v("sales-page-digital", "Sales Page Produk Digital", "digital", "Sales Page", "💸", "sales", "midnight",
-    "LP jualan produk digital/ebook/kelas gaya promo: hook, value-stack, urgency, akses selamanya. Tinggal ganti isi & harga.", {
+    "Landing Page jualan produk digital/ebook/kelas gaya promo: hook, value-stack, urgency, akses selamanya. Tinggal ganti isi & harga.", {
       heroEyebrow: "PRODUK DIGITAL · AKSES SELAMANYA",
       heroHeadline: "Jual Produk Digital Anda dengan Halaman yang Bikin Orang Langsung Checkout",
       heroSub: "Sales page siap pakai — hook emosional, penawaran, urgency, garansi. Tinggal ganti teks & harga, unduh, tayang.",

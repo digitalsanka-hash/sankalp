@@ -1,6 +1,7 @@
 "use client";
-// app/masuk/page.tsx — AKTIVASI dengan kode akses, layout gaya FinPlan:
-// logo besar → field → tombol besar → "atau" → Coba Demo → footer beli.
+// app/masuk/page.tsx — AKTIVASI dengan kode akses.
+// Layout: logo besar → field → tombol besar → footer beli.
+// Tidak ada mode demo: tanpa kode yang sah, tidak ada halaman yang bisa dibuka.
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -44,7 +45,8 @@ export default function AktivasiPage() {
     const res = await activate(input, nama.trim(), username.trim().toLowerCase());
     setBusy(false);
     if (!res.ok) { setErr(res.pesan); return; }
-    router.push(input.trim().toUpperCase().includes("ADMIN") ? "/admin" : "/proyek");
+    // arahkan berdasarkan peran dari database, bukan tebak-tebakan dari teks kode
+    router.push(res.role === "admin" ? "/admin" : "/");
   }
 
   return (
@@ -65,12 +67,13 @@ export default function AktivasiPage() {
 
       {!configured ? (
         <div className="mt-8 w-full text-center">
-          <p className="text-sm text-gray-500">
-            Mode lokal — semua fitur terbuka tanpa kode.
+          <p className="font-display text-base font-extrabold text-ink">Aplikasi belum tersambung</p>
+          <p className="mt-2 text-sm text-gray-500">
+            Kode akses tidak bisa diperiksa karena koneksi database belum diatur.
+            Isi <span className="font-mono text-[12px]">NEXT_PUBLIC_SUPABASE_URL</span> dan{" "}
+            <span className="font-mono text-[12px]">NEXT_PUBLIC_SUPABASE_ANON_KEY</span> di{" "}
+            <span className="font-mono text-[12px]">.env.local</span>, lalu jalankan ulang.
           </p>
-          <Link href="/" className="mt-5 inline-block w-full rounded-2xl bg-brand-600 px-6 py-3.5 font-display text-base font-extrabold text-white shadow-soft transition hover:bg-brand-700">
-            Mulai Buat LP →
-          </Link>
         </div>
       ) : isActive ? (
         <div className="mt-8 w-full">
@@ -84,7 +87,7 @@ export default function AktivasiPage() {
             <span className="mt-1 block font-mono text-xs opacity-75">{code}</span>
           </div>
           <Link href="/" className="mt-4 block w-full rounded-2xl bg-brand-600 px-6 py-3.5 text-center font-display text-base font-extrabold text-white shadow-soft transition hover:bg-brand-700">
-            Mulai Buat LP →
+            Mulai Buat Landing Page →
           </Link>
           {isAdmin && (
             <Link href="/admin" className="mt-2.5 block w-full rounded-2xl bg-ink px-6 py-3.5 text-center font-display text-base font-extrabold text-white transition hover:bg-black">
@@ -163,22 +166,7 @@ export default function AktivasiPage() {
             </button>
           </form>
 
-          {/* divider */}
-          <div className="mt-6 flex w-full items-center gap-3">
-            <span className="h-px flex-1 bg-black/10" />
-            <span className="text-xs text-gray-400">atau</span>
-            <span className="h-px flex-1 bg-black/10" />
-          </div>
-
-          {/* demo */}
-          <Link
-            href="/"
-            className="mt-6 block w-full rounded-2xl border border-black/10 bg-white px-6 py-4 text-center font-display text-[15px] font-extrabold text-ink shadow-soft transition hover:border-brand-300 hover:text-brand-700"
-          >
-            👀 Coba Demo dulu (tanpa kode)
-          </Link>
-
-          <p className="mt-6 text-sm text-gray-500">
+          <p className="mt-7 text-sm text-gray-500">
             Belum punya kode?{" "}
             <Link href={BELI_URL} className="font-bold text-brand-700 hover:underline">
               Beli Akses

@@ -1,6 +1,6 @@
 // lib/projects.ts
 // ------------------------------------------------------------------
-// Penyimpanan PROYEK milik user (LP hasil edit).
+// Penyimpanan PROYEK milik user (Landing Page hasil edit).
 //  - Bila Supabase dikonfigurasi & user LOGIN  -> tabel `projects` (cloud).
 //  - Bila tidak                                 -> localStorage (per-browser).
 // Struktur Project cocok dengan tabel Supabase `projects`.

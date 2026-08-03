@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 import { AuthProvider } from "@/components/AuthProvider";
-import AuthButton from "@/components/AuthButton";
+import AccessGate from "@/components/AccessGate";
+import HeaderNav from "@/components/HeaderNav";
 
 export const metadata: Metadata = {
   title: "SankaPage — Buat Landing Page Jualan Tanpa Koding",
   description:
-    "Pilih template landing page high-conversion, edit dengan mudah, unduh HTML siap deploy ke ScaleV. Untuk penjual produk digital & fisik.",
+    "Pilih template Landing Page high-conversion, edit dengan mudah, unduh HTML siap deploy ke ScaleV. Untuk penjual produk digital & fisik.",
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png",
@@ -48,38 +49,13 @@ export default function RootLayout({
               </span>
             </Link>
 
-            <nav className="flex items-center gap-1 sm:gap-2 text-sm font-semibold">
-              <Link
-                href="/"
-                className="rounded-full px-3 py-2 text-gray-600 transition hover:bg-black/5 hover:text-ink"
-              >
-                Galeri
-              </Link>
-              <Link
-                href="/proyek"
-                className="rounded-full px-3 py-2 text-gray-600 transition hover:bg-black/5 hover:text-ink"
-              >
-                Proyek Saya
-              </Link>
-              <Link
-                href="/panduan"
-                className="rounded-full px-3 py-2 text-gray-600 transition hover:bg-black/5 hover:text-ink"
-              >
-                Panduan
-              </Link>
-              <Link
-                href="/"
-                className="ml-1 hidden items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-white shadow-soft transition hover:bg-black sm:inline-flex"
-              >
-                Mulai Buat
-                <span aria-hidden>→</span>
-              </Link>
-              <AuthButton />
-            </nav>
+            <HeaderNav />
           </div>
         </header>
 
-        <main>{children}</main>
+        <main>
+          <AccessGate>{children}</AccessGate>
+        </main>
 
         <footer className="border-t border-black/5 bg-white">
           <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 sm:px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
@@ -94,7 +70,7 @@ export default function RootLayout({
               <span className="font-display font-extrabold text-ink">SankaPage</span>
             </div>
             <p className="text-sm text-gray-400">
-              Landing page high-conversion tanpa koding
+              Landing Page high-conversion tanpa koding
             </p>
           </div>
         </footer>

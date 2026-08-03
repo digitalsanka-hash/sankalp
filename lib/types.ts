@@ -52,7 +52,7 @@ export interface PagePart {
   html: string;  // potongan HTML (placeholder {{field}}/REPEAT/IF)
 }
 
-/** Registry satu template LP. */
+/** Registry satu template Landing Page. */
 export interface TemplateDef {
   id: string;
   nama: string;
