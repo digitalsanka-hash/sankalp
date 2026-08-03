@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import { BUKA_DARURAT } from "@/lib/flags";
 
 // Halaman yang boleh dibuka tanpa kode.
 const TERBUKA = ["/masuk"];
@@ -29,8 +30,12 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
 
   // dorong ke halaman aktivasi kalau belum punya akses
   useEffect(() => {
+    if (BUKA_DARURAT) return;
     if (!loading && configured && !isActive && !bebas) router.replace("/masuk");
   }, [loading, configured, isActive, bebas, router]);
+
+  // saklar darurat: lewati gerbang sepenuhnya
+  if (BUKA_DARURAT) return <>{children}</>;
 
   if (bebas) return <>{children}</>;
 

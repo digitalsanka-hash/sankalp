@@ -4,10 +4,11 @@
 import Link from "next/link";
 import { useAuth } from "@/components/AuthProvider";
 import AuthButton from "@/components/AuthButton";
+import { BUKA_DARURAT } from "@/lib/flags";
 
 export default function HeaderNav() {
   const { configured, isActive, loading } = useAuth();
-  const buka = configured && isActive && !loading;
+  const buka = BUKA_DARURAT || (configured && isActive && !loading);
 
   return (
     <nav className="flex items-center gap-1 sm:gap-2 text-sm font-semibold">

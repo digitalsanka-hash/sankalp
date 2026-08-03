@@ -2,10 +2,13 @@
 // components/AuthButton.tsx — status akses (kode) di header.
 import Link from "next/link";
 import { useAuth } from "./AuthProvider";
+import { BUKA_DARURAT } from "@/lib/flags";
 
 export default function AuthButton() {
-  const { configured, isAdmin, isActive, logout, loading } = useAuth();
+  const { configured, isAdmin, isActive, logout, loading, code } = useAuth();
 
+  // mode darurat & belum pernah masukkan kode -> jangan tampilkan apa pun
+  if (BUKA_DARURAT && !code) return null;
   if (!configured) return null;
   if (loading) return <span className="px-2 text-sm text-gray-400">…</span>;
 

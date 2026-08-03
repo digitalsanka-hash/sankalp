@@ -3,6 +3,7 @@
 // Tanpa email/password. Kode tersimpan di browser & diverifikasi ke Supabase.
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { isSupabaseConfigured } from "@/lib/supabase";
+import { BUKA_DARURAT } from "@/lib/flags";
 import { savedCode, saveCode, clearCode, verify, redeem,
   savedIdentitas, saveIdentitas, clearIdentitas, type Identitas } from "@/lib/access";
 
@@ -59,8 +60,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const isAdmin = role === "admin";
   // GAGAL-TERTUTUP: akses hanya aktif kalau Supabase tersambung DAN kode terbukti sah.
-  // Kalau koneksi belum diatur, aplikasi terkunci — bukan terbuka.
-  const isActive = configured && role !== null;
+  // Kecuali BUKA_DARURAT menyala (lihat lib/flags.ts) — saat itu semua terbuka.
+  const isActive = BUKA_DARURAT || (configured && role !== null);
 
   return (
     <Ctx.Provider value={{ code, identitas, role, loading, configured, isAdmin, isActive, activate, logout }}>

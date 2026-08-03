@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/components/AuthProvider";
 import { cekUsername } from "@/lib/access";
+import { BUKA_DARURAT } from "@/lib/flags";
 
 // ▼ Ganti dengan link checkout ScaleV Anda (tempat orang beli kode akses).
 const BELI_URL = "/";
@@ -65,7 +66,17 @@ export default function AktivasiPage() {
         Sanka<span className="text-brand-600">Page</span>
       </p>
 
-      {!configured ? (
+      {BUKA_DARURAT && !code ? (
+        <div className="mt-8 w-full text-center">
+          <p className="font-display text-base font-extrabold text-ink">Akses sedang dibuka untuk semua</p>
+          <p className="mt-2 text-sm text-gray-500">
+            Kamu bisa langsung memakai galeri dan editor tanpa memasukkan kode.
+          </p>
+          <Link href="/" className="mt-5 inline-block w-full rounded-2xl bg-brand-600 px-6 py-3.5 font-display text-base font-extrabold text-white shadow-soft transition hover:bg-brand-700">
+            Mulai Buat Landing Page →
+          </Link>
+        </div>
+      ) : !configured ? (
         <div className="mt-8 w-full text-center">
           <p className="font-display text-base font-extrabold text-ink">Aplikasi belum tersambung</p>
           <p className="mt-2 text-sm text-gray-500">
